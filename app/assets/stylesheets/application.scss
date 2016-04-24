@@ -1,33 +1,126 @@
 @import "materialize";
 @import "font-awesome";
+
+/* ----------------------------------------------------------------
+	Basic Layout Styles
+-----------------------------------------------------------------*/
+.nomargin {
+  margin: 0 !important;
+}
+
+.notopmargin {
+  margin-top: 0 !important;
+}
+
+.nobottommargin {
+  margin-bottom: 0 !important;
+}
+
+.norightmargin {
+  margin-right: 0 !important;
+}
+
+.noborder {
+  border: none !important;
+}
+
+.notopborder {
+  border-top: none !important;
+}
+
+.nobottomborder {
+  border-bottom: none !important;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
 body 
 {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
-.page-footer
+
+/* ----------------------------------------------------------------
+	Content
+-----------------------------------------------------------------*/
+
+.content-wrap {
+  position: relative;
+  padding: 80px 0;
+}
+
+.wip-lg {
+  font-size: 125px;
+  color: #DDD;
+}
+
+.inlineblock { 
+    display: inline-block;
+    zoom: 1;
+}
+
+/* ----------------------------------------------------------------
+	Sticky Header
+-----------------------------------------------------------------*/
+
+#header,
+#header-wrap,
+#logo img
+{
+  height: 100px;
+  -webkit-transition: height .4s ease, opacity .3s ease;
+  -o-transition: height .4s ease, opacity .3s ease;
+  transition: height .4s ease, opacity .3s ease;
+}
+
+#header-wrap {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ----------------------------------------------------------------
+	Stretched Layout
+-----------------------------------------------------------------*/
+
+.stretched #wrapper {
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* ----------------------------------------------------------------
+	Footer
+-----------------------------------------------------------------*/
+
+#footer 
 {
     position: absolute;
     bottom: 0;
     min-width: 100%;
-}
-#footer 
-{
-    position: relative;
+    background-color: #EEE;
+    border-top: 0px;
+    padding-top: 0px;
 }
 
-body.homepage
+#copyrights {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: #27292E;
+  font-size: 10px;
+  color: #000;
+  z-index: 3;
+  position: relative;
+}
+
+.bg-img
 {
-    /*background-image:asset-url('cover_city.jpg');
-    background-size: inherit;
-    background-repeat: no-repeat;
-    //top: 0; 
-    //left: 0;*/ 
-	
-  /* Preserve aspet ratio */
-  /*min-width: 100%;
-  min-height: 100%;*/
   background: asset-url('cover_city.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
