@@ -13,5 +13,7 @@ class PagesController < ApplicationController
   end
   def signUp
   end
+  def makeListing
+  end
   
 end
