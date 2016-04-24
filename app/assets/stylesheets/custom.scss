@@ -1,0 +1,109 @@
+@import "materialize";
+@import "font-awesome";
+body 
+{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.page-footer
+{
+    position: absolute;
+    bottom: 0;
+    min-width: 100%;
+}
+#footer 
+{
+    position: relative;
+}
+
+body.homepage
+{
+    /*background-image:asset-url('cover_city.jpg');
+    background-size: inherit;
+    background-repeat: no-repeat;
+    //top: 0; 
+    //left: 0;*/ 
+	
+  /* Preserve aspet ratio */
+  /*min-width: 100%;
+  min-height: 100%;*/
+  background: asset-url('cover_city.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+/*
+    search form
+*/
+
+body.homepage .row .col.s12
+{
+    /* moves to center of page */
+    padding-top: 70%;
+}
+
+
+/* changes color of TYPED text to white */
+.homepage .row input
+{
+    color: black;
+    background-color: #ffffff;
+    opacity: 0.6;
+    border: 1px solid black;
+    border-radius: 2px;
+}
+
+/* text fields*/
+
+
+/*
+    multi-browser compatability
+*/
+
+#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
+{
+    color: black;
+}
+
+#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
+{
+    color: black;
+}
+
+#listing:-moz-placeholder, #zipcode:-moz-placeholder
+{
+    color:black;
+}
+
+#listing::-moz-placeholder, #zipcode::-moz-placeholder
+{
+    color:black;
+}
+
+#listing:-ms-input-placeholder, #zipcode:-ms-input-placeholder
+{
+    color: black;
+}
+
+.page-footer .footer-copyright .container a
+{
+    margin-left: 20px;
+    margin-right: 20px;
+    
+}
+
+#login-form
+{
+    margin-top:55%;
+    border-style:solid;
+    border-width: 5px;
+    border-color: #03a9f4;
+}
+
+#listing
+{
+    margin-left: 5%;
+}

@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Blitz</title>
+  <title>Workspace</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript" src="js/materialize.min.js"></script>
+    
+  
 </head>
 <body>
-
+<%= render 'layouts/navigation' %>
+<!--%= render 'layouts/sidenav' %>-->
+  <%= csrf_meta_tags %>
 <%= yield %>
+<!--%= render 'layouts/footer' %>-->
 
 </body>
 </html>
