@@ -40,6 +40,19 @@
   text-align: center !important;
 }
 
+<<<<<<< HEAD
+=======
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.right {
+  float: right !important;
+}
+
+>>>>>>> aeb743e886fb5d32ef057ea2c300fe963688cc5f
 body 
 {
     display: flex;
@@ -51,6 +64,7 @@ body
 	Content
 -----------------------------------------------------------------*/
 
+<<<<<<< HEAD
 .content-wrap {
   position: relative;
   padding: 80px 0;
@@ -119,6 +133,49 @@ body
   position: relative;
 }
 
+#content {
+  position: fixed;
+  top: 65px;
+  bottom: 65px;
+  width: 100%;
+  overflow: auto;
+}
+
+.content-wrap {
+  position: relative;
+  padding: 80px 0;
+}
+
+.hcenter { 
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.vcenter {
+  min-height: 100%;
+  /* Make it a flex container */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; 
+  
+  /* Align the bootstrap's container vertically */
+  -webkit-box-align : center;
+  -webkit-align-items : center;
+  -moz-box-align : center;
+  -ms-flex-align : center;
+  align-items : center;
+  
+  width: 100%;
+  -webkit-box-pack : center;
+  -moz-box-pack : center;
+  -ms-flex-pack : center;
+  -webkit-justify-content : center;
+  justify-content : center;
+}
+
 .bg-img
 {
   background: asset-url('cover_city.jpg') no-repeat center center fixed; 
@@ -128,25 +185,72 @@ body
   background-size: cover;
 }
 
-/*
-    search form
-*/
+/* ----------------------------------------------------------------
+	Sticky Header
+-----------------------------------------------------------------*/
 
-body.homepage .row .col.s12
+#header
 {
-    /* moves to center of page */
-    padding-top: 70%;
+  height: 65px;
+  -webkit-transition: height .4s ease, opacity .3s ease;
+  -o-transition: height .4s ease, opacity .3s ease;
+  transition: height .4s ease, opacity .3s ease;
+}
+
+#header-wrap {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ----------------------------------------------------------------
+	Stretched Layout
+-----------------------------------------------------------------*/
+
+.stretched #wrapper {
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* ----------------------------------------------------------------
+	Footer
+-----------------------------------------------------------------*/
+
+#footer 
+{
+    position: absolute;
+    height: 65px;
+    bottom: 0;
+    min-width: 100%;
+    background-color: #03a9f4;
+    border-top: 0px;
+    padding-top: 0px;
+    font-size: 0.9em;
+}
+
+.copyright {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #000;
+  z-index: 3;
+  position: relative;
 }
 
 
-/* changes color of TYPED text to white */
-.homepage .row input
+/* ----------------------------------------------------------------
+	Search Form
+-----------------------------------------------------------------*/
+
+.search
+{
+  width: 80%;
+}
+
+.input-field.bg
 {
     color: black;
     background-color: #ffffff;
     opacity: 0.6;
-    border: 1px solid black;
-    border-radius: 2px;
 }
 
 /* text fields*/
@@ -181,11 +285,9 @@ body.homepage .row .col.s12
     color: black;
 }
 
-.page-footer .footer-copyright .container a
+.page-footer
 {
-    margin-left: 20px;
-    margin-right: 20px;
-    
+    border: 20px solid #03a9f4;
 }
 
 #login-form
