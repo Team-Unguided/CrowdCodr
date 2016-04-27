@@ -309,7 +309,7 @@ body
 }
 .cardSize
 {
-  height:500px;
+  height:700px;
 }
 .pic
 {
@@ -318,4 +318,18 @@ body
   height:100%;
   background-size: cover;
 }
+
+.h200
+{
+  height: 200px;
+}
+
+.pic1
+{
+  background:asset-url('profile.jpg');
+  width:100%;
+  height:100%;
+  background-size: cover;
+}
+
 
