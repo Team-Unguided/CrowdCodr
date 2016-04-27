@@ -1,49 +1,44 @@
-<!-- This is a copy-paste of pages#signUp -->
 <!-- It's here because users controller's new action -->
 <!-- should be the sign up page to create new actions -->
 
+<% provide(:title, 'Sign up') %>
 <div class="row">
-    <form class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <input id="first_name" type="text" class="validate">
-          <label for="first_name">First Name</label>
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for(@user) do |f| %>
+      <% if @user.errors.any? %>  <!-- print errors, if any -->
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            The form contains <%= pluralize(@user.errors.count, "error") %>.
+          </div>
+          <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
         </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
-          <label for="last_name">Last Name</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate">
-          <label for="email">Email</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="Username" type="text" class="validate">
-          <label for="Username">Username</label>
-        </div>
-      </div>
+      <% end %>
       
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="Password" type="password" class="validate">
-          <label for="Password">Password</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="Password" type="password" class="validate">
-          <label for="Password">Repeat Password</label>
-        </div>
-      </div>
-    </form>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
+      
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
+      
+      <%= f.label :username %>
+      <%= f.text_field :username, class: 'form-control' %>
+
+      <%= f.label :email %>
+      <%= f.email_field :email, class: 'form-control' %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, class: 'form-control' %>
+
+      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.password_field :password_confirmation, class: 'form-control' %>
+
+      <%= f.submit "Sign Up", class: "btn btn-primary" %>
+    <% end %>
   </div>
-  <div style="text-align:center;">
-        <a class="waves-effect waves-light btn">Sign Up</a>
-  </div>
-  
+</div>
         
 

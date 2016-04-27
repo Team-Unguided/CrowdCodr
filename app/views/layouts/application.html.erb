@@ -12,6 +12,9 @@
     <%= render 'layouts/navigation' %>
   </section>
   <section id="content">
+    <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+    <% end %>
     <%= csrf_meta_tags %>
     <%= yield %>
   </section>
