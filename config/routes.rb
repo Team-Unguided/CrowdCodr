@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'home' , to: 'pages#home'
   get 'login', to: 'pages#login'
   get 'signUp', to: 'pages#signUp'
-  get 'listing', to: 'pages#makeListing'
+  get 'profile', to: 'pages#profilePage'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
