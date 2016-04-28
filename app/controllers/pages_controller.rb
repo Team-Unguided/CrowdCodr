@@ -15,5 +15,9 @@ class PagesController < ApplicationController
   end
   def profilePage
   end
+  def listing
+  end
+  def edit
+  end
   
 end
