@@ -4,12 +4,15 @@
   <title>Workspace</title>
   <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <script src="jquery/dist/jquery.js" charset="utf-8"></script>
+  <script src="Materialize/bin/materialize.js" charset="utf-8"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
 </head>
 <body class="stetched device-lg">
   <section id="header">
     <%= render 'layouts/navigation' %>
+    <!--%= render 'layouts/sidenav' %>-->
   </section>
   <section id="content">
     <% flash.each do |message_type, message| %>
