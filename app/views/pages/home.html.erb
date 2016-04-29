@@ -1,15 +1,47 @@
 <body class="homepage">
-    <div class="row hcenter vcenter nomargin bg-img">
-        <form class="col-centered s12">
-            <div class="row hcenter">
-                <div class="input-field bg col s8">
-                    <input placeholder="I'm looking for..." id="listing" type="text" class="validate">
-                </div>
-                
-                <div class="input-field bg col s4">
-                    <input placeholder="ZIP" id="zipcode" type="text" class="validate">
-                </div>
+        <div class="android nomargin nopadding">
+            <div class ="vcenter">
+                <a class="modal-trigger waves-effect waves-light btn" data-target="modal1">Android</a>
             </div>
-        </form>
-    </div>
+        </div>
+        <div class="website nomargin nopadding">
+            <div class ="vcenter">
+                <a class="modal-trigger waves-effect waves-light btn" data-target="modal1">Website</a>
+            </div>
+        </div>
+        <div class="ios nomargin nopadding">
+            <div class ="vcenter">
+                <a class="modal-trigger waves-effect waves-light btn" data-target="modal1">iOS</a>
+            </div>
+        </div>
+  </div>
 </body>
+  
+  
+  <script src="js/jquery.min.js"></script>
+  <script src="js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function(){
+        $('.modal-trigger').leanModal(
+        );
+    });
+  </script>
+        
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+              <h4>Project Details</h4>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="projectName" type="text" class="validate">
+                  <label for="projectName">Project Name</label>
+                </div>
+                <div class="input-field col s12">
+                  <input id="projectName" type="text" class="validate">
+                  <label for="projectName">Project Description</label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+                <a class="waves-effect modal-action modal-close btn-flat">Confirm</a>
+            </div>
+        </div>
