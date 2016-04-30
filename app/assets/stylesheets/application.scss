@@ -299,38 +299,9 @@ body
     border-color: #03a9f4;
 }
 
-#listing
-{
-    margin-left: 5%;
-}
-#listingPage
-{
-    margin-top: 30%;
-}
-.cardSize
-{
-  height:700px;
-}
-.pic
-{
-  background:asset-url('profile.jpg');
-  width:100%;
-  height:100%;
-  background-size: cover;
-}
-
-.h200
-{
-  height: 200px;
-}
-
-.pic1
-{
-  background:asset-url('profile.jpg');
-  width:100%;
-  height:100%;
-  background-size: cover;
-}
+/* ----------------------------------------------------------------
+	Sidenav
+-----------------------------------------------------------------*/
 #logo-container
 {
   height: 250px;
@@ -344,9 +315,30 @@ body
   
 }
 
-.buttonTop
+/* ----------------------------------------------------------------
+	Profile Page/ Edit Profile Page
+-----------------------------------------------------------------*/
+
+.cardSize
 {
-  margin-top: 10px;
+  height:700px;
+}
+
+.editCardSize
+{
+  height:800px;
+}
+.pic
+{
+  background:asset-url('profile.jpg');
+  width:100%;
+  height:100%;
+  background-size: cover;
+}
+
+.h200
+{
+  height: 200px;
 }
 
 .rowTop
@@ -366,6 +358,13 @@ body
   text-align:right;
   padding-right: 10px;
 }
+
+
+/* ----------------------------------------------------------------
+	Home Page
+-----------------------------------------------------------------*/
+
+
 .android
 {
   width: 33.3%;
@@ -390,14 +389,3 @@ body
   float:left;
 }
 
-.iosImage
-{
-  background:asset-url('iOS.png') no-repeat;
-  width:100%;
-  height:100%;
-}
-
-.centerButton
-{
-  height: 50%;
-}
