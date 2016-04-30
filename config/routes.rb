@@ -3,11 +3,12 @@ Rails.application.routes.draw do
   get 'about', to: 'pages#about'
   get 'home' , to: 'pages#home'
   get 'login', to: 'pages#login'
-  get 'signUp', to: 'pages#signUp'
+  get 'signUp', to: 'users#new'
   get 'profile', to: 'pages#profilePage'
   get 'listing', to: 'pages#listing'
   get 'edit', to: 'pages#edit'
   get 'setting', to: 'pages#setting'
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
