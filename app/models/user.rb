@@ -28,4 +28,11 @@ class User < ActiveRecord::Base
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
   end
+  
+  # Class method for User
+  # Searches first_name, last_name and user_name text fields
+  def self.search(search)
+    User.where('first_name LIKE :search OR last_name LIKE :search OR username LIKE :search', search: "%#{search}%")
+  end
+  
 end
