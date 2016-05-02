@@ -17,7 +17,7 @@
           <a href="home" id="logo-container"class="nomargin nopadding">
             <object id="profile-logo"></object></a>
           </li>
-          <li><%= link_to "Profile", profile_path %></li>
+          <li><%= link_to "Profile", "/users/#{current_user.username}" %></li>
           <li><%= link_to "Listings", listings_path %></li>
           
           <li><%= link_to "Settings", edit_path %></li>

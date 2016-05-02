@@ -2,10 +2,14 @@ class UsersController < ApplicationController
   
   def show # for root/users/:id
     @user = User.find_by(username: params[:id])
+    @userid = User.find_by(id: params[:id])
+    @listings = Listing.all
     
     # redirect to root unless username is found
     # i.e. redirect to root if @user with supplied username is nil
-    redirect_to(root_url) unless @user
+    redirect_to(root_url) unless @user || @userid
+    #stores user if id was used to find user
+    @user = @userid if @userid
   end
   
   def new
