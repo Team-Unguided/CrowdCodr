@@ -1,6 +1,11 @@
 class ListingsController < ApplicationController
+  
   before_action :set_listing, only: [:show, :edit, :update, :destroy]
-
+  #make sure the user is logged in to edit, delete or create
+  before_action :logged_in_user, only: [:edit, :create, :destroy, :update]
+  #make sure the person editing/deleting is the owner
+  before_action :correct_user, only: [:edit,:destroy, :update]
+  
   # GET /listings
   # GET /listings.json
   def index
@@ -26,7 +31,8 @@ class ListingsController < ApplicationController
   def create
     @listing = Listing.new(listing_params)
     #Possibly have the wrong functionality here, need to check database
-    @listing.user_id = User.find_by(username: params[:id])
+    #corrected functionality!
+    @listing.user_id = current_user.id
 
     respond_to do |format|
       if @listing.save
@@ -73,4 +79,10 @@ class ListingsController < ApplicationController
     def listing_params
       params.require(:listing).permit(:name, :description, :languages, :job_type)
     end
+    
+    # Use to owner is editing or deleting
+    def correct_user
+      is_owner?(@listing)
+    end
+    
 end
