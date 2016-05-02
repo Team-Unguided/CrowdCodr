@@ -35,4 +35,6 @@ class User < ActiveRecord::Base
     User.where('first_name LIKE :search OR last_name LIKE :search OR username LIKE :search', search: "%#{search}%")
   end
   
+  #User association to Listings. Destroy listing if user is deleted.
+  has_many :listings, dependent: :destroy
 end
