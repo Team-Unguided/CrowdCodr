@@ -1,0 +1,507 @@
+@import "materialize";
+@import "font-awesome";
+
+/* ----------------------------------------------------------------
+	Basic Layout Styles
+-----------------------------------------------------------------*/
+.nomargin {
+  margin: 0 !important;
+}
+
+.notopmargin {
+  margin-top: 0 !important;
+}
+
+.nobottommargin {
+  margin-bottom: 0 !important;
+}
+
+.norightmargin {
+  margin-right: 0 !important;
+}
+
+.noborder {
+  border: none !important;
+}
+
+.notopborder {
+  border-top: none !important;
+}
+
+.nobottomborder {
+  border-bottom: none !important;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.center {
+  text-align: center !important;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.right {
+  float: right !important;
+}
+
+body 
+{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+.top
+{
+  top:0%;
+  
+}
+
+/* ----------------------------------------------------------------
+	Content
+-----------------------------------------------------------------*/
+
+.content-wrap {
+  position: relative;
+  padding: 80px 0;
+}
+
+.wip-lg {
+  font-size: 125px;
+  color: #DDD;
+}
+
+.inlineblock { 
+    display: inline-block;
+    zoom: 1;
+}
+
+/* ----------------------------------------------------------------
+	Sticky Header
+-----------------------------------------------------------------*/
+
+#header,
+#header-wrap,
+#logo img
+{
+  height: 100px;
+  -webkit-transition: height .4s ease, opacity .3s ease;
+  -o-transition: height .4s ease, opacity .3s ease;
+  transition: height .4s ease, opacity .3s ease;
+}
+
+#header-wrap {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ----------------------------------------------------------------
+	Stretched Layout
+-----------------------------------------------------------------*/
+
+.stretched #wrapper {
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* ----------------------------------------------------------------
+	Footer
+-----------------------------------------------------------------*/
+
+#footer 
+{
+    position: absolute;
+    bottom: 0;
+    min-width: 100%;
+    background-color: #EEE;
+    border-top: 0px;
+    padding-top: 0px;
+}
+
+#copyrights {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background: #27292E;
+  font-size: 10px;
+  color: #000;
+  z-index: 3;
+  position: relative;
+}
+
+#content {
+  position: fixed;
+  top: 65px;
+  bottom: 65px;
+  width: 100%;
+  overflow: auto;
+}
+
+.content-wrap {
+  position: relative;
+  padding: 80px 0;
+}
+
+.hcenter { 
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.vcenter {
+  min-height: 100%;
+  /* Make it a flex container */
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex; 
+  
+  /* Align the bootstrap's container vertically */
+  -webkit-box-align : center;
+  -webkit-align-items : center;
+  -moz-box-align : center;
+  -ms-flex-align : center;
+  align-items : center;
+  
+  width: 100%;
+  -webkit-box-pack : center;
+  -moz-box-pack : center;
+  -ms-flex-pack : center;
+  -webkit-justify-content : center;
+  justify-content : center;
+  
+  vertical-align: middle;
+}
+
+.bg-img
+{
+  background: asset-url('cover_city.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  height: 100%;
+}
+
+/* ----------------------------------------------------------------
+	Sticky Header
+-----------------------------------------------------------------*/
+
+#header
+{
+  height: 65px;
+  -webkit-transition: height .4s ease, opacity .3s ease;
+  -o-transition: height .4s ease, opacity .3s ease;
+  transition: height .4s ease, opacity .3s ease;
+}
+
+#header-wrap {
+  position: relative;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ----------------------------------------------------------------
+	Stretched Layout
+-----------------------------------------------------------------*/
+
+.stretched #wrapper {
+  width: 100%;
+  margin: 0;
+  box-shadow: none;
+}
+
+/* ----------------------------------------------------------------
+	Sections
+-----------------------------------------------------------------*/
+
+
+#intro.section {
+	position: relative;
+	background-color: #F9F9F9;
+	overflow: hidden;
+	height: 100%;
+}
+
+/* ----------------------------------------------------------------
+	Columns & Grids
+-----------------------------------------------------------------*/
+
+
+.postcontent { width: 860px; }
+.postcontent.bothsidebar { width: 580px; }
+.sidebar { width: 240px; }
+.col_full { width: 100%; }
+.col_half { width: 48%; }
+.col_one_third { width: 30.63%; }
+.col_two_third { width: 65.33%; }
+.col_one_fourth { width: 22%; }
+.col_three_fourth { width: 74%; }
+.col_one_fifth { width: 16.8%; }
+.col_two_fifth { width: 37.6%; }
+.col_three_fifth { width: 58.4%; }
+.col_four_fifth { width: 79.2%; }
+.col_one_sixth { width: 13.33%; }
+.col_five_sixth { width: 82.67%; }
+body.stretched .container-fullwidth {
+	position: relative;
+	padding: 0 60px;
+	width: 100%;
+}
+
+.postcontent,
+.sidebar,
+.col_full,
+.col_half,
+.col_one_third,
+.col_two_third,
+.col_three_fourth,
+.col_one_fourth,
+.col_one_fifth,
+.col_two_fifth,
+.col_three_fifth,
+.col_four_fifth,
+.col_one_sixth,
+.col_five_sixth {
+	display: block;
+	position: relative;
+	margin-right: 4%;
+	margin-bottom: 50px;
+	float: left;
+}
+
+.postcontent,
+.sidebar { margin-right: 40px; }
+
+.col_full {
+	clear: both;
+	float: none;
+	margin-right: 0;
+}
+
+.postcontent.col_last,
+.sidebar.col_last { float: right; }
+
+.col_last {
+	margin-right: 0 !important;
+	clear: right;
+}
+
+/* ----------------------------------------------------------------
+	Footer
+-----------------------------------------------------------------*/
+
+#footer 
+{
+    position: absolute;
+    height: 65px;
+    bottom: 0;
+    min-width: 100%;
+    background-color: #03a9f4;
+    border-top: 0px;
+    padding-top: 0px;
+    font-size: 0.9em;
+}
+
+.copyright {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  color: #000;
+  z-index: 3;
+  position: relative;
+}
+
+
+/* ----------------------------------------------------------------
+	Search Form
+-----------------------------------------------------------------*/
+
+.search
+{
+  width: 80%;
+}
+
+.input-field.bg
+{
+    color: black;
+    background-color: #ffffff;
+    opacity: 0.6;
+}
+
+/* text fields*/
+
+
+/*
+    multi-browser compatability
+*/
+
+#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
+{
+    color: black;
+}
+
+#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
+{
+    color: black;
+}
+
+#listing:-moz-placeholder, #zipcode:-moz-placeholder
+{
+    color:black;
+}
+
+#listing::-moz-placeholder, #zipcode::-moz-placeholder
+{
+    color:black;
+}
+
+#listing:-ms-input-placeholder, #zipcode:-ms-input-placeholder
+{
+    color: black;
+}
+
+.page-footer
+{
+    border: 20px solid #03a9f4;
+}
+
+#login-form
+{
+    margin-top:55%;
+    border-style:solid;
+    border-width: 5px;
+    border-color: #03a9f4;
+}
+
+/* ----------------------------------------------------------------
+	Sidenav
+-----------------------------------------------------------------*/
+#logo-container
+{
+  height: 250px;
+  margin-bottom: 30px;
+}
+
+#profile-logo
+{
+  background:asset-url('profile-photo-placeholder.png') no-repeat;
+  height:100%;
+  
+}
+
+/* ----------------------------------------------------------------
+	Profile Page/ Edit Profile Page
+-----------------------------------------------------------------*/
+
+.cardSize
+{
+  height:300px;
+}
+
+.editCardSize
+{
+  height:800px;
+}
+.pic
+{
+  background:asset-url('profile.jpg');
+  width:100%;
+  height:100%;
+  background-size: cover;
+}
+
+.h200
+{
+  height: 200px;
+}
+
+.rowTop
+{
+  position: absolute; 
+  top: 0; 
+  right: 0;  
+  text-align:right;
+  padding-right: 10px;
+}
+
+.rowBottom
+{
+  position: absolute; 
+  bottom: 0; 
+  right: 0;  
+  text-align:right;
+  padding-right: 10px;
+}
+
+
+/* ----------------------------------------------------------------
+	Home Page
+-----------------------------------------------------------------*/
+
+
+.android
+{
+  width: 33.3%;
+  height: 66.6%;
+  background-color: #011627;
+  float:left;
+}
+
+.website
+{
+  width: 33.3%;
+  height: 66.6%;
+  background-color: #fdfffc;
+  float:left;
+}
+.ios
+{
+
+  width: 33.3%;
+  height: 66.6%;
+  background-color: #2ec4b6;
+  float:left;
+}
+
+.allcat
+{
+  width: 100%;
+  height: 33.3%;
+  background-color: #ff9999;
+  float:left;
+}
+
+.iosImage
+{
+  background:asset-url('iOS.png') no-repeat;
+  width:100%;
+  height:100%;
+}
+
+.centerButton
+{
+  height: 50%;
+}
+/* ----------------------------------------------------------------
+  Sign Up Page
+-----------------------------------------------------------------*/
+
+#spandiv
+{
+  text-align: center;
+}
+.centerSpan
+{
+  display: inline-block;
+  position: relative;
+}
+
+.margin10
+{
+  margin: 10px 0px 10px 0px;
+}
