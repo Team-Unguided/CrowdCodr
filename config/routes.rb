@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :listings
   get 'sessions/new'
 
   get 'sessions/new'
@@ -10,7 +11,6 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   get 'signUp', to: 'users#new'
-  get 'profile', to: 'pages#profilePage'
   get 'listing', to: 'pages#listing'
   get 'edit', to: 'pages#edit'
   get 'setting', to: 'pages#setting'
