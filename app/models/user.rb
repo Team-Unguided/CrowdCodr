@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+  #Connects listing to Users, stating that user may have many listings
+  #Deletes all the User's listings when User is deleted
+  has_many :listing, dependent: :destroy
   # downcase email before adding User to database to avoid uniqueness errors
   before_save { self.email = email.downcase }
   
@@ -20,4 +23,21 @@ class User < ActiveRecord::Base
   # adds Rails built-in secure password 
   has_secure_password
   validates :password, presence: true, length: { minimum: 6 }
+  
+  # Class method for User class
+  # Returns the hash digest of the given string.
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+  
+  # Class method for User
+  # Searches first_name, last_name and user_name text fields
+  def self.search(search)
+    User.where('first_name LIKE :search OR last_name LIKE :search OR username LIKE :search', search: "%#{search}%")
+  end
+  
+  #User association to Listings. Destroy listing if user is deleted.
+  has_many :listings, dependent: :destroy
 end
