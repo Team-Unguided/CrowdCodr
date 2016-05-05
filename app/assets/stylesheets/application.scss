@@ -116,6 +116,13 @@ nobg {
   top:0%;
 }
 
+.back
+{
+  position:relative;
+  z-index: -1;
+  
+}
+
 .hcenter { 
     display: inline-block;
     vertical-align: middle;
@@ -193,10 +200,12 @@ nobg {
 .pic
 {
   background:asset-url('cover_city.jpg');
-  width:500px;
-  height:100px;
+  width:25%;
+  height:25%;
   background-size: cover;
-  z-index:3;
+  position: absolute !important;
+  top: 10px;
+  left: 10px;
 }
 
 .rowTop
