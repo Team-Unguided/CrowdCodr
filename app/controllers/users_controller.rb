@@ -20,9 +20,11 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(user_params) #user_params is a private function
+    @user.description = "My name is #{@user.first_name} #{@user.last_name}. "
+    @user.description += "This is the default profile description."
     if @user.save # upon successful insertion of new user into database
       log_in @user  # log-in as the new user out of courtesy
-      flash[:success] = "SUCCESSFUL SIGN-UP MESSAGE!" # let the user know
+      flash[:success] = "Sign-up successful!" # let the user know
       redirect_to("/users/#{@user.username}") # redirect to user's profile page
 
     # if insertion failed because of invalid input(s)
@@ -64,7 +66,7 @@ class UsersController < ApplicationController
     
     #for users#update
     def user_params_edit
-      params.require(:user).permit(:first_name, :last_name, :email,
+      params.require(:user).permit(:first_name, :last_name, :email, :description,
                                    :password, :password_confirmation)
     end
 
