@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160502113659) do
+ActiveRecord::Schema.define(version: 20160505020744) do
 
   create_table "listings", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(version: 20160502113659) do
     t.string   "last_name",       limit: 255
     t.string   "username",        limit: 255
     t.string   "email",           limit: 255
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "password_digest", limit: 255
+    t.text     "description",     limit: 65535
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree

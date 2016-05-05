@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
                               uniqueness: { case_sensitive: false }
   # adds Rails built-in secure password 
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6 }
+  # password cannot be empty or shorter than 6 characters
+  # ("allow_nil: true" lets users edit their info without changing password)
+  # (still does not allow empty password for signup due to "has_secure_password")
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
   # Class method for User class
   # Returns the hash digest of the given string.
