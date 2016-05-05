@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
   
   def show # for root/users/:id
     @user = User.find_by(username: params[:id])
@@ -36,7 +38,8 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params_edit)
-      # Handle a successful update.
+      flash[:success] = "Successfully updated profile!" # let the user know
+      redirect_to("/users/#{@user.username}") # redirect to user's profile page
     else
       render 'edit'
     end
@@ -63,5 +66,22 @@ class UsersController < ApplicationController
     def user_params_edit
       params.require(:user).permit(:first_name, :last_name, :email,
                                    :password, :password_confirmation)
+    end
+
+# BEFORE ACTIONS
+
+    # Confirms the user is logged in.
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+    
+    # Confirms current user is logged in as the correct user
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless current_user?(@user)
     end
 end

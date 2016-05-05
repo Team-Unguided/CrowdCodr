@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       # log-in as user using log_in() found in sessions_helper.rb
       log_in user
       # redirect to user's profile page
-      redirect_to "/users/#{user.username}"
+      redirect_back_or "/users/#{user.username}"
       
     # otherwise, invalid username/password combination was entered
     else
