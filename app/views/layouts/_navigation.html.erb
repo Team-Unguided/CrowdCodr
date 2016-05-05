@@ -19,7 +19,6 @@
           </li>
           <li><%= link_to "Profile", "/users/#{current_user.username}" %></li>
           <li><%= link_to "Listings", listings_path %></li>
-          
           <li><%= link_to "Settings", edit_path %></li>
         </ul>
         <a class="button-collapse show-on-large" href="#!" data-activates="slide-out">
@@ -30,12 +29,15 @@
     </nav>
   </div>
   
-  <script src="js/jquery.min.js"></script>
-  <script src="js/materialize.min.js"></script>
+  
   <script>
     $(document).ready(function(){
       $('.button-collapse').sideNav();
+      $('.modal-trigger').leanModal();
     });
   </script>
   
 </body>
+
+
+ 
