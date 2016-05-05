@@ -11,7 +11,7 @@
                   </div>
                 </div>
                 <div class="col s10">
-                      <h4><%= @user.first_name %> <%= @user.last_name %><a class="waves-effect waves-light btn right top" href="edit">Edit</a></h4>
+                      <h4><%= @user.first_name %> <%= @user.last_name %><%= link_to "Edit", edit_user_path(@user)%></h4>
                       <h6><%= @user.username %></h6>
                       <h6><%= @user.email %></h6>
                       <p>How will a shot scratch into the lyric buffer? Will the rights rag elaborate? After a thesis gasps a sole feat. The league reads on top of whatever trumpet! The dentist weds an integral guide after the recruit. The pattern pumps!</p>

@@ -29,6 +29,19 @@ class UsersController < ApplicationController
     end
   end
   
+  def edit
+    @user = User.find(params[:id])
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params_edit)
+      # Handle a successful update.
+    else
+      render 'edit'
+    end
+  end
+  
   def index #for searching
     @users = User.all
     #filter users by search term, and sort by time created
@@ -40,9 +53,15 @@ class UsersController < ApplicationController
   end
   
   private
-
+    #for users#create
     def user_params
       params.require(:user).permit(:first_name, :last_name, :username, :email,
+                                   :password, :password_confirmation)
+    end
+    
+    #for users#update
+    def user_params_edit
+      params.require(:user).permit(:first_name, :last_name, :email,
                                    :password, :password_confirmation)
     end
 end
