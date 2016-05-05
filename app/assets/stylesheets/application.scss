@@ -2,6 +2,22 @@
 @import "font-awesome";
 
 /* ----------------------------------------------------------------
+	application.scss Structure
+	
+	1. Basic Layout Styles (margins, paddings, borders, etc.)
+	2. Typography (Headings, Subheadings, Subtitles, etc.)
+	3. Sections (section id, class id, etc.)
+	4. Columns & Grids (custom columns and grids)
+	5. Header / Logo
+	6. Menu
+	7. Body
+	8. Overlays, Models, Notifications (toast)
+	9. Footer
+	10. Buttons / Toggles
+	11. Misc.
+-----------------------------------------------------------------*/
+
+/* ----------------------------------------------------------------
 	Basic Layout Styles
 -----------------------------------------------------------------*/
 .nomargin {
@@ -36,6 +52,10 @@
   padding: 0 !important;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .center {
   text-align: center !important;
 }
@@ -46,105 +66,54 @@
   left: 50%;
 }
 
+.clear {
+  clear: both;
+  display: block;
+  font-size: 0px;
+  height: 0px;
+  line-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
 .right {
   float: right !important;
 }
 
-body 
-{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+nobg {
+  background: none !important;
 }
-.top
-{
+
+.t400 {
+  font-weight: 400 !important;
+}
+
+.t800 {
+  font-weight: 800 !important;
+}
+
+.ls1 {
+  letter-spacing: 1px !important;
+}
+
+.ls3 {
+  letter-spacing: 3px !important;
+}
+
+.font-body {
+  font-family: 'Opens Sans', sans-serif;
+}
+
+.font-primary {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-secondary {
+  font-family: 'Crete Round', serif;
+}
+
+.top {
   top:0%;
-  
-}
-
-/* ----------------------------------------------------------------
-	Content
------------------------------------------------------------------*/
-
-.content-wrap {
-  position: relative;
-  padding: 80px 0;
-}
-
-.wip-lg {
-  font-size: 125px;
-  color: #DDD;
-}
-
-.inlineblock { 
-    display: inline-block;
-    zoom: 1;
-}
-
-/* ----------------------------------------------------------------
-	Sticky Header
------------------------------------------------------------------*/
-
-#header,
-#header-wrap,
-#logo img
-{
-  height: 100px;
-  -webkit-transition: height .4s ease, opacity .3s ease;
-  -o-transition: height .4s ease, opacity .3s ease;
-  transition: height .4s ease, opacity .3s ease;
-}
-
-#header-wrap {
-  position: relative;
-  -webkit-backface-visibility: hidden;
-}
-
-/* ----------------------------------------------------------------
-	Stretched Layout
------------------------------------------------------------------*/
-
-.stretched #wrapper {
-  width: 100%;
-  margin: 0;
-  box-shadow: none;
-}
-
-/* ----------------------------------------------------------------
-	Footer
------------------------------------------------------------------*/
-
-#footer 
-{
-    position: absolute;
-    bottom: 0;
-    min-width: 100%;
-    background-color: #EEE;
-    border-top: 0px;
-    padding-top: 0px;
-}
-
-#copyrights {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background: #27292E;
-  font-size: 10px;
-  color: #000;
-  z-index: 3;
-  position: relative;
-}
-
-#content {
-  position: fixed;
-  top: 65px;
-  bottom: 65px;
-  width: 100%;
-  overflow: auto;
-}
-
-.content-wrap {
-  position: relative;
-  padding: 80px 0;
 }
 
 .hcenter { 
@@ -179,6 +148,123 @@ body
   vertical-align: middle;
 }
 
+/* ----------------------------------------------------------------
+	Typography
+-----------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------
+	Search Form
+-----------------------------------------------------------------*/
+
+.search
+{
+  width: 80%;
+}
+
+.input-field.bg
+{
+    color: black;
+    background-color: #ffffff;
+    opacity: 0.6;
+}
+
+#login-form
+{
+    margin-top:55%;
+    border-style:solid;
+    border-width: 5px;
+    border-color: #03a9f4;
+}
+
+/* ----------------------------------------------------------------
+	Profile Page/ Edit Profile Page
+-----------------------------------------------------------------*/
+
+.cardSize
+{
+  height:250px;
+}
+
+.editCardSize
+{
+  height:800px;
+}
+.pic
+{
+  background:asset-url('cover_city.jpg');
+  width:500px;
+  height:100px;
+  background-size: cover;
+  z-index:3;
+}
+
+.rowTop
+{
+  position: absolute; 
+  top: 0; 
+  right: 0;  
+  text-align:right;
+  padding-right: 10px;
+}
+
+.rowBottom
+{
+  position: absolute; 
+  bottom: 0; 
+  right: 0;  
+  text-align:right;
+  padding-right: 10px;
+}
+
+/* ----------------------------------------------------------------
+	Home Page
+-----------------------------------------------------------------*/
+
+.android
+{
+  width: 33.3%;
+  height: 66.6%;
+  background-color: #011627;
+  float:left;
+}
+
+.website
+{
+  width: 33.3%;
+  height: 66.6%;
+  background-color: #fdfffc;
+  float:left;
+}
+.ios
+{
+
+  width: 33.3%;
+  height: 66.6%;
+  background-color: #2ec4b6;
+  float:left;
+}
+
+.allcat
+{
+  width: 100%;
+  height: 33.3%;
+  background-color: #ff9999;
+  float:left;
+}
+
+.iosImage
+{
+  background:asset-url('iOS.png') no-repeat;
+  width:100%;
+  height:100%;
+}
+
+.centerButton
+{
+  height: 50%;
+}
+
 .bg-img
 {
   background: asset-url('cover_city.jpg') no-repeat center center fixed; 
@@ -187,45 +273,6 @@ body
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
-}
-
-/* ----------------------------------------------------------------
-	Sticky Header
------------------------------------------------------------------*/
-
-#header
-{
-  height: 65px;
-  -webkit-transition: height .4s ease, opacity .3s ease;
-  -o-transition: height .4s ease, opacity .3s ease;
-  transition: height .4s ease, opacity .3s ease;
-}
-
-#header-wrap {
-  position: relative;
-  -webkit-backface-visibility: hidden;
-}
-
-/* ----------------------------------------------------------------
-	Stretched Layout
------------------------------------------------------------------*/
-
-.stretched #wrapper {
-  width: 100%;
-  margin: 0;
-  box-shadow: none;
-}
-
-/* ----------------------------------------------------------------
-	Sections
------------------------------------------------------------------*/
-
-
-#intro.section {
-	position: relative;
-	background-color: #F9F9F9;
-	overflow: hidden;
-	height: 100%;
 }
 
 /* ----------------------------------------------------------------
@@ -293,94 +340,13 @@ body.stretched .container-fullwidth {
 }
 
 /* ----------------------------------------------------------------
-	Footer
+  Header / Logo
 -----------------------------------------------------------------*/
-
-#footer 
-{
-    position: absolute;
-    height: 65px;
-    bottom: 0;
-    min-width: 100%;
-    background-color: #03a9f4;
-    border-top: 0px;
-    padding-top: 0px;
-    font-size: 0.9em;
-}
-
-.copyright {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: #000;
-  z-index: 3;
-  position: relative;
-}
-
 
 /* ----------------------------------------------------------------
-	Search Form
+	Menu / SideNav
 -----------------------------------------------------------------*/
 
-.search
-{
-  width: 80%;
-}
-
-.input-field.bg
-{
-    color: black;
-    background-color: #ffffff;
-    opacity: 0.6;
-}
-
-/* text fields*/
-
-
-/*
-    multi-browser compatability
-*/
-
-#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
-{
-    color: black;
-}
-
-#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
-{
-    color: black;
-}
-
-#listing:-moz-placeholder, #zipcode:-moz-placeholder
-{
-    color:black;
-}
-
-#listing::-moz-placeholder, #zipcode::-moz-placeholder
-{
-    color:black;
-}
-
-#listing:-ms-input-placeholder, #zipcode:-ms-input-placeholder
-{
-    color: black;
-}
-
-.page-footer
-{
-    border: 20px solid #03a9f4;
-}
-
-#login-form
-{
-    margin-top:55%;
-    border-style:solid;
-    border-width: 5px;
-    border-color: #03a9f4;
-}
-
-/* ----------------------------------------------------------------
-	Sidenav
------------------------------------------------------------------*/
 #logo-container
 {
   height: 250px;
@@ -395,120 +361,27 @@ body.stretched .container-fullwidth {
 }
 
 /* ----------------------------------------------------------------
-	Profile Page/ Edit Profile Page
+	Body
 -----------------------------------------------------------------*/
 
-.cardSize
-{
-  height:250px;
-}
-
-.editCardSize
-{
-  height:800px;
-}
-.pic
-{
-  background:asset-url('cover_city.jpg');
-  width:500px;
-  height:100px;
-  background-size: cover;
-  z-index:3;
-}
-
-
-.rowTop
-{
-  position: absolute; 
-  top: 0; 
-  right: 0;  
-  text-align:right;
-  padding-right: 10px;
-}
-
-.rowBottom
-{
-  position: absolute; 
-  bottom: 0; 
-  right: 0;  
-  text-align:right;
-  padding-right: 10px;
-}
-
-
-/* ----------------------------------------------------------------
-	Home Page
------------------------------------------------------------------*/
-
-
-.android
-{
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #011627;
-  float:left;
-}
-
-.website
-{
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #fdfffc;
-  float:left;
-}
-.ios
-{
-
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #2ec4b6;
-  float:left;
-}
-
-.allcat
-{
+.stretched #wrapper {
   width: 100%;
-  height: 33.3%;
-  background-color: #ff9999;
-  float:left;
+  margin: 0;
+  box-shadow: none;
 }
 
-.iosImage
-{
-  background:asset-url('iOS.png') no-repeat;
-  width:100%;
-  height:100%;
-}
-
-.centerButton
-{
-  height: 50%;
-}
 /* ----------------------------------------------------------------
-  Sign Up Page
+	Overlays / Modals / Notifications (toast)
 -----------------------------------------------------------------*/
 
-#spandiv
-{
-  text-align: center;
-}
-.centerSpan
-{
-  display: inline-block;
-  position: relative;
-}
+/* ----------------------------------------------------------------
+	Footer
+-----------------------------------------------------------------*/
 
-.margin10
-{
-  margin: 10px 0px 10px 0px;
-}
+/* ----------------------------------------------------------------
+	Buttons / Toggles
+-----------------------------------------------------------------*/
 
-.pic
-{
-  background:asset-url('cover_city.jpg');
-  width:25%;
-  height:25%;
-  background-size: cover;
-  position: absolute !important;
-  outline-offset: 15px;
-}
+/* ----------------------------------------------------------------
+	Misc.
+-----------------------------------------------------------------*/
