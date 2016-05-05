@@ -7,11 +7,10 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
 </head>
-<body class="stetched device-lg">
-  <section id="header">
+  <header id="header">
     <%= render 'layouts/navigation' %>
     <!--%= render 'layouts/sidenav' %>-->
-  </section>
+  </header>
   <section id="content">
     <% flash.each do |message_type, message| %>
       <div class="alert alert-<%= message_type %>"><%= message %></div>
@@ -19,9 +18,8 @@
     <%= csrf_meta_tags %>
     <%= yield %>
   </section>
-  <section id="footer">
+  <footer class="flex">
     <%= render 'layouts/footer' %>
-  </section>
-</body>
+  </footer>
 
  
