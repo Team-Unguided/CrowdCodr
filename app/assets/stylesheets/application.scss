@@ -400,11 +400,7 @@ body.stretched .container-fullwidth {
 
 .cardSize
 {
-<<<<<<< HEAD
-  height:700px;
-=======
-  height:300px;
->>>>>>> develop
+  height:250px;
 }
 
 .editCardSize
@@ -413,16 +409,13 @@ body.stretched .container-fullwidth {
 }
 .pic
 {
-  background:asset-url('profile.jpg');
-  width:100%;
-  height:100%;
+  background:asset-url('cover_city.jpg');
+  width:500px;
+  height:100px;
   background-size: cover;
+  z-index:3;
 }
 
-.h200
-{
-  height: 200px;
-}
 
 .rowTop
 {
@@ -508,4 +501,14 @@ body.stretched .container-fullwidth {
 .margin10
 {
   margin: 10px 0px 10px 0px;
+}
+
+.pic
+{
+  background:asset-url('cover_city.jpg');
+  width:25%;
+  height:25%;
+  background-size: cover;
+  position: absolute !important;
+  outline-offset: 15px;
 }

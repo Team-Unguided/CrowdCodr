@@ -2,31 +2,53 @@
 
 <p id="notice"><%= notice %></p>
 
-   <div class="row">
-      <div class="col s12">
-        <div class="card cardSize blue lighten-2">
-            <div class="row">
-                <div class="col s2 h200">
-                  <div class="card-image pic">
-                  </div>
-                </div>
-                <div class="col s10">
-                      <h4><%= @user.first_name %> <%= @user.last_name %><a class="waves-effect waves-light btn right top" href="edit">Edit</a></h4>
-                      <h6><%= @user.username %></h6>
-                      <h6><%= @user.email %></h6>
-                      <p>How will a shot scratch into the lyric buffer? Will the rights rag elaborate? After a thesis gasps a sole feat. The league reads on top of whatever trumpet! The dentist weds an integral guide after the recruit. The pattern pumps!</p>
-                      <div class="chip">
-                        Java
-                      </div>
-                      <div class="chip">
-                        C++
-                      </div>
-                      <div class="chip">
-                        C#
-                      </div>
-                </div>
-            </div>
       </div>
+        <div class="col s2">
+          <div class="card-image pic z-depth-3">
+          </div>
+      </div>
+            
+      <div class="col s8">
+          <div class="card blue lighten-2">
+            <div class="card-content black-text">
+              <span class="card-title"><i class="fa fa-user" aria-hidden="true"></i> About Me</span>
+              <h5 class="right"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</h5>
+              <p>How will a shot scratch into the lyric buffer? Will the rights rag elaborate? After a thesis gasps a sole feat. The league reads on top of whatever trumpet! The dentist weds an integral guide after the recruit. The pattern pumps! </p>
+              <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+              <h6>Contact Details: </h6>
+              <h6><i class="fa fa-map-marker" aria-hidden="true"></i>  San Diego</h6>
+            </div>
+        </div>
+        
+      
+            
+            
+            
+    <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+  
+            
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
             <h3 class="center">Projects</h3>
             <div class="row">
                 <table>
@@ -60,6 +82,19 @@
                     <% end %>
                   </tbody>
                 </table>
-
-            </div>
-   </div>
+            <a class="modal-trigger btn" href="#modal1">Modal</a>              
+   
+   
+   
+  <script src="../assets/materialize.js" charset="utf-8"></script>
+  <script>
+    $(document).ready(function(){
+      $('.modal-trigger').leanModal();
+    });
+  </script>
+  
+</html>
+   
+   
+   
+  
