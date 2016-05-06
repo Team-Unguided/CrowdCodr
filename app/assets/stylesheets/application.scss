@@ -163,11 +163,10 @@ nobg {
 /* ----------------------------------------------------------------
 	Sections
 -----------------------------------------------------------------*/
-
 .flex{
   display: block;
   margin: 0 auto;
-  max-width: 70rem;
+  max-width: 80rem;
 }
 
 
@@ -285,16 +284,14 @@ nobg {
   height: 50%;
 }
 
-.bg-img
-{
-  background: asset-url('cover_city.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-}
-
+ .bg-img
+ {
+   background: asset-url('cover_city.jpg') no-repeat center center fixed; 
+   -webkit-background-size: cover;	
+   -moz-background-size: cover;
+   -o-background-size: cover;
+   background-size: cover;
+ }
 /* ----------------------------------------------------------------
 	Columns & Grids
 -----------------------------------------------------------------*/
@@ -409,6 +406,13 @@ body.stretched .container-fullwidth {
   bottom: 0;
   max-width: none;
 }
+.page-footer
+{
+  position:absolute;
+  bottom:0;
+  width:80rem;
+  text-align:center;
+}
 
 
 /* ----------------------------------------------------------------
@@ -418,3 +422,8 @@ body.stretched .container-fullwidth {
 /* ----------------------------------------------------------------
 	Misc.
 -----------------------------------------------------------------*/
+
+.side
+{
+   left:40%; 
+}

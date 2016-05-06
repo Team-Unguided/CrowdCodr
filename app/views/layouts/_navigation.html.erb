@@ -1,40 +1,48 @@
 <div class="flex">
-  
+
   <div class="navbar-fixed">
-    
-    <a href="home" class="brand-logo center">Blitz</a>
-    
-    <ul id="nav-mobile" class="right">
+    <div class="nav-wrapper">
+      <a href="home" class="brand-logo hcenter vcenter">Blitz</a>
+
+      <ul id="nav-mobile" class="right">
+        <% if logged_in? %>
+          <li>
+            <%=link_to "Log out", logout_path, method: "delete" %>
+          </li>
+          <% else %>
+            <li>
+              <%=link_to "Log in", login_path %>
+            </li>
+            <% end %>
+      </ul>
       <% if logged_in? %>
-        <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-      <% else %>
-        <li><%= link_to "Log in", login_path %></li>
-      <% end %>
-    </ul>
-    <% if logged_in? %>
-    <ul id="slide-out" class="left side-nav">
-      <li>
-      <a href="home" id="logo-container"class="nomargin nopadding">
-        <object id="profile-logo"></object></a>
-      </li>
-      <li><%= link_to "Profile", "/users/#{current_user.username}" %></li>
-      <li><%= link_to "Listings", listings_path %></li>
-      <li><%= link_to "Settings", edit_path %></li>
-    </ul>
-    <a class="button-collapse show-on-large" href="#!" data-activates="slide-out">
-      <i class="material-icons">menu</i>
-    </a>
-    <% end %>
+        <ul id="slide-out" class="left side-nav">
+          <li>
+            <a href="home" id="logo-container" class="nomargin nopadding">
+              <object id="profile-logo"></object>
+            </a>
+          </li>
+          <li>
+            <%=link_to "Profile", "/users/#{current_user.username}" %>
+          </li>
+          <li>
+            <%=link_to "Listings", listings_path %>
+          </li>
+          <li>
+            <%=link_to "Settings", edit_path %>
+          </li>
+        </ul>
+        <a class="button-collapse show-on-large" href="#!" data-activates="slide-out">
+          <i class="material-icons">menu</i>
+        </a>
+        <% end %>
+    </div>
+
   </div>
-  
-  
   <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
       $('.button-collapse').sideNav();
     });
   </script>
-  
+
 </div>
-
-
- 
