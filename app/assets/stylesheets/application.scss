@@ -168,6 +168,7 @@ nobg {
     display: block;
     margin: 0 auto;
     max-width: 66rem;
+    height: inherit;
 }
 
 .flex>* {
@@ -182,6 +183,18 @@ nobg {
   float: none !important;
   margin: 0 auto;
   text-align: center;
+}
+
+section {
+	position: relative;
+	overflow: hidden;
+	min-height: 100%;
+	height: 100%;
+}
+
+nav {
+  background-color: rgba(0, 0, 0, 0.0) !important;
+  box-shadow: none !important;
 }
 
 /* ----------------------------------------------------------------
@@ -212,17 +225,15 @@ nobg {
 	Profile Page/ Edit Profile Page
 -----------------------------------------------------------------*/
 
-.cardSize
-{
+.cardSize {
   height:250px;
 }
 
-.editCardSize
-{
+.editCardSize {
   height:800px;
 }
-.pic
-{
+
+.pic {
   background:asset-url('cover_city.jpg');
   width:25%;
   height:25%;
@@ -232,8 +243,7 @@ nobg {
   left: 10px;
 }
 
-.rowTop
-{
+.rowTop {
   position: absolute; 
   top: 0; 
   right: 0;  
@@ -241,8 +251,7 @@ nobg {
   padding-right: 10px;
 }
 
-.rowBottom
-{
+.rowBottom {
   position: absolute; 
   bottom: 0; 
   right: 0;  
@@ -440,6 +449,52 @@ ul.content-header,
   box-shadow: none;
 }
 
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #1C2328;
+    overflow-x: hidden
+}
+
+html {
+    direction: ltr;
+    height: 100%
+}
+
+body {
+    min-height: 100%;
+    direction: ltr
+}
+
+main {
+    left: 0%;
+    z-index: 2;
+    text-align: center;
+    width: 100%;
+    direction: ltr;
+    position: relative;
+    display: block;
+}
+
+main.main {
+    background: #F4F5F6;
+    margin-bottom: 5.5rem;
+}
+
+main.main header .content-header span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: right;
+    direction: ltr;
+}
+
+main.main section {
+  margin: 0 auto;
+  position: relative;
+}
+
 /* ----------------------------------------------------------------
 	Overlays / Modals / Notifications (toast)
 -----------------------------------------------------------------*/
@@ -448,24 +503,43 @@ ul.content-header,
 	Footer
 -----------------------------------------------------------------*/
 
-.footer.flex{
+footer.flex {
   text-align: center;
-  width: 80%;
+  width: 100%;
   padding: 1em 10% 0;
   height: 4rem;
   clear: both;
   position: fixed;
   bottom: 0;
   max-width: none;
-}
-.page-footer
-{
-  position:absolute;
-  bottom:0;
-  width:80rem;
-  text-align:center;
+  background-color: #FFF !important;
 }
 
+footer nav {
+    display: block;
+    line-height: 2.3rem;
+    direction: ltr;
+}
+
+footer .social>a {
+    display: inline-block;
+    padding: .6rem .5rem;
+    color: #6c7980
+}
+
+footer nav a,
+footer nav a:hover {
+    color: #6C7980;
+    padding: .4rem;
+    line-height: 1rem;
+    font-size: .8rem;
+    display: inline-block
+}
+
+
+.copyright {
+  font-size: .6rem;
+}
 
 /* ----------------------------------------------------------------
 	Buttons / Toggles
@@ -478,4 +552,12 @@ ul.content-header,
 .side
 {
    left:40%; 
+}
+
+.clearfix {
+   content: " "; /* Older browser do not support empty content */
+   visibility: hidden;
+   display: block;
+   height: 0;
+   clear: both;
 }

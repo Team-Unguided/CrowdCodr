@@ -10,13 +10,13 @@
 <header id="header" class="z-depth-2">
   <%= render 'layouts/navigation' %>
 </header>
-<section id="content">
+<main class="main" id="main">
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
   <%= csrf_meta_tags %>
   <%= yield %>
-</section>
+</main>
 <footer class="flex z-depth-2">
   <%= render 'layouts/footer' %>
 </footer>
