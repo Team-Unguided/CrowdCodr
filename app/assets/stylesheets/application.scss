@@ -411,6 +411,10 @@ ul.content-header,
   height:100%;
 }
 
+#sidenav-overlay{
+  background-color: rgba(0,0,0,0) !important;
+}
+
 .side-nav {
   z-index: 999;
 }
