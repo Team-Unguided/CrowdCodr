@@ -7,19 +7,20 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
 </head>
-  <header id="header">
-    <%= render 'layouts/navigation' %>
-    <!--%= render 'layouts/sidenav' %>-->
-  </header>
-  <section id="content">
-    <% flash.each do |message_type, message| %>
-      <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-    <%= csrf_meta_tags %>
-    <%= yield %>
-  </section>
-  <footer class="flex">
-    <%= render 'layouts/footer' %>
-  </footer>
+<header id="header" class="z-depth-2">
+  <%= render 'layouts/navigation' %>
+</header>
+<section id="content">
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
+  <%= csrf_meta_tags %>
+  <%= yield %>
+</section>
+<footer class="flex z-depth-2">
+  <%= render 'layouts/footer' %>
+</footer>
 
+<script type="text/javascript" src="../assets/jquery.js"></script>
+<script type="text/javascript" src="../assets/materialize.js"></script>
  
