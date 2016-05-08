@@ -28,7 +28,7 @@
           <% end %>
         <% end %>
         <% if listing.user_id != current_user.id %>
-          <td><%= link_to 'Message!', conversations_path(sender_id: current_user.id, recipient_id: listing.user_id), method: 'post'%></td>
+          <td><%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: listing.user_id), method: 'post'%></td>
         <% end %>
       </tr>
     <% end %>
