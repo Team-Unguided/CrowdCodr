@@ -153,6 +153,9 @@ nobg {
 	Typography
 -----------------------------------------------------------------*/
 
+a {
+  color: #000 !important;
+}
 
 /* ----------------------------------------------------------------
 	Sections
@@ -202,34 +205,43 @@ nav {
 .bg {
     color: black;
     background-color: #FFF;
-    opacity: 0.6;
-    padding: 0.0rem 1.1rem;
+    opacity: 0.8;
+    padding: 0.7rem 1.1rem;
 }
 
-.bg-last {
+.bg-left {
     padding: 0 1.1rem 0 0;
 }
 
-.btn {
+.bg-last {
+    padding: 0 1.1rem 0 1.1rem;
+}
+
+.btn.home {
     background-color: #FFF !important;
     opacity: 0.6 !important;
     box-shadow: none !important;
 }
 
-.btn:hover {
+.btn.home:hover {
     background-color: #3AFFED !important;
     opacity: 1.0 !important;
 }
 
-.btn.bg {
+.btn.home.btn-padding {
     padding: 0.2rem 0.8rem;
+    margin: 0 0 0 1.1rem;
 }
 
 #login-form {
-    margin-top:55%;
-    border-style:solid;
+    margin-top: 55%;
+    border-style: solid;
     border-width: 5px;
     border-color: #03a9f4;
+}
+
+.input-field.border-right {
+  border-right: 1px solid #000;
 }
 
 ::-webkit-input-placeholder {
@@ -502,7 +514,6 @@ body {
 main {
     left: 0%;
     z-index: 2;
-    text-align: center;
     width: 100%;
     direction: ltr;
     position: fixed;
