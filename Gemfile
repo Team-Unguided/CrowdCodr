@@ -13,7 +13,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'materialize-sass'
 
-gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
@@ -41,15 +40,21 @@ group :development, :test do
   
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console',            '2.0.0.beta3'
-end
-
-group :development do
+  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring',                 '1.1.3'
+  
+  gem 'mysql2', '>= 0.3.13', '< 0.5'
 end
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'puma'
 end
