@@ -6,21 +6,58 @@
           <div class="card-image pic z-depth-3">
           </div>
       </div>
-            
-      <div class="col s8">
-          <div class="card back blue lighten-2">
+      
+      <div class="flexProfile">
+          <div class="card back picIndent z-depth-2">
             <div class="card-content black-text">
-              <span class="card-title"><i class="fa fa-user" aria-hidden="true"></i> About Me</span>
-              <h5 class="right"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</h5>
+              <h4>
+              <%= @user.first_name %> <%= @user.last_name %> 
+              <a class="right tab" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+              
+              <a class="right tab" href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+              
+              <a class="right tab" href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+              </h4>
+            </div>
+        </div>
+      </div>
+      
+      
+      <div class="flexProfile">
+          <div class="card back picIndent z-depth-2">
+            <div class="card-content black-text">
               <p><%= @user.description %></p>
-              <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-              <h6>Contact Details: </h6>
-              <h6><i class="fa fa-map-marker" aria-hidden="true"></i>  San Diego</h6>
             </div>
         </div>
       </div>
       
             <h3 class="center">Projects</h3>
+            
+            
+          <div class="flexProfile">
+              <div class="card back z-depth-2">
+                <div class="card-content black-text">
+                  <% @listings.each do |listing| %>
+                    <%if on_profile?(@user,listing) %>
+                      <h5><%= listing.name %> Listing Name</h5>
+                      <br>
+                      <h5><%= listing.description %> Description</h5>
+                      <br>
+                      <h5><%= listing.languages %> Java</h5>
+                      <br>
+                      <h5><%= listing.job_type %> Website</h5>
+                    <% end %>
+                  <br>
+                </div>
+              <% end %>
+            </div>
+          </div>
+    <div class="right">
+      <a class="btn-floating btn-large red">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </a>
+    </div>
+            
             <div class="row">
                 <table>
                   <thead>
