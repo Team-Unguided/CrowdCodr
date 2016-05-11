@@ -1,5 +1,18 @@
 <body>
-    <section class="clear bg-img">
+    <div class="clear"></div>
+    
+    <% if greet(Time.new.hour) == "Good Morning" %>
+        <section class="bg-img morning">
+            <div class="col s12 greeting morning ls2 hcenter vcenter "> <%= greet(Time.new.hour) %></div>
+    <% elsif greet(Time.new.hour) == "Good Afternoon" %>
+        <section class="bg-img afternoon">
+            <div class="col s12 greeting afternoon ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
+    <% else %>
+        <section class="bg-img night">
+            <div class="col s12 greeting night ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
+    <% end %>
+    
+    <!--<section class="bg-img">-->
         <form class="col s12 hcenter vcenter">
             <div class="bg">
                 <div class="input-field border-right hcenter col s4 bg-left nomargin">
