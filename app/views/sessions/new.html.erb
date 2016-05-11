@@ -21,20 +21,25 @@
       </div>
       <div class="card-content">
         <div id="test1">
-          <%= form_for(:session, url: login_path) do |f| %>
-      
-            <%= f.label :username %>
-            <%= f.text_field :username, class: 'form-control' %>
-      
-            <%= f.label :password %>
-            <%= f.password_field :password, class: 'form-control' %>
-            
-            <div class="btn-center-relative">
-              <%= f.submit "Log in", class: "btn-large btn-primary" %>
-            </div>
-          <% end %>
-      
-          
+          <div class="row">
+            <form class="col s12">
+              <%= form_for(:session, url: login_path) do |f| %>
+                <!--<i class="material-icons prefix">account_circle</i>-->
+                <i class="fa fa-user fa-2x login-label-margin" aria-hidden="true"></i>
+                <%= f.label :username %>
+                <%= f.text_field :username, class: 'form-control' %>
+                
+                <i class="material-icons prefix">vpn_key</i>
+                <%= f.label :password %>
+                <%= f.password_field :password, class: 'form-control' %>
+                
+                <div class="btn-center-relative">
+                  <%= f.submit "Log in", class: "btn-large btn-primary" %>
+                </div>
+              <% end %>
+            </form>
+          </div>
+
           
           <!--<p>New user? <%= link_to "Sign up now!", signUp_path %></p> -->
           <!-- ^^^^^^ NEEDS TO BE DELETED>?????  ^^^^ -->
