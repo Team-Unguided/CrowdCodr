@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <div class="card-content white-text">
+      <div class="card-content">
         <div id="test1">
           <%= form_for(:session, url: login_path) do |f| %>
       
@@ -44,43 +44,47 @@
           <%=form_for(@user) do |f| %>
             <%=render 'shared/error_messages' %>
   
-              <div class="input-field">
-                <%=f.text_field :first_name, class: 'form-control' %>
-                  <label for="firstName">First Name</label>
+              <div class="row">
+                <form class="col s12">
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <%=f.text_field :first_name, class: 'form-control' %>
+                        <label for="firstName">First Name</label>
+                    </div>
+        
+                    <div class="input-field col s6">
+                      <%=f.text_field :last_name, class: 'form-control' %>
+                        <label for="lastName">Last Name</label>
+                    </div>
+                  </div>
+                  
+                  <div class="input-field">
+                    <%=f.text_field :username, class: 'form-control' %>
+                      <label for="username">Username</label>
+                  </div>
+      
+                  <div class="input-field">
+                    <%=f.email_field :email, class: 'form-control' %>
+                      <label for="email">Email</label>
+                  </div>
+      
+                  <div class="input-field">
+                    <%=f.password_field :password, class: 'form-control' %>
+                      <label for="password">Password</label>
+                  </div>
+      
+                  <div class="input-field">
+                    <%=f.password_field :password_confirmation, class: 'form-control' %>
+                      <label for="passwordConfirmation">Password Confirmation</label>
+                  </div>
+                
+                  <div class="btn-center-relative">
+                    <%=f.submit "Sign Up", class: "btn-large btn-primary" %>
+                  </div>                  
+                </form>
               </div>
-  
-              <div class="input-field">
-                <%=f.text_field :last_name, class: 'form-control' %>
-                  <label for="lastName">Last Name</label>
-              </div>
-  
-              <div class="input-field">
-                <%=f.text_field :username, class: 'form-control' %>
-                  <label for="username">Username</label>
-              </div>
-  
-              <div class="input-field">
-                <%=f.email_field :email, class: 'form-control' %>
-                  <label for="email">Email</label>
-              </div>
-  
-              <div class="input-field">
-                <%=f.password_field :password, class: 'form-control' %>
-                  <label for="password">Password</label>
-              </div>
-  
-              <div class="input-field">
-                <%=f.password_field :password_confirmation, class: 'form-control' %>
-                  <label for="passwordConfirmation">Password Confirmation</label>
-              </div>
-            
-            <div class="btn-center-relative">
-              <%=f.submit "Sign Up", class: "btn-large btn-primary" %>
-            </div>
           <% end %>
-        </div>
-        
-        
+        </div>   
       </div>
     </div>
   </div>
