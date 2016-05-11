@@ -28,8 +28,10 @@
       
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
-      
-            <%= f.submit "Log in", class: "btn btn-primary" %>
+            
+            <div class="btn-center-relative">
+              <%= f.submit "Log in", class: "btn btn-primary" %>
+            </div>
           <% end %>
       
           
@@ -71,8 +73,10 @@
                 <%=f.password_field :password_confirmation, class: 'form-control' %>
                   <label for="passwordConfirmation">Password Confirmation</label>
               </div>
-  
-            <%=f.submit "Sign Up", class: "btn btn-primary" %>
+            
+            <div class="btn-center-relative">
+              <%=f.submit "Sign Up", class: "btn btn-primary" %>
+            </div>
           <% end %>
         </div>
         
