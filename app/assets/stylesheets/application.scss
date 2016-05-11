@@ -170,11 +170,6 @@ a {
 	Sections
 -----------------------------------------------------------------*/
 
-.btn-center-relative{
-  position: relative;
-  text-align: center;
-}
-
 .login-label-margin{
   margin-right: 3rem;
 }
@@ -649,6 +644,18 @@ footer nav a:hover {
 /* ----------------------------------------------------------------
 	Buttons / Toggles
 -----------------------------------------------------------------*/
+
+.btn-center-relative{
+  position: relative;
+  text-align: center;
+}
+
+.btn-enlarge{
+  padding: 0 !important;
+  width: 100%;
+  margin: 1.5rem 0 0 0;
+}
+
 
 /* ----------------------------------------------------------------
 	Misc.
