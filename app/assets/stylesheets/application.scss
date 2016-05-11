@@ -324,50 +324,6 @@ i.icon-black {
 	Home Page
 -----------------------------------------------------------------*/
 
-.android
-{
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #011627;
-  float:left;
-}
-
-.website
-{
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #fdfffc;
-  float:left;
-}
-.ios
-{
-
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #2ec4b6;
-  float:left;
-}
-
-.allcat
-{
-  width: 100%;
-  height: 33.3%;
-  background-color: #ff9999;
-  float:left;
-}
-
-.iosImage
-{
-  background:asset-url('iOS.png') no-repeat;
-  width:100%;
-  height:100%;
-}
-
-.centerButton
-{
-  height: 50%;
-}
-
 .greeting
 {
   position: absolute;
@@ -511,14 +467,18 @@ ul.content-header,
 
 #logo-container
 {
-  height: 250px;
   margin-bottom: 30px;
+  height: 100%;
 }
 
 #profile-logo
 {
   background:asset-url('profile-photo-placeholder.png') no-repeat;
-  height:100%;
+}
+
+.circle {
+  width: 180px !important;
+  height: 180px;
 }
 
 #sidenav-overlay{
