@@ -1,22 +1,86 @@
 <!-- THIS IS THE VIEW FOR sessions#new -->
 <!-- it uses rails form_for function to generate a log-in form that works -->
 
+<!-- want to change the title below -->
 <% provide(:title, "Log in") %>
-<h1>Log in</h1>
+
+<!-- login and sign up tabs -->
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for(:session, url: login_path) do |f| %>
-
-      <%= f.label :username %>
-      <%= f.text_field :username, class: 'form-control' %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
-
-      <%= f.submit "Log in", class: "btn btn-primary" %>
-    <% end %>
-
-    <p>New user? <%= link_to "Sign up now!", signUp_path %></p>
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-action">
+        <div class="row">
+          <div class="col s12">
+            <ul class="tabs">
+              <li class="tab col s3"><a href="#test1">LOG IN</a></li>
+              <li class="tab col s3"><a href="#test2">SIGN UP</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="card-content white-text">
+        <div id="test1">
+          <%= form_for(:session, url: login_path) do |f| %>
+      
+            <%= f.label :username %>
+            <%= f.text_field :username, class: 'form-control' %>
+      
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+      
+            <%= f.submit "Log in", class: "btn btn-primary" %>
+          <% end %>
+      
+          
+          
+          <!--<p>New user? <%= link_to "Sign up now!", signUp_path %></p> -->
+          <!-- ^^^^^^ NEEDS TO BE DELETED>?????  ^^^^ -->
+        </div>
+        
+        <div id="test2">
+          <%=form_for(@user) do |f| %>
+            <%=render 'shared/error_messages' %>
+  
+              <div class="input-field">
+                <%=f.text_field :first_name, class: 'form-control' %>
+                  <label for="firstName">First Name</label>
+              </div>
+  
+              <div class="input-field">
+                <%=f.text_field :last_name, class: 'form-control' %>
+                  <label for="lastName">Last Name</label>
+              </div>
+  
+              <div class="input-field">
+                <%=f.text_field :username, class: 'form-control' %>
+                  <label for="username">Username</label>
+              </div>
+  
+              <div class="input-field">
+                <%=f.email_field :email, class: 'form-control' %>
+                  <label for="email">Email</label>
+              </div>
+  
+              <div class="input-field">
+                <%=f.password_field :password, class: 'form-control' %>
+                  <label for="password">Password</label>
+              </div>
+  
+              <div class="input-field">
+                <%=f.password_field :password_confirmation, class: 'form-control' %>
+                  <label for="passwordConfirmation">Password Confirmation</label>
+              </div>
+  
+            <%=f.submit "Sign Up", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+        
+        
+      </div>
+    </div>
   </div>
 </div>
+            
+    
+    
