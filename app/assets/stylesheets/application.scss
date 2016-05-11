@@ -225,22 +225,19 @@ nav {
 	Profile Page/ Edit Profile Page
 -----------------------------------------------------------------*/
 
-.cardSize {
-  height:250px;
-}
-
-.editCardSize {
-  height:800px;
+.picIndent
+{
+  padding-left:12rem;
 }
 
 .pic {
   background:asset-url('cover_city.jpg');
-  width:25%;
-  height:25%;
+  width:15rem;
+  height:15rem;
   background-size: cover;
   position: absolute !important;
-  top: 10px;
-  left: 10px;
+  top: 25px;
+  left: 15px;
 }
 
 .rowTop {
@@ -257,6 +254,11 @@ nav {
   right: 0;  
   text-align:right;
   padding-right: 10px;
+}
+.flexProfile
+{
+  max-width:90rem;
+  margin: 0 auto;
 }
 
 /* ----------------------------------------------------------------
@@ -470,7 +472,6 @@ body {
 main {
     left: 0%;
     z-index: 2;
-    text-align: center;
     width: 100%;
     direction: ltr;
     position: fixed;
@@ -561,3 +562,4 @@ footer nav a:hover {
    height: 0;
    clear: both;
 }
+

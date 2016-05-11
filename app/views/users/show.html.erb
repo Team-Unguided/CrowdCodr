@@ -6,21 +6,38 @@
           <div class="card-image pic z-depth-3">
           </div>
       </div>
-            
-      <div class="col s8">
-          <div class="card back blue lighten-2">
+      
+      <div class="flexProfile">
+          <div class="card back picIndent z-depth-2">
             <div class="card-content black-text">
-              <span class="card-title"><i class="fa fa-user" aria-hidden="true"></i> About Me</span>
-              <h5 class="right"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</h5>
-              <p><%= @user.description %></p>
               <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-              <h6>Contact Details: </h6>
-              <h6><i class="fa fa-map-marker" aria-hidden="true"></i>  San Diego</h6>
+              
+            </div>
+        </div>
+      </div>
+      
+      
+      <div class="flexProfile">
+          <div class="card back picIndent z-depth-2">
+            <div class="card-content black-text">
+              <p><%= @user.description %></p>
             </div>
         </div>
       </div>
       
             <h3 class="center">Projects</h3>
+            
+      <div class="flexProfile">
+          <div class="card back z-depth-2">
+            <div class="card-content black-text">
+              <%= @listings.name %>
+              <br>
+              <%= @listings.languages %>
+            </div>
+        </div>
+      </div>
+            
+            
             <div class="row">
                 <table>
                   <thead>
