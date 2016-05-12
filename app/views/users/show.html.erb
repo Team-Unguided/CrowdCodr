@@ -53,12 +53,9 @@
           <% end %>
         </div>
     <% if logged_in? %>
-      <div class="row">
-        <div class="right tabBottom">
+      <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
           <%= link_to "+", new_listing_path, class: "btn-floating btn-large red" %>
             <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-          </a>
-        </div>
       </div>
     <% end %>
       
