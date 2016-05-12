@@ -1,7 +1,7 @@
 <%= form_for(@listing) do |f| %>
   <% if @listing.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
+      <h4><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h4>
 
       <ul>
       <% @listing.errors.full_messages.each do |message| %>
@@ -16,16 +16,24 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
+    <%= f.label 'About Me' %><br>
     <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label "Job Type", class: 'control-label'  %>
+    <%= f.text_field :job_type %>
   </div>
   <div class="field">
     <%= f.label :languages %><br>
     <%= f.text_field :languages %>
   </div>
   <div class="field">
-    <%= f.label :job_type %><br>
-    <%= f.text_field :job_type %>
+    <%= f.label :projects %><br>
+    <%= f.text_area :projects %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
   </div>
   <div class="actions">
     <%= f.submit %>

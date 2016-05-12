@@ -33,7 +33,7 @@ class ListingsController < ApplicationController
     #Possibly have the wrong functionality here, need to check database
     #corrected functionality!
     @listing.user_id = current_user.id
-
+    
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }
@@ -77,7 +77,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :languages, :job_type)
+      params.require(:listing).permit(:name, :description, :languages, :job_type, :projects, :price)
     end
     
     # Use to owner is editing or deleting

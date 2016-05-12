@@ -40,4 +40,7 @@ class User < ActiveRecord::Base
   
   #User association to Listings. Destroy listing if user is deleted.
   has_many :listings, dependent: :destroy
+  has_many :sales, class_name: "Order", foreign_key: "seller_id"
+  has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
+  
 end
