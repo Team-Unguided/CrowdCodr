@@ -1,11 +1,10 @@
 <!-- this is view for root/users/USERNAME -->
-
+<html>
 <p id="notice"><%= notice %></p>
-      <div class="col s2">
-          <div class="card-image pic z-depth-3">
-          </div>
+
+      <div class="card-image pic nomargin z-depth-3">
       </div>
-      
+        
       <div class="flexProfile">
           <div class="card back picIndent z-depth-2">
             <div class="card-content black-text">
@@ -23,84 +22,49 @@
       
       
       <div class="flexProfile">
-          <div class="card back picIndent z-depth-2">
-            <div class="card-content black-text">
-              <p><%= @user.description %></p>
-            </div>
+        <div class="card back picIndent z-depth-2">
+          <div class="card-content black-text">
+            <p><%= @user.description %></p>
+          </div>
         </div>
       </div>
       
       <div class="flexProfile">
           <div class="card back picIndent z-depth-2">
             <div class="card-content black-text">
-              
             </div>
         </div>
       </div>
       
             
-        <h3 class="center">Projects</h3>
-          <div class="flexProfile">
-              <div class="card back z-depth-2">
-                <div class="card-content black-text">
-                  <% @listings.each do |listing| %>
-                    <%if on_profile?(@user,listing) %>
-                      <h5><%= listing.name %> Listing Name</h5>
-                      <br>
-                      <h5><%= listing.description %> Description</h5>
-                      <br>
-                      <h5><%= listing.languages %> Java</h5>
-                      <br>
-                      <h5><%= listing.job_type %> Website</h5>
-                    <% end %>
-                  <br>
-                </div>
-              <% end %>
+      <h3 class="center">Projects</h3>
+        <div class="flexProfile">
+          <% @listings.each do |listing| %>
+            <div class="card back z-depth-2">
+              <div class="card-content black-text">
+                <%if on_profile?(@user,listing) %>
+                  <h5><%= listing.name %></h5>
+                  <h5><%= listing.description %></h5>
+                  <h5><%= listing.job_type %> </h5>
+                  <h5><%= listing.languages %> </h5>
+                <% end %>
+              </div>
             </div>
-          </div>
-          
-    <div class="right tabBottom">
-      <a class="btn-floating btn-large red">
-        <i class="fa fa-plus" aria-hidden="true"></i>
-      </a>
-    </div>
-    
+          <% end %>
+        </div>
+    <% if logged_in? %>
+      <div class="row">
+        <div class="right tabBottom">
+          <%= link_to "+", new_listing_path, class: "btn-floating btn-large red" %>
+            <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+          </a>
+        </div>
+      </div>
+    <% end %>
+      
 
             
-            <div class="row">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Name</th>
-                      <th>Description</th>
-                      <th>Languages</th>
-                      <th>Job type</th>
-                      <th colspan="3"></th>
-                    </tr>
-                  </thead>
-                
-                  <tbody>
-                    <% @listings.each do |listing| %>
-                      <tr>
-                        <%if on_profile?(@user,listing) %>
-                          <td><%= listing.name %></td>
-                          <td><%= listing.description %></td>
-                          <td><%= listing.languages %></td>
-                          <td><%= listing.job_type %></td>
-                          <td><%= link_to 'Show', listing %></td>
-                          <% if logged_in? %>
-                            <% if is_owner?(listing) %>
-                              <td><%= link_to 'Edit', edit_listing_path(listing) %></td>
-                              <td><%= link_to 'Destroy', listing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-                            <% end %>
-                          <% end %>
-                        <% end %>
-                      </tr>
-                    <% end %>
-                  </tbody>
-                </table>
-</div>
-
+            
    
    
   

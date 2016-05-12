@@ -301,8 +301,8 @@ i.icon-black {
   height:15rem;
   background-size: cover;
   position: absolute !important;
-  top: 25px;
-  left: 15px;
+  top: 1.5rem;
+  left: 3rem;
 }
 
 .rowTop {
@@ -323,12 +323,14 @@ i.icon-black {
 .flexProfile
 {
   max-width:90rem;
-  margin: 0 auto;
+  margin-right:5rem;
+  margin-left:5rem;
 }
 .tabBottom
 {
   bottom:0;
-  margin: 0 auto;
+  margin-right:5rem;
+  margin-bottom:4rem;
 }
 
 .profileBody
@@ -582,7 +584,8 @@ main.main section {
 	Footer
 -----------------------------------------------------------------*/
 
-footer.flex {
+footer.flex 
+{
   text-align: center;
   width: 100%;
   padding: 1em 10% 0;
@@ -595,20 +598,23 @@ footer.flex {
   background-color: #FFF !important;
 }
 
-footer nav {
+footer nav 
+{
     display: block;
     line-height: 2.3rem;
     direction: ltr;
 }
 
-footer .social>a {
+footer .social>a 
+{
     display: inline-block;
     padding: .6rem .5rem;
     color: #6c7980
 }
 
 footer nav a,
-footer nav a:hover {
+footer nav a:hover 
+{
     color: #6C7980;
     padding: .4rem;
     line-height: 1rem;
