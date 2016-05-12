@@ -11,6 +11,10 @@ Rails.application.routes.draw do
   get 'setting', to: 'pages#setting'
   resources :users
   resources :listings
+  get 'search', to: 'listings#index'
+   
+  
+
   
   resources :conversations do
     resources :messages
