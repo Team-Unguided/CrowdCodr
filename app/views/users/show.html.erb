@@ -53,11 +53,29 @@
                     <% end %>
                   </tbody>
                 </table>
+  <!-- Review section -->
          <h3 class="center">Reviews</h3>
          <%= render @user.reviews %>
          <div>
-           <%= link_to "Add Review", new_user_review_path(@user) %>
+           <% if logged_in? %>
+             <%= link_to "Add Review", new_user_review_path(@user) %>
+           <% else %>
+             <%= link_to "Add Review", login_path %>
+           <% end %>
          </div>
+         
+         <!-- Script tag for raty.js -->
+         <!-- readOnly so users can't update without proper permissions -->
+         <script>
+           $('.review-rating').raty({
+             readOnly: true,
+             score: function() {
+               return $(this).attr('data-score');
+             },
+             path: '/assets/'
+           });
+         </script>
+  <!-- End of Review Section -->
 </html>
    
    

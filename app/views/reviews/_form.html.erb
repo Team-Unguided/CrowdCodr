@@ -1,13 +1,21 @@
 <%= form_for([@user, @review]) do |f| %>
-  <div class="field">
-    <%= f.label :rating %><br>
-    <%= f.number_field :rating %>
-  </div>
+	<div id="rating-form">
+		<label>Rating</label>
+	</div>
+  <br>
   <div class="field">
     <%= f.label :comment %><br>
-    <%= f.text_field :comment %>
+    <%= f.text_area :comment %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+<!-- Script tag allows us to enter ratings as a star and update -->
+<script>
+	$('#rating-form').raty({
+		path: '/assets/',
+		scoreName: 'review[rating]'
+	});
+</script>

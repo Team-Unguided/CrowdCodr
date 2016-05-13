@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
 before_action :find_user
+before_action :find_review, only: [:edit, :update, :destroy]
 
   def new
     @review = Review.new
@@ -17,6 +18,22 @@ before_action :find_user
     end
   end
   
+  def destroy
+    @review.destroy
+    redirect_to user_path(@user)
+  end
+  
+  def edit
+  end
+  
+  def update
+    if @review.update(review_params)
+      redirect_to user_path(@user)
+    else
+      render 'edit'
+    end
+  end
+  
   private
   
     def review_params
@@ -25,6 +42,10 @@ before_action :find_user
   
     def find_user
       @user = User.find_by(id: params[:user_id])
+    end
+    
+    def find_review
+      @review = Review.find(params[:id])
     end
   
 end
