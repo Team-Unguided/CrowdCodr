@@ -2,19 +2,21 @@
 
 <p id="notice"><%= notice %></p>
 
-      <div class="col s2">
+<!--  <div class="col s2">
           <div class="card-image pic z-depth-3">
           </div>
-      </div>
+      </div> -->
             
       <div class="col s8">
           <div class="card back blue lighten-2">
             <div class="card-content black-text">
+              <%= image_tag @user.picture.url if @user.picture? %>
+              <%= image_tag "profile.jpg" if not @user.picture? %>
+              <h4><%= @user.first_name %> <%= @user.last_name %></h4>
               <span class="card-title"><i class="fa fa-user" aria-hidden="true"></i> About Me</span>
               <h5 class="right"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</h5>
               <p><%= @user.description %></p>
-              <h4><%= @user.first_name %> <%= @user.last_name %></h4>
-              <h6>Contact Details: </h6>
+              <h5>Contact Details: </h5>
               <h6><i class="fa fa-map-marker" aria-hidden="true"></i>  San Diego</h6>
             </div>
         </div>

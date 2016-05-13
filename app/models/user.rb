@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   # downcase email before adding User to database to avoid uniqueness errors
   before_save { self.email = email.downcase }
   
+  # use app/models/uploaders/picture_uploader.rb
+  # to upload pictures associated with :picture
+  mount_uploader :picture, PictureUploader
+  
   # VALIDATIONS
   
   # first_name cannot be empty or longer than 75 chars
@@ -20,14 +24,19 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 255 },
                               format: { with: VALID_EMAIL_REGEX },
                               uniqueness: { case_sensitive: false }
+  
   # adds Rails built-in secure password 
   has_secure_password
+  
   # password cannot be empty or shorter than 6 characters
   # ("allow_nil: true" lets users edit their info without changing password)
   # (still does not allow empty password for signup due to "has_secure_password")
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
+  validate  :picture_size
+  
   # Class method for User class
+  
   # Returns the hash digest of the given string.
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
@@ -43,4 +52,13 @@ class User < ActiveRecord::Base
   
   #User association to Listings. Destroy listing if user is deleted.
   has_many :listings, dependent: :destroy
+  
+  private
+
+    # Validates the size of an uploaded picture.
+    def picture_size
+      if picture.size > 5.megabytes
+        errors.add(:picture, "Profile pic cannot be more than 5MB in size")
+      end
+    end
 end
