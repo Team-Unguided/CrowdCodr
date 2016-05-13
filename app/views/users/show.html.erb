@@ -6,17 +6,17 @@
   <div class="card-image pic nomargin z-depth-3">
   </div>
     
-  <div class="flexProfile">
-      <div class="card back picIndent z-depth-2">
-        <div class="card-content black-text">
-          <h4>
-          <%= @user.first_name %> <%= @user.last_name %> 
+  <div class="flexProfile back">
+      <div class="card picIndent z-depth-2">
+        <div class="card-content">
+          <div class="profileTitle"><%= @user.first_name %> <%= @user.last_name %></div>
+          
           <a class="right tab" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
           
           <a class="right tab" href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
           
           <a class="right tab" href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
-          </h4>
+          
         </div>
     </div>
   </div>
@@ -61,10 +61,6 @@
           <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
     </div>
   <% end %>
-      
-
-            
-            
    
    
   

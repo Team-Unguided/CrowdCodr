@@ -330,6 +330,12 @@ i.icon-black {
   height:100%;
 }
 
+.profileTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
 
 /* ----------------------------------------------------------------
 	Home Page
@@ -645,7 +651,8 @@ footer nav a:hover
   overflow: hidden;
 }
 
-.tab 
-{ 
+.tab {
   margin-right: 1rem;
+  top: 50%;
+  position: relative;
 }
