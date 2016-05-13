@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   #Connects listing to Users, stating that user may have many listings
   #Deletes all the User's listings when User is deleted
-  has_many :listing, dependent: :destroy
+  has_many :listings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   # downcase email before adding User to database to avoid uniqueness errors
   before_save { self.email = email.downcase }
   
@@ -41,6 +42,4 @@ class User < ActiveRecord::Base
     User.where('first_name LIKE :search OR last_name LIKE :search OR username LIKE :search', search: "%#{search}%")
   end
   
-  #User association to Listings. Destroy listing if user is deleted.
-  has_many :listings, dependent: :destroy
 end

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   get 'listing', to: 'pages#listing'
   get 'edit', to: 'pages#edit'
   get 'setting', to: 'pages#setting'
-  resources :users
+  resources :users do
+    resources :reviews
+  end
   resources :listings
   
   resources :conversations do
