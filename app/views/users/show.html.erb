@@ -40,18 +40,18 @@
         
   <h3 class="center">Projects</h3>
   
-  <div class="flexProfile">
+  <div class="flexProfile flexProfile_last">
     <% @listings.each do |listing| %>
-      <div class="card back z-depth-2">
-        <div class="card-content black-text">
-          <%if on_profile?(@user,listing) %>
-            <h5><%= listing.name %></h5>
-            <h5><%= listing.description %></h5>
-            <h5><%= listing.job_type %> </h5>
-            <h5><%= listing.languages %> </h5>
-          <% end %>
+      <%if on_profile?(@user,listing) %>
+        <div class="card back z-depth-2">
+          <div class="card-content black-text">
+              <h5><%= listing.name %></h5>
+              <h5><%= listing.description %></h5>
+              <h5><%= listing.job_type %> </h5>
+              <h5><%= listing.languages %> </h5>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
   </div>
     
