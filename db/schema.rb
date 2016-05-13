@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505045558) do
+ActiveRecord::Schema.define(version: 20160513190349) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id",    limit: 4
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160505045558) do
     t.datetime "updated_at",                    null: false
     t.string   "password_digest", limit: 255
     t.text     "description",     limit: 65535
+    t.string   "picture",         limit: 255
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
