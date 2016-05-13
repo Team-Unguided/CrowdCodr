@@ -63,16 +63,6 @@
   text-align: center !important;
 }
 
-.clear {
-  clear: both;
-  display: block;
-  font-size: 0px;
-  height: 0px;
-  line-height: 0;
-  width: 100%;
-  overflow: hidden;
-}
-
 .right {
   float: right !important;
 }
@@ -557,7 +547,6 @@ main {
 
 main.main {
     background: #F4F5F6;
-    margin-top: 3.125rem;
 }
 
 main.main header .content-header span {
@@ -643,11 +632,14 @@ footer nav a:hover
 -----------------------------------------------------------------*/
 
 .clearfix {
-   content: " "; /* Older browser do not support empty content */
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
+  content: " "; /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  clear: both;
+  font-size: 0px;
+  line-height: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
 .tab 
