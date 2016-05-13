@@ -7,8 +7,8 @@ before_action :find_user
   
   def create
     @review = Review.new(review_params)
-    @review.subject_id = @user.id
-    @review.user_id = current_user.id
+    @review.subject_id = current_user.id
+    @review.user_id = @user.id
     
     if @review.save
       redirect_to user_path(@user)
@@ -24,7 +24,7 @@ before_action :find_user
     end
   
     def find_user
-      @user = User.find_by(params[:user_id])
+      @user = User.find_by(id: params[:user_id])
     end
   
 end

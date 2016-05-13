@@ -54,6 +54,7 @@
                   </tbody>
                 </table>
          <h3 class="center">Reviews</h3>
+         <%= render @user.reviews %>
          <div>
            <%= link_to "Add Review", new_user_review_path(@user) %>
          </div>

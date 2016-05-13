@@ -2,7 +2,12 @@ class User < ActiveRecord::Base
   #Connects listing to Users, stating that user may have many listings
   #Deletes all the User's listings when User is deleted
   has_many :listings, dependent: :destroy
+  
+  ########### Review ##########
+  #this would be the person the reviews are about
   has_many :reviews, dependent: :destroy
+  #this would be the person writing the reviews
+  has_many :judgements, :through => :reviews
   # downcase email before adding User to database to avoid uniqueness errors
   before_save { self.email = email.downcase }
   
