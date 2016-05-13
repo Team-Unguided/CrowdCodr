@@ -1,70 +1,66 @@
 <!-- this is view for root/users/USERNAME -->
 <html>
-<p id="notice"><%= notice %></p>
+  <div class="clearfix" style="height: 3.125rem"></div>
+  <p id="notice"><%= notice %></p>
 
-      <div class="card-image pic nomargin z-depth-3">
-      </div>
-        
-      <div class="flexProfile">
-          <div class="card back picIndent z-depth-2">
-            <div class="card-content black-text">
-              <h4>
-              <%= @user.first_name %> <%= @user.last_name %> 
-              <a class="right tab" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-              
-              <a class="right tab" href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
-              
-              <a class="right tab" href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
-              </h4>
-            </div>
+  <div class="card-image pic nomargin z-depth-3">
+  </div>
+    
+  <div class="flexProfile back">
+      <div class="card picIndent z-depth-2">
+        <div class="card-content">
+          <div class="profileTitle"><%= @user.first_name %> <%= @user.last_name %></div>
+          
+          <a class="right tab" href="#"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+          
+          <a class="right tab" href="#"><i class="fa fa-star" aria-hidden="true"></i></a>
+          
+          <a class="right tab" href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>
+          
         </div>
+    </div>
+  </div>
+  
+  
+  <div class="flexProfile">
+    <div class="card back picIndent z-depth-2">
+      <div class="card-content black-text">
+        <p><%= @user.description %></p>
       </div>
-      
-      
-      <div class="flexProfile">
-        <div class="card back picIndent z-depth-2">
+    </div>
+  </div>
+  
+  <div class="flexProfile">
+      <div class="card back picIndent z-depth-2">
+        <div class="card-content black-text">
+        </div>
+    </div>
+  </div>
+  
+        
+  <h3 class="center">Projects</h3>
+  
+  <div class="flexProfile flexProfile_last">
+    <% @listings.each do |listing| %>
+      <%if on_profile?(@user,listing) %>
+        <div class="card back z-depth-2">
           <div class="card-content black-text">
-            <p><%= @user.description %></p>
+              <h5><%= listing.name %></h5>
+              <h5><%= listing.description %></h5>
+              <h5><%= listing.job_type %> </h5>
+              <h5><%= listing.languages %> </h5>
           </div>
         </div>
-      </div>
-      
-      <div class="flexProfile">
-          <div class="card back picIndent z-depth-2">
-            <div class="card-content black-text">
-            </div>
-        </div>
-      </div>
-      
-            
-      <h3 class="center">Projects</h3>
-        <div class="flexProfile">
-          <% @listings.each do |listing| %>
-            <div class="card back z-depth-2">
-              <div class="card-content black-text">
-                <%if on_profile?(@user,listing) %>
-                  <h5><%= listing.name %></h5>
-                  <h5><%= listing.description %></h5>
-                  <h5><%= listing.job_type %> </h5>
-                  <h5><%= listing.languages %> </h5>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>
-    <% if logged_in? %>
-      <div class="row">
-        <div class="right tabBottom">
-          <%= link_to "+", new_listing_path, class: "btn-floating btn-large red" %>
-            <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-          </a>
-        </div>
-      </div>
+      <% end %>
     <% end %>
-      
-
-            
-            
+  </div>
+    
+  <% if logged_in? %>
+    <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
+        <%= link_to "+", new_listing_path, class: "btn-floating btn-large red" %>
+          <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+    </div>
+  <% end %>
    
    
   
