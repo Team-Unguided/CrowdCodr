@@ -29,6 +29,7 @@
           <%= @user.zipcode %>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
   
   
@@ -60,6 +61,18 @@
     <% end %>
   </div>
     
+  <h3 class="center" >Reviews</h3>
+  <%= render @user.reviews %>
+  <% if logged_in? %>
+    <div data-no-turbolink>
+      <%= link_to "Add Review", new_user_review_path(@user) %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to "Add Review", login_path %>
+    </div>
+  <% end %>
+
   <% if logged_in? %>
     <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
         <%= link_to "+", new_listing_path, class: "btn-floating btn-large red" %>
@@ -72,3 +85,19 @@
     accordion : true
   });
 </script>
+
+<!-- Script tag for raty.js -->
+<!-- readOnly so users can't update without proper permissions -->
+<script>
+  $('.review-rating').raty({
+    readOnly: true,
+    score: function() {
+    return $(this).attr('data-score');
+  },
+    path: '/assets/'
+  });
+</script>
+   
+   
+  
+>>>>>>> andyspace

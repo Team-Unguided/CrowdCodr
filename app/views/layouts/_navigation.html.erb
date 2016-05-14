@@ -1,6 +1,6 @@
 <div class="flex item-center">
 
-  <a href="home" class="content-header item-center font-primary t400">Blitz <sup class="alpha">ALPHA</sup></a>
+  <a href="<%= root_url %>" class="content-header item-center">Blitz <sup class="alpha">ALPHA</sup></a>
 
   <ul class="content-header" id="nav-mobile">
     
@@ -16,7 +16,7 @@
       
         <li>
           
-          <%=link_to "Log in", login_path %>
+          <%=link_to "Log in", login_path, :"data-no-turbolink" => true %>
           
         </li>
         
@@ -38,7 +38,7 @@
           
           <li>
             
-            <a href="home" id="logo-container" class="nomargin nopadding">
+            <a href="<%= root_url %>" id="logo-container" class="nomargin nopadding">
               
               <img src="../assets/profile-photo-placeholder.png" class="circle">
               
@@ -48,7 +48,7 @@
             
           </li>
           
-          <li><%= link_to "Profile", "/users/#{current_user.username}" %></li>
+          <li><%= link_to "Profile", user_path(current_user.username), :"data-no-turbolink" => true %></li>
           
           <li><%= link_to "Listings", listings_path %></li>
           

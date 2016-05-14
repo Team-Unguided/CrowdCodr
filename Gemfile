@@ -38,6 +38,8 @@ group :development do
   gem 'sunspot_solr'
 end
 
+#to help fix raty failed turbolink
+gem 'jquery-turbolinks'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
