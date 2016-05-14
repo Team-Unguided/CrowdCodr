@@ -1,32 +1,49 @@
-<div class="ui segment">
-  <h3>Mailbox</h3>
+<div class="profileSeparator" style="border: 0px"></div>
 
-  <div class="ui list">
-    <div class="item">
-      <% @conversations.each do |conversation| %>
-        <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
-          <% if conversation.sender_id == current_user.id %>
-            <% recipient = User.find(conversation.recipient_id) %>
-          <% else %>
-            <% recipient = User.find(conversation.sender_id) %>
-          <% end %>
-          <%= link_to recipient.first_name, conversation_messages_path(conversation)%>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-
-<div class="ui segment">
-  <h3>All Users</h3>
-  <div class="ui list">
-    <% @users.each do |user| %>
-      <% if user.id != current_user.id %>
-      <div class="item">
-        <%= user.username %> <%= link_to 'Message me!', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%>
-      </div>
+<div class="flexProfile card center z-depth-2 ">
+  <div class="card-title">Mailbox</div>
+  
+    <% @conversations.each do |conversation| %>
+      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+    
+        <div class="card-content card-project">
+          <div class="row text-left nomargin">
+            
+            <% if conversation.sender_id == current_user.id %>
+              <% recipient = User.find(conversation.recipient_id) %>
+            <% else %>
+              <% recipient = User.find(conversation.sender_id) %>
+            <% end %>
+            <%= link_to recipient.first_name, conversation_messages_path(conversation)%>
+  
+          </div>
+        </div>
+        
       <% end %>
     <% end %>
-  </div>
+</div>
+
+<div class="profileSeparator"></div>
+
+<div class="flexProfile flexProfile_last card center z-depth-2 ">
+  <div class="card-title">All Users</div>
+  
+    <% @users.each do |user| %>
+      <% if user.id != current_user.id %>
+    
+        <div class="card-content card-project">
+          <div class="row text-left nomargin">
+            <div class="col s11">
+              <%= user.username %> 
+            </div>
+            <div class="col s1">
+              <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' do %>
+                <i class="material-icons right">email</i>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        
+      <% end %>
+    <% end %>
 </div>
