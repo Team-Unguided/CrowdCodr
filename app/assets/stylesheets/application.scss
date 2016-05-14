@@ -399,6 +399,53 @@ i.icon-black {
   margin: 0 2rem;
   
 }
+
+/* ----------------------------------------------------------------
+	Chatting and Mailbox page
+-----------------------------------------------------------------*/
+
+.flexChatBox
+{
+  max-width:90rem;
+  margin:0 auto;
+  margin-top:1rem;
+}
+
+.chatBox
+{
+  border:1rem;
+  padding:1rem;
+}
+
+.nameBox
+{
+  border: 0.1rem solid black;
+  background-color:darkgrey;
+}
+
+.chatName
+{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  display:inline-block;
+  
+}
+
+.chatProfileButton
+{
+  float: right;
+  display: inline-block;
+  margin-top: 0.4rem;
+  margin-right: 0.1rem;
+}
+
+.fontsize
+{
+  font-size: 1.5rem;
+}
+
+
+
 /* ----------------------------------------------------------------
 	Home Page
 -----------------------------------------------------------------*/
@@ -722,3 +769,4 @@ footer nav a:hover
   top: 50%;
   position: relative;
 }
+
