@@ -160,6 +160,14 @@ a {
   font-family: 'Crete Round', serif;
 }
 
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
 .text-left {
   text-align: left;
   direction: ltr;
