@@ -275,17 +275,22 @@ i.icon-black {
 	Profile Page/ Edit Profile Page
 -----------------------------------------------------------------*/
 
-.picIndent
-{
-  padding-left:10rem;
+.card {
+  margin: 0.5rem 0 1rem 5rem;
+  padding-left: 10rem;
 }
 
-.pic {
-  background:asset-url('cover_city.jpg');
+.card-image {
   width:15rem;
   height:15rem;
   background-size: cover;
   position: absolute !important;
+  top: 138.75px;
+  transform: translateY(-50%);
+}
+
+.main-info {
+  min-height: 8rem;
 }
 
 .rowTop {
@@ -304,8 +309,7 @@ i.icon-black {
   padding-right: 10px;
 }
 
-.flexProfile
-{
+.flexProfile {
   max-width:90rem;
   margin:0 auto;
 }
@@ -314,40 +318,31 @@ i.icon-black {
   margin-bottom: 6.25rem;
 }
 
-.tabBottom
-{
+.tabBottom {
   bottom: 0;
   margin-right:5rem;
   margin-bottom:4rem;
 }
 
-.profileBody
-{
+.profileBody {
   position:absolute !important;
   width:100%;
   height:100%;
 }
 
-.profileTitle 
-{
+.profileTitle {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
   display: inline-block;
 }
 
-.profileInfo
-{
+.profileInfo {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  font-weight: 600 !important;
   margin:0 auto;
   max-width:90rem;
 }
-
-.cardMargin
-{
-  margin-left:5rem;
-}
-
-
-
 
 /* ----------------------------------------------------------------
 	Home Page

@@ -4,30 +4,37 @@
   <p id="notice"><%= notice %></p>
   <div class="profileInfo back">
   
-      <div class="card-image pic z-depth-3">
+    <div class="card-image z-depth-3">
+      <% if @user.picture? %>
+        <%= image_tag(@user.picture.url, :size => "225x225")%>
+      <% else %>
+        <%= image_tag "profile.jpg", :size => "225x225" %>
+      <% end %>
+    </div>
+      
+    <div class="card picIndent back z-depth-2">
+      <div class="card-content">
+        <div class="profileTitle"><%= @user.first_name %> <%= @user.last_name %></div>
+          <a class="right tab" href="home"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+          <a class="right tab" href="home"><i class="fa fa-star" aria-hidden="true"></i></a>
+          <a class="right tab" href="home"><i class="fa fa-phone" aria-hidden="true"></i></a>
       </div>
-        
-        <div class="card picIndent cardMargin back z-depth-2">
-          <div class="card-content">
-            <div class="profileTitle"><%= @user.first_name %> <%= @user.last_name %></div>
-              <a class="right tab" href="home"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-              <a class="right tab" href="home"><i class="fa fa-star" aria-hidden="true"></i></a>
-              <a class="right tab" href="home"><i class="fa fa-phone" aria-hidden="true"></i></a>
-          </div>
-        </div>
-      
-        <div class="card back cardMargin picIndent z-depth-2">
-          <div class="card-content black-text">
-            <h5>Location</h5>
-          </div>
-        </div>
-      
-          <div class="card back cardMargin picIndent z-depth-2">
-            <div class="card-content black-text">
-              <p><%= @user.description %></p>
-            </div>
-        </div>
-      
+    </div>
+  
+    <div class="card back picIndent z-depth-2">
+      <div class="card-content main-info">
+        Location
+      </div>
+    </div>
+  
+  
+    <ul class="card back picIndent z-depth-2 collapsible-profile" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header cardmargin"> More Info </div>
+        <div class="collapsible-body"><p><%= @user.description %></p></div>
+      </li>
+    </ul>
+
   </div>
   
         
@@ -54,6 +61,9 @@
           <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
     </div>
   <% end %>
-   
-   
   
+<script>
+  $('.collapsible-profile').collapsible({
+    accordion : true
+  });
+</script>
