@@ -24,7 +24,10 @@
     <div class="card back picIndent z-depth-2">
       <div class="card-content main-info">
         Location:
-        <i class="fa fa-map-marker" aria-hidden="true"><%= @user.zipcode %></i>
+        <div class="font-body t400 ls2">
+          <i class="fa fa-map-marker" aria-hidden="true"></i>
+          <%= @user.zipcode %>
+        </div>
       </div>
     </div>
   
