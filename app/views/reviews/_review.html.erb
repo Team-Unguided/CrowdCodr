@@ -1,9 +1,9 @@
-<div class="review-rating" data-score="<%= review.rating %>"></div>
+<div class="review-rating" data-score="<%= review.rating %>" ></div>
 <p> <%= review.comment %> </p>
 
 <% if logged_in? %>
   <% if current_user.id == review.subject_id %>
-    <%= link_to "Edit", edit_user_review_path(review.user, review) %>
+    <%= link_to "Edit", edit_user_review_path(review.user_id, review), :"data-no-turbolink" => true %>
     <%= link_to "Delete", user_review_path(review.user, review), method: :delete,
                                     data: { confirm: "Are you sure?" } %>
   <% end %>

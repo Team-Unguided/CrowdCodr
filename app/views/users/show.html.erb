@@ -54,12 +54,14 @@
                   </tbody>
                 </table>
   <!-- Review section -->
-         <h3 class="center">Reviews</h3>
+         <h3 class="center" >Reviews</h3>
          <%= render @user.reviews %>
-         <div>
-           <% if logged_in? %>
+         <% if logged_in? %>
+           <div data-no-turbolink>
              <%= link_to "Add Review", new_user_review_path(@user) %>
-           <% else %>
+           </div>
+         <% else %>
+           <div>
              <%= link_to "Add Review", login_path %>
            <% end %>
          </div>

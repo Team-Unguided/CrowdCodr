@@ -1,6 +1,7 @@
 <%= form_for([@user, @review]) do |f| %>
-	<div id="rating-form">
-		<label>Rating</label>
+
+	<label>Rating</label>
+	<div id="rating-form" data-no-turbolink>
 	</div>
   <br>
   <div class="field">
@@ -11,11 +12,10 @@
     <%= f.submit %>
   </div>
 <% end %>
-
 <!-- Script tag allows us to enter ratings as a star and update -->
 <script>
-	$('#rating-form').raty({
-		path: '/assets/',
-		scoreName: 'review[rating]'
-	});
+  	$('#rating-form').raty({
+  		path: '/assets/',
+  		scoreName: 'review[rating]'
+  	});
 </script>
