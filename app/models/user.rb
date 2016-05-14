@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
   VALID_ZIP_REGEX = /[0-9][0-9][0-9][0-9][0-9]/i
-  validates :zipcode, format: { with: VALID_ZIP_REGEX }
+  validates :zipcode, format: { with: VALID_ZIP_REGEX }, allow_nil: true
   
   validate  :picture_size
   
