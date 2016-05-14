@@ -12,6 +12,11 @@ class UsersController < ApplicationController
     redirect_to(root_url) unless @user || @userid
     #stores user if id was used to find user
     @user = @userid if @userid
+    if @user.reviews.blank?
+      @average_review = 0
+    else
+      @average_review = @user.reviews.average(:rating).round(2)
+    end
   end
   
   def new

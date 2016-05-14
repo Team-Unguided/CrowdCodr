@@ -14,6 +14,10 @@
               <h5 class="right"><i class="fa fa-pencil" aria-hidden="true"></i> Edit</h5>
               <p><%= @user.description %></p>
               <h4><%= @user.first_name %> <%= @user.last_name %></h4>
+              <!-- Review Code -->
+              <div class="average-review-rating" data-score=<%= @average_review %>></div>
+              <span>Based on <%= @user.reviews.count %> reviews</span>
+              <!-- End of Review Code -->
               <h6>Contact Details: </h6>
               <h6><i class="fa fa-map-marker" aria-hidden="true"></i>  San Diego</h6>
             </div>
@@ -66,7 +70,7 @@
            <% end %>
          </div>
          
-         <!-- Script tag for raty.js -->
+         <!-- Script tag for raty.js for each indvidual review-->
          <!-- readOnly so users can't update without proper permissions -->
          <script>
            $('.review-rating').raty({
@@ -77,6 +81,17 @@
              path: '/assets/'
            });
          </script>
+         
+          <!-- Script tag for raty.js for User's average rating-->
+          <script>
+            $('.average-review-rating').raty({
+          		readOnly: true,
+          		path: '/assets/',
+          		score: function() {
+          			return $(this).attr('data-score')
+          		}
+          	});
+          </script>
   <!-- End of Review Section -->
 </html>
    
