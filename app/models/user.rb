@@ -33,7 +33,12 @@ class User < ActiveRecord::Base
   # (still does not allow empty password for signup due to "has_secure_password")
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   
+  VALID_ZIP_REGEX = /[0-9][0-9][0-9][0-9][0-9]/i
+  validates :zipcode, format: { with: VALID_ZIP_REGEX }
+  
   validate  :picture_size
+  
+  
   
   # Class method for User class
   

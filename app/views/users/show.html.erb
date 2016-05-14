@@ -23,7 +23,8 @@
   
     <div class="card back picIndent z-depth-2">
       <div class="card-content main-info">
-        Location
+        Location:
+        <i class="fa fa-map-marker" aria-hidden="true"><%= @user.zipcode %></i>
       </div>
     </div>
   
@@ -50,6 +51,7 @@
               <h5><%= listing.job_type %> </h5>
               <h5><%= listing.languages %> </h5>
           </div>
+
         </div>
       <% end %>
     <% end %>

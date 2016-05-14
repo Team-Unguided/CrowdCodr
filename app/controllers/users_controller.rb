@@ -67,7 +67,8 @@ class UsersController < ApplicationController
     #for users#update
     def user_params_edit
       params.require(:user).permit(:first_name, :last_name, :email, :description,
-                                   :password, :password_confirmation, :picture)
+                                   :password, :password_confirmation, :picture,
+                                   :zipcode)
     end
 
 # BEFORE ACTIONS
