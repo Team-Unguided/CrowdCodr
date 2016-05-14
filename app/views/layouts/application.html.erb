@@ -11,6 +11,7 @@
   <%= render 'layouts/navigation' %>
 </header>
 <main class="main" id="main">
+  <div class="clear" style="height: 3.125rem"></div>
   <% flash.each do |message_type, message| %>
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>

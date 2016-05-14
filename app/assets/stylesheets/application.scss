@@ -75,6 +75,11 @@ nobg {
   top:0%;
 }
 
+.front {
+  position: relative;
+  z-index: 1000;
+}
+
 .back
 {
   position:relative;
@@ -153,6 +158,15 @@ a {
 
 .font-secondary {
   font-family: 'Crete Round', serif;
+}
+
+.text-left {
+  text-align: left;
+  direction: ltr;
+}
+
+.text-right {
+  text-align: right;
 }
 
 /* ----------------------------------------------------------------
@@ -275,7 +289,7 @@ i.icon-black {
 	Profile Page/ Edit Profile Page
 -----------------------------------------------------------------*/
 
-.card {
+.card-info {
   margin: 0.5rem 0 1rem 5rem;
   padding-left: 10rem;
 }
@@ -287,6 +301,23 @@ i.icon-black {
   position: absolute !important;
   top: 138.75px;
   transform: translateY(-50%);
+}
+
+.card-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.card-project {
+  border-top: 1px solid rgba(160,160,160,0.2);
+}
+
+.card-review {
+  border-top: 1px solid rgba(160,160,160,0.2);
+  padding: 1rem;
 }
 
 .main-info {
@@ -344,6 +375,30 @@ i.icon-black {
   max-width:90rem;
 }
 
+.profileSeparator {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  width: 100%;
+  margin: 2rem;
+}
+
+.profileMenuButton {
+  float: right;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(25%);
+}
+
+.dropdown-menu {
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.0);
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
+}
+
+.dropdown-btn {
+  float: right;
+  margin: 0 2rem;
+  
+}
 /* ----------------------------------------------------------------
 	Home Page
 -----------------------------------------------------------------*/
@@ -631,17 +686,21 @@ footer nav a:hover
 	Buttons / Toggles
 -----------------------------------------------------------------*/
 
-.btn-center-relative{
+.btn-center-relative {
   position: relative;
   text-align: center;
 }
 
-.btn-enlarge{
+.btn-enlarge {
   padding: 0 !important;
   width: 100%;
   margin: 1.5rem 0 0 0;
 }
 
+.btn-tooltip {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+}
 
 /* ----------------------------------------------------------------
 	Misc.
