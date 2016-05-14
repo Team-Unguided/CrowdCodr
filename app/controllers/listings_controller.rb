@@ -8,14 +8,27 @@ class ListingsController < ApplicationController
   
   # GET /listings
   # GET /listings.json
+  
   def index
     @listings = Listing.all
+    @query = Listing.search do
+        fulltext params[:query]
+    end
+  @listings = @query.results
   end
 
   # GET /listings/1
   # GET /listings/1.json
   def show
   end
+  
+  # Search listings
+  #def search
+  #@query = Listing.search do
+   #     fulltext params[:query]
+   # end
+  #@listings = @query.results
+  #end
 
   # GET /listings/new
   def new

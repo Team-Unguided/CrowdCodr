@@ -4,4 +4,11 @@ class Listing < ActiveRecord::Base
     
     #Listing association to User
     belongs_to :user
+    
+    #searching
+    searchable do
+       text :name, :boost => 2
+       text :description, :job_type, :languages 
+    end
+    
 end
