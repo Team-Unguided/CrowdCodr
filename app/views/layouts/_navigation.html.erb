@@ -1,6 +1,6 @@
 <div class="flex item-center">
 
-  <a href="home" class="content-header item-center font-primary t400">Blitz <sup class="alpha">ALPHA</sup></a>
+  <a href="<%= root_url %>" class="content-header item-center">Blitz <sup class="alpha">ALPHA</sup></a>
 
   <ul class="content-header" id="nav-mobile">
     
@@ -16,7 +16,7 @@
       
         <li>
           
-          <%=link_to "Log in", login_path %>
+          <%=link_to "Log in", login_path, :"data-no-turbolink" => true %>
           
         </li>
         
@@ -38,23 +38,27 @@
           
           <li>
             
-            <a href="home" id="logo-container" class="nomargin nopadding">
+            <a href="<%= root_url %>" id="logo-container" class="nomargin nopadding">
               
-              <img src="../assets/profile-photo-placeholder.png" class="circle">
+              <% if current_user.picture? %>
+                <%= image_tag(current_user.picture.url, :size => "240x240")%>
+              <% else %>
+                <%= image_tag "profile.jpg", :size => "240x240" %>
+              <% end %>     
               
-              <div class="name"></div>
+              <div class="profileTitle uppercase"><%= current_user.first_name %> <%= current_user.last_name %></div>
               
             </a>
             
           </li>
           
-          <li><%= link_to "Profile", "/users/#{current_user.username}" %></li>
+          <li><%= link_to "Profile", user_path(current_user.username), :"data-no-turbolink" => true %></li>
           
           <li><%= link_to "Listings", listings_path %></li>
           
           <li><%= link_to "Mailbox", conversations_path, class: "item" %></li>
           
-          <li><%= link_to "Settings", "/users/edit" %></li>
+          <li><%= link_to "Settings", edit_user_path(current_user.id) %></li>
           
         </ul>
         

@@ -13,17 +13,20 @@
     <% end %>
     
     <!--<section class="bg-img">-->
-        <form class="col s12 hcenter vcenter">
+
+        <%= form_for :search, :url => search_url, :html => { :class => 'col s12 hcenter vcenter', :method => :get } do  %>
             <div class="bg">
                 <div class="input-field border-right hcenter col s4 bg-left nomargin">
-                    <input placeholder="I'm looking for..." id="listing" type="text" class="validate nomargin">
+                    <%= text_field_tag :query, params[:query], placeholder: "I'm looking for..." %>
                 </div>
                 <div class="input-field border-right hcenter col s2 bg-last nomargin">
                     <input placeholder="ZIP" id="zipcode" type="text" class="validate nomargin">
                 </div>
-                <a class="waves-effect waves-light center-align btn home hcenter col s1 btn-padding"><i class="material-icons icon-black">search</i></a>
+                <a><%= submit_tag "search", class: "waves-effect waves-light center-align btn home hcenter col s1 btn-padding material-icons icon-black" %> </a>
             </div>
-        </form>
+        <% end %>
+        
         <div class="clear"></div>
+        
     </section>
 </body>
