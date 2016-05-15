@@ -384,7 +384,10 @@ i.icon-black {
   transform: translateY(25%);
 }
 
-
+.profileImageEdit {
+  transform: translateY(-120%);
+  padding-left: 0.5rem;
+}
 .profileTitle {
   font-family: 'Montserrat', sans-serif;
   font-size: 1.5rem;
