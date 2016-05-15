@@ -1,6 +1,5 @@
 <!-- this is view for root/users/USERNAME -->
 <html>
-  <p id="notice"><%= notice %></p>
   <div class="profileInfo back">
   
     <div class="card-image z-depth-3">
@@ -21,10 +20,16 @@
       
         <ul id='profile-menu' class='dropdown-content dropdown-menu'>
           <%= link_to edit_user_path(current_user.id), class: "dropdown-btn" do %>
-            <i class="fa fa-pencil" aria-hidden="true"></i>
+            <i class="material-icons tooltipped"
+               data-position="top" 
+               data-tooltip="Edit Profile"
+               data-delay="20">mode_edit</i>
           <% end %>
           <%= link_to conversations_path, class: "dropdown-btn" do %>
-            <i class="fa fa-phone" aria-hidden="true"></i>
+            <i class="material-icons tooltipped"
+               data-position="top" 
+               data-tooltip="Message"
+               data-delay="20">chat</i>
           <% end %>
         </ul>
         
@@ -44,8 +49,23 @@
     
     <ul class="card card-info back picIndent z-depth-2 collapsible-profile" data-collapsible="accordion">
       <li>
-        <div class="collapsible-header cardmargin"> More Info </div>
-        <div class="collapsible-body"><p><%= @user.description %></p></div>
+        <div class="collapsible-header cardmargin tooltipped"
+             data-position="right" 
+             data-tooltip="Click to Expand"
+             data-delay="20"> More Info </div>
+        <div class="collapsible-body">
+          <div class="profileSubtitle">Introduction:</div>
+          <div class="profileBodyText"><%= @user.description %></div>
+          <div class="profileSeparator nopadding nomargin"></div>
+          <div class="profileSubtitle">Performance:</div>
+          <div class="row">
+            <div class="col s6 profileBodyText">
+              <p class="average-review-rating" data-score=<%= @average_review %>>
+              </p>
+              Based on <%= @user.reviews.count %> review(s).
+            </div>
+        </div>
+        
       </li>
     </ul>
   </div>
@@ -97,6 +117,7 @@
     
       <%= render @user.reviews %>
       
+      <% if current_user.id != @user.id %>
       <div class="card-review">
         <% if logged_in? %>
           <div data-no-turbolink>
@@ -108,18 +129,15 @@
           </div>
         <% end %>
       </div>
+      <% end %>
       <% if logged_in? %>
-        <div class="fixed-action-btn horizontal" style="bottom: 5.5rem; right: 24px;">
+        <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
           <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
-            <i class="material-icons">add</i>
+            <i class="material-icons tooltipped" 
+               data-position="left" 
+               data-tooltip="New Project"
+               data-delay="50">add</i>
           <% end %>
-          <ul>
-            <li>
-              <span class="btn-tooltip">
-                New Project
-              </span>
-            </li>
-          </ul>
         </div>
       <% end %>
   </div>
@@ -142,6 +160,18 @@
     path: '/assets/'
   });
 </script>
+
+<!-- Script tag for raty.js for User's average rating-->
+<script>
+  $('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>
+
 
 <script>
 $('.profile-menu').dropdown({

@@ -1,6 +1,11 @@
-<h1>Editing Listing</h1>
+<div class="profileSeparator" style="border: 0px"></div>
 
-<%= render 'form' %>
+<div class="flexProfile card center z-depth-2 ">
+  <div class="card-title">Edit Listing</div>
 
-<%= link_to 'Show', @listing %> |
-<%= link_to 'Back', listings_path %>
+  <%= render 'form' %>
+  
+  <div class="card-review">
+    <%= link_to 'Back', listings_path %>
+  </div>
+</div>

@@ -1,33 +1,29 @@
 <%= form_for(@listing) do |f| %>
   <% if @listing.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@listing.errors.count, "error") %> prohibited this listing from being saved:</h2>
-
-      <ul>
+      <script type="text/javascript">
+        Materialize.toast('There are <%= pluralize(@listing.errors.count, "error") %> that prohibited this listing from being saved', 4000, 'form-error-toast')
+      </script>
       <% @listing.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+            <script type="text/javascript">
+              Materialize.toast('<%= message %>', 4000, 'form-error-toast')
+            </script>
       <% end %>
-      </ul>
-    </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :languages %><br>
-    <%= f.text_field :languages %>
-  </div>
-  <div class="field">
-    <%= f.label :job_type %><br>
-    <%= f.text_field :job_type %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="card-content card-project">
+      <div class="profileTitle text-left row nomargin" style="width: 100%">
+        <div class="col s12" style="font-size: 15px;">
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+            <%= f.label :description %>
+            <%= f.text_area :description %>
+            <%= f.label :languages %>
+            <%= f.text_field :languages %>
+            <%= f.label :job_type %>
+            <%= f.text_field :job_type %>
+        </div>
+        <%= button_tag(:class => "btn waves-effect waves-light hcenter vcenter") do %>
+          Submit <i class="material-icons right">send</i>
+        <% end %>
+      </div>
+    </div>
 <% end %>
