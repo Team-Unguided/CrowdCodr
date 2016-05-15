@@ -417,26 +417,13 @@ i.icon-black {
   max-width:90rem;
   margin:0 auto;
   margin-top:1rem;
+  position:relative;
 }
 
 .chatBox
 {
   border:1rem;
   padding:1rem;
-}
-
-.nameBox
-{
-  border: 0.1rem solid black;
-  background-color:darkgrey;
-}
-
-.chatName
-{
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  display:inline-block;
-  
 }
 
 .chatProfileButton
@@ -451,6 +438,30 @@ i.icon-black {
 {
   font-size: 1.5rem;
 }
+
+.userChat
+{
+  margin-left:40rem;
+}
+
+.recepientChat
+{
+  margin-right:40rem;
+}
+
+.toBottom
+{
+  bottom:3rem;
+  position:fixed;
+  width:90rem;
+  margin:0 auto;
+}
+
+.messagesBlock
+{
+  margin-bottom:8rem;
+}
+
 
 
 
