@@ -52,14 +52,15 @@ class UsersController < ApplicationController
     end
   end
   
+  
   def index #for searching
     @users = User.all
-    #filter users by search term, and sort by time created
-    if params[:search]
-      @users = User.search(params[:search]).order("created_at DESC") 
-      else
-      @users = User.all.order('created_at DESC')
+    
+    @query = Sunspot.search User do
+      fulltext params[:query]
     end
+    @users = @query.results
+    
   end
   
   private

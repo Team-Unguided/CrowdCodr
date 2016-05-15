@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     resources :reviews
   end
   resources :listings
-  get 'search', to: 'listings#index'
+  get 'search', to: 'users#index'
    
   
 
