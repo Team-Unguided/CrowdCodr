@@ -117,6 +117,7 @@
     
       <%= render @user.reviews %>
       
+      <% if current_user.id != @user.id %>
       <div class="card-review">
         <% if logged_in? %>
           <div data-no-turbolink>
@@ -128,6 +129,7 @@
           </div>
         <% end %>
       </div>
+      <% end %>
       <% if logged_in? %>
         <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
           <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
