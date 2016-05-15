@@ -40,9 +40,13 @@
             
             <a href="<%= root_url %>" id="logo-container" class="nomargin nopadding">
               
-              <img src="../assets/profile-photo-placeholder.png" class="circle">
+              <% if current_user.picture? %>
+                <%= image_tag(current_user.picture.url, :size => "240x240")%>
+              <% else %>
+                <%= image_tag "profile.jpg", :size => "240x240" %>
+              <% end %>     
               
-              <div class="name"></div>
+              <div class="profileTitle uppercase"><%= current_user.first_name %> <%= current_user.last_name %></div>
               
             </a>
             

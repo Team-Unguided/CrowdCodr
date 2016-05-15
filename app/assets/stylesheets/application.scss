@@ -75,6 +75,11 @@ nobg {
   top:0%;
 }
 
+.front {
+  position: relative;
+  z-index: 1000;
+}
+
 .back
 {
   position:relative;
@@ -153,6 +158,23 @@ a {
 
 .font-secondary {
   font-family: 'Crete Round', serif;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.text-left {
+  text-align: left;
+  direction: ltr;
+}
+
+.text-right {
+  text-align: right;
 }
 
 /* ----------------------------------------------------------------
@@ -275,7 +297,7 @@ i.icon-black {
 	Profile Page/ Edit Profile Page
 -----------------------------------------------------------------*/
 
-.card {
+.card-info {
   margin: 0.5rem 0 1rem 5rem;
   padding-left: 10rem;
 }
@@ -287,6 +309,23 @@ i.icon-black {
   position: absolute !important;
   top: 138.75px;
   transform: translateY(-50%);
+}
+
+.card-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.card-project {
+  border-top: 1px solid rgba(160,160,160,0.2);
+}
+
+.card-review {
+  border-top: 1px solid rgba(160,160,160,0.2);
+  padding: 1rem;
 }
 
 .main-info {
@@ -324,18 +363,6 @@ i.icon-black {
   margin-bottom:4rem;
 }
 
-.profileBody {
-  position:absolute !important;
-  width:100%;
-  height:100%;
-}
-
-.profileTitle {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
-  display: inline-block;
-}
-
 .profileInfo {
   font-family: 'Open Sans', sans-serif;
   font-size: 1rem;
@@ -343,6 +370,108 @@ i.icon-black {
   margin:0 auto;
   max-width:90rem;
 }
+
+.profileSeparator {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  width: 100%;
+  margin: 2rem;
+}
+
+.profileMenuButton {
+  float: right;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(25%);
+}
+
+.profileImageEdit {
+  transform: translateY(-120%);
+  padding-left: 0.5rem;
+}
+.profileTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  display: inline-block;
+}
+
+.profileSubtitle {
+  display: block;
+  min-height: 3rem;
+  line-height: 3rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+.profileBodyText {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  padding: 0 2rem;
+  margin-bottom: 20px;
+}
+
+.dropdown-menu {
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.0);
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
+}
+
+.dropdown-btn {
+  float: right;
+  margin: 0 2rem;
+}
+
+.average-review-rating {
+  display: inline-block;
+  padding: 0 2rem !important;
+}
+
+/* ----------------------------------------------------------------
+	Chatting and Mailbox page
+-----------------------------------------------------------------*/
+
+.flexChatBox
+{
+  max-width:90rem;
+  margin:0 auto;
+  margin-top:1rem;
+}
+
+.chatBox
+{
+  border:1rem;
+  padding:1rem;
+}
+
+.nameBox
+{
+  border: 0.1rem solid black;
+  background-color:darkgrey;
+}
+
+.chatName
+{
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.5rem;
+  display:inline-block;
+  
+}
+
+.chatProfileButton
+{
+  float: right;
+  display: inline-block;
+  margin-top: 0.4rem;
+  margin-right: 0.1rem;
+}
+
+.fontsize
+{
+  font-size: 1.5rem;
+}
+
+
 
 /* ----------------------------------------------------------------
 	Home Page
@@ -556,6 +685,7 @@ main {
     left: 0%;
     z-index: 2;
     width: 100%;
+    min-height: 100%;
     direction: ltr;
     position: absolute;
     display: block;
@@ -580,6 +710,11 @@ main.main section {
 /* ----------------------------------------------------------------
 	Overlays / Modals / Notifications (toast)
 -----------------------------------------------------------------*/
+
+.form-error-toast {
+  @extend .red, .accent-2;
+}
+
 
 /* ----------------------------------------------------------------
 	Footer
@@ -631,17 +766,21 @@ footer nav a:hover
 	Buttons / Toggles
 -----------------------------------------------------------------*/
 
-.btn-center-relative{
+.btn-center-relative {
   position: relative;
   text-align: center;
 }
 
-.btn-enlarge{
+.btn-enlarge {
   padding: 0 !important;
   width: 100%;
   margin: 1.5rem 0 0 0;
 }
 
+.btn-tooltip {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+}
 
 /* ----------------------------------------------------------------
 	Misc.
@@ -663,3 +802,4 @@ footer nav a:hover
   top: 50%;
   position: relative;
 }
+
