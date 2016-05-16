@@ -27,8 +27,10 @@
         <td><%= user.email %></td>
         <td><%= user.zipcode %></td>
         <td><%= link_to "Profile", user_path(user.username), :"data-no-turbolink" => true %></td>
-        <% if user.id != current_user.id %>
-          <td><%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%></td>
+        <% if logged_in? %>
+          <% if user.id != current_user.id %>
+            <td><%= link_to 'Message', conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post'%></td>
+          <% end %>
         <% end %>
       </tr>
     <% end %>
