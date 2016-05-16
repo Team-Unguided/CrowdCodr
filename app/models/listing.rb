@@ -7,7 +7,7 @@ class Listing < ActiveRecord::Base
     
     #searching
     searchable do
-       text :name, :boost => 2
+       text :name
        text :description, :job_type, :languages 
     end
     

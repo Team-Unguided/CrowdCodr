@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   #Deletes all the User's listings when User is deleted
   has_many :listings, dependent: :destroy
   
+  
+  
   ########### Review ##########
   #this would be the person the reviews are about
   has_many :reviews, dependent: :destroy
@@ -14,6 +16,8 @@ class User < ActiveRecord::Base
   # use app/models/uploaders/picture_uploader.rb
   # to upload pictures associated with :picture
   mount_uploader :picture, PictureUploader
+  
+  
   
   # VALIDATIONS
   
@@ -57,12 +61,33 @@ class User < ActiveRecord::Base
   
   # Class method for User
   # Searches first_name, last_name and user_name text fields
-  def self.search(search)
-    User.where('first_name LIKE :search OR last_name LIKE :search OR username LIKE :search', search: "%#{search}%")
+  #SEARCH
+  searchable do
+    text :first_name
+    text :last_name
+    text :username
+    
+   
+    
+    text :name do
+      listings.map { |listing| listing.name}
+    end
+    
+    text :description do
+      listings.map { |listing| listing.description}
+    end
+    text :job_type do
+      listings.map { |listing| listing.job_type}
+    end
+    text :languages do
+      listings.map { |listing| listing.languages}
+    end
+
+    
   end
   
   #User association to Listings. Destroy listing if user is deleted.
-  has_many :listings, dependent: :destroy
+  #has_many :listings, dependent: :destroy
   
   private
 

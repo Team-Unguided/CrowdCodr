@@ -11,10 +11,10 @@ class ListingsController < ApplicationController
   
   def index
     @listings = Listing.all
-    @query = Listing.search do
-        fulltext params[:query]
-    end
-  @listings = @query.results
+    #@query = Listing.search do
+   #     fulltext params[:query]
+   #end
+  #@listings = @query.results
   end
 
   # GET /listings/1
@@ -22,14 +22,6 @@ class ListingsController < ApplicationController
   def show
   end
   
-  # Search listings
-  #def search
-  #@query = Listing.search do
-   #     fulltext params[:query]
-   # end
-  #@listings = @query.results
-  #end
-
   # GET /listings/new
   def new
     @listing = Listing.new

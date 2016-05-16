@@ -1,3 +1,11 @@
-<h1>New Review</h1>
+<div class="profileSeparator" style="border: 0px"></div>
 
-<%= render 'form' %>
+<div class="flexProfile card center z-depth-2 ">
+  <div class="card-title">New Review</div>
+
+    <%= render 'form' %>
+
+  <div class="card-review">
+    <%= link_to 'Back', user_path(@user) %>
+  </div>
+</div>
