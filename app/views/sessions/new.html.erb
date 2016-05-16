@@ -6,7 +6,7 @@
 
 <!-- login and sign up tabs -->
 
-<div class="row hcenter vcenter">
+<div class="row hcenter vcenter" style="position: fixed; padding-bottom: 3.125rem;">
   <div class="col s12 m6 nomargin">
     <div class="card">
       
@@ -23,9 +23,9 @@
       
       <div class="card-content">
         <div id="test1">
-          <%= form_for(:session, url: login_path) do |f| %>
           <div class="row">
-            <form class="col s12">
+            <div class="col s12">
+              <%= form_for(:session, url: login_path) do |f| %>
                 <!--<i class="material-icons prefix">account_circle</i>-->
                 <i class="fa fa-user fa-2x login-label-margin" aria-hidden="true"></i>
                 <%= f.label :username %>
@@ -38,13 +38,9 @@
                 <div class="btn-center-relative">
                   <%= f.submit "Log in", class: "btn-large btn-primary btn-enlarge" %>
                 </div>
-            </form>
-          <% end %>
-        </div>
-
-          
-          <!--<p>New user? <%= link_to "Sign up now!", signUp_path %></p> -->
-          <!-- ^^^^^^ NEEDS TO BE DELETED>?????  ^^^^ -->
+              <% end %>
+            </div>
+          </div>
         </div>
         
         <div id="test2">
