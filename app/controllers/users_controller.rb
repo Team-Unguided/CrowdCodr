@@ -34,7 +34,8 @@ class UsersController < ApplicationController
 
     # if insertion failed because of invalid input(s)
     else
-      render 'new'
+      render 'sessions/new'
+      #redirect_to login_path(anchor: 'signupTab')
     end
   end
   
