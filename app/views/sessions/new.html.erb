@@ -24,7 +24,7 @@
       <div class="card-content">
         <div id="test1">
           <div class="row">
-            <form class="col s12">
+            <div class="col s12">
               <%= form_for(:session, url: login_path) do |f| %>
                 <!--<i class="material-icons prefix">account_circle</i>-->
                 <i class="fa fa-user fa-2x login-label-margin" aria-hidden="true"></i>
@@ -39,10 +39,10 @@
                   <%= f.submit "Log in", class: "btn-large btn-primary btn-enlarge" %>
                 </div>
               <% end %>
-            </form>
+            </div>
           </div>
         </div>
-        
+        <!-- signup code goes here -->
         <div id="test2">
           <%=form_for(@user) do |f| %>
             <%=render 'shared/error_messages' %>
