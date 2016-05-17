@@ -19,11 +19,13 @@
         </a>
       
         <ul id='profile-menu' class='dropdown-content dropdown-menu'>
-          <%= link_to edit_user_path(current_user.id), class: "dropdown-btn" do %>
-            <i class="material-icons tooltipped"
-               data-position="top" 
-               data-tooltip="Edit Profile"
-               data-delay="20">mode_edit</i>
+          <% if current_user %>
+            <%= link_to edit_user_path(current_user.id), class: "dropdown-btn" do %>
+              <i class="material-icons tooltipped"
+                 data-position="top" 
+                 data-tooltip="Edit Profile"
+                 data-delay="20">mode_edit</i>
+            <% end %>
           <% end %>
           <%= link_to conversations_path, class: "dropdown-btn" do %>
             <i class="material-icons tooltipped"
@@ -117,7 +119,8 @@
     
       <%= render @user.reviews %>
       
-      <% if current_user.id != @user.id %>
+      
+      <% if current_user and current_user.id != @user.id %>
       <div class="card-review">
         <% if logged_in? %>
           <div data-no-turbolink>
