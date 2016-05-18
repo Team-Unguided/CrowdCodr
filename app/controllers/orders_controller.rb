@@ -43,11 +43,11 @@ def create
     end
 
 
-    transfer = Stripe::Transfer.create(
-      :amount => (@listing.price * 95).floor,
-      :currency => "usd",
-      :destination => @seller.recipient
-      )
+    # transfer = Stripe::Transfer.create(
+    #   :amount => (@listing.price * 95).floor,
+    #   :currency => "usd",
+    #   :destination => @seller.recipient
+    #   )
 
     respond_to do |format|
       if @order.save
