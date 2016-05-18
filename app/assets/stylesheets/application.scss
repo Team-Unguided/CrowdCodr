@@ -63,6 +63,10 @@
   text-align: center !important;
 }
 
+.left {
+  float: left !important;
+}
+
 .right {
   float: right !important;
 }
@@ -234,6 +238,10 @@ nav {
   width: 80%;
 }
 
+.search-margin {
+  margin: 1rem 0;
+}
+
 .bg {
     color: black;
     background-color: #FFF;
@@ -317,7 +325,7 @@ i.icon-black {
 
 .card-title {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1.5rem;
+  font-size: 18px;
   font-weight: 500;
   padding: 1.5rem;
   text-align: left;
@@ -369,7 +377,7 @@ i.icon-black {
 
 .profileInfo {
   font-family: 'Open Sans', sans-serif;
-  font-size: 1rem;
+  font-size: 12px;
   font-weight: 600 !important;
   margin:0 auto;
   max-width:90rem;
@@ -394,7 +402,7 @@ i.icon-black {
 }
 .profileTitle {
   font-family: 'Montserrat', sans-serif;
-  font-size: 1.5rem;
+  font-size: 18px;
   display: inline-block;
 }
 
@@ -459,7 +467,7 @@ i.icon-black {
 
 .fontsize
 {
-  font-size: 1.5rem;
+  font-size: 12px;
 }
 
 .userChat
@@ -485,9 +493,6 @@ i.icon-black {
   margin-bottom:8rem;
 }
 
-
-
-
 /* ----------------------------------------------------------------
 	Home Page
 -----------------------------------------------------------------*/
@@ -496,7 +501,7 @@ i.icon-black {
 {
   position: absolute;
   font-family: 'Open Sans', sans-serif;
-  font-size: 3rem;
+  font-size: 46px;
   padding: 0 0 10rem 0;
 }
 
@@ -624,7 +629,7 @@ ul.content-header,
     color: #000;
     cursor: pointer;
     margin: 0 -.27rem 0 0;
-    font-size: 1.1rem;
+    font-size: 14px;
     height: 1.5rem;
     vertical-align: top
 }
@@ -662,7 +667,7 @@ ul.content-header,
     padding: 0.7rem 1.4rem 1rem;
     color: #FFF;
     margin: 0 -.27rem 0 0;
-    font-size: 1.2rem;
+    font-size: 12px;
     height: 1.5rem;
     vertical-align: top
 }
@@ -769,12 +774,8 @@ footer nav a:hover
     color: #6C7980;
     padding: .4rem;
     line-height: 1rem;
-    font-size: .8rem;
+    font-size: 12px;
     display: inline-block
-}
-
-.copyright {
-  font-size: .6rem;
 }
 
 /* ----------------------------------------------------------------

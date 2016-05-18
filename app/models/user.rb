@@ -62,17 +62,16 @@ class User < ActiveRecord::Base
   # Class method for User
   # Searches first_name, last_name and user_name text fields
   #SEARCH
-  searchable do
+  searchable :auto_index => true, :auto_remove => true do
     text :first_name
     text :last_name
     text :username
+    integer :zipcode
     
-   
-    
+    # associate fields from listings
     text :name do
       listings.map { |listing| listing.name}
     end
-    
     text :description do
       listings.map { |listing| listing.description}
     end
@@ -83,6 +82,14 @@ class User < ActiveRecord::Base
       listings.map { |listing| listing.languages}
     end
 
+    # average review score for sort
+    float :avg_review do
+      if reviews.blank?
+        avg_review = 0
+      else
+        avg_review = reviews.average(:rating).round(2)
+      end
+    end
     
   end
   

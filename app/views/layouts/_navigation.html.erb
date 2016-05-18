@@ -38,7 +38,7 @@
           
           <li>
             
-            <a href="<%= root_url %>" id="logo-container" class="nomargin nopadding">
+            <a href="<%= user_path(current_user.username) %>" id="logo-container" class="nomargin nopadding">
               
               <% if current_user.picture? %>
                 <%= image_tag(current_user.picture.url, :size => "240x240")%>
@@ -54,7 +54,7 @@
           
           <li><%= link_to "Profile", user_path(current_user.username), :"data-no-turbolink" => true %></li>
           
-          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Users", users_path, :"data-no-turbolink" => true %></li>
           
           <li><%= link_to "Mailbox", conversations_path, class: "item" %></li>
           
