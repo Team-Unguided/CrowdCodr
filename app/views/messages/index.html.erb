@@ -1,7 +1,3 @@
-<% if @over_ten %>
-   <%= link_to 'Show Previous', '?m=all' %>
-<% end %>
-
 <div class="flexProfile card z-depth-2">
   <div class="card-title center"><%= @sender.first_name %> <%= @sender.last_name %>
     <%= link_to user_path(@conversation.sender_id), class: "chatProfileButton" do %>
