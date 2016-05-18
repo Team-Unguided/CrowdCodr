@@ -6,7 +6,7 @@
     <% @conversations.each do |conversation| %>
       <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
         <%= link_to conversation_messages_path(conversation) do %>
-        <div class="card-content card-project">
+        <div class="card-content card-project hoverable">
           <div class="row text-left vcenter nomargin">
             <% if conversation.sender_id == current_user.id %>
               <% recipient = User.find(conversation.recipient_id) %>
@@ -38,7 +38,7 @@
     <% @users.each do |user| %>
       <% if user.id != current_user.id %>
         <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' do %>
-          <div class="card-content card-project">
+          <div class="card-content card-project hoverable">
             <div class="row text-left vcenter nomargin">
               <div class="col s1">
                 <% if user.picture? %>
