@@ -17,7 +17,7 @@
         <%= form_for :search, :url => search_url, :html => { :class => 'col s12 hcenter vcenter', :method => :get } do  %>
             <div class="bg">
                 <div class="input-field border-right hcenter col s4 bg-left nomargin">
-                    <%= text_field_tag :query, params[:query], placeholder: "I'm looking for..." %>
+                    <%= text_field_tag(:query, params[:query], placeholder: "I'm looking for...", class: "nomargin") %>
                 </div>
                 <div class="input-field border-right hcenter col s2 bg-last nomargin">
                     <input placeholder="ZIP" id="zipcode" type="text" class="validate nomargin">

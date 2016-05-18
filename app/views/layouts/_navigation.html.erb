@@ -38,7 +38,7 @@
           
           <li>
             
-            <a href="<%= root_url %>" id="logo-container" class="nomargin nopadding">
+            <a href="<%= user_path(current_user.username) %>" id="logo-container" class="nomargin nopadding">
               
               <% if current_user.picture? %>
                 <%= image_tag(current_user.picture.url, :size => "240x240")%>
