@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '3.1.7'
 
+
+
 # CarrierWave for uploading images
 gem 'carrierwave', '0.10.0'
 # mini_magick for image resizing
