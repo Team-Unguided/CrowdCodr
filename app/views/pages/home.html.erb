@@ -20,7 +20,7 @@
                     <%= text_field_tag(:query, params[:query], placeholder: "I'm looking for...", class: "nomargin") %>
                 </div>
                 <div class="input-field border-right hcenter col s2 bg-last nomargin">
-                    <input placeholder="ZIP" id="zipcode" type="text" class="validate nomargin">
+                    <%= number_field_tag(:zipcode, params[:zipcode], placeholder: "ZIP", class: "nomargin") %>
                 </div>
                 <a><%= submit_tag "search", class: "waves-effect waves-light center-align btn home hcenter col s1 btn-padding material-icons icon-black" %> </a>
             </div>

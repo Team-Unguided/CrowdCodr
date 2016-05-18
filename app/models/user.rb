@@ -66,6 +66,7 @@ class User < ActiveRecord::Base
     text :first_name
     text :last_name
     text :username
+    integer :zipcode
     
     # associate fields from listings
     text :name do

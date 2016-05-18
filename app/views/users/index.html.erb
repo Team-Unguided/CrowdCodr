@@ -1,12 +1,14 @@
+<div class="profileSeparator" style="border: 0px"></div>
+
 <!-- Search bar -->
-<div class="flexProfile card">
+<div class="flexProfile card z-depth-2" style="padding: 0 20px;">
   <div class="row">
     <%= form_for :search, :url => search_url, :html => { :method => :get } do %>
-      <div class="col s11">
-      <%= text_field_tag :query, params[:query], placeholder: "Search for..." %>
+      <div class="col s11 search-margin">
+      <%= text_field_tag :query, params[:query], placeholder: "Search for...", class: 'nomargin' %>
       </div>
-      <div class="col s1">
-        <%= button_tag(:class => "btn waves-effect waves-light hcenter vcenter nomargin nopadding") do %>
+      <div class="col s1 profileMenuButton">
+        <%= button_tag(:class => "btn profileMenuButton") do %>
           <i class="material-icons right nopadding nomargin">send</i>
         <% end %>
       </div>
@@ -14,16 +16,14 @@
   </div>
 </div>
 
-<div class="profileSeparator" style="border: 0px"></div>
-
-<div class="flexProfile card center z-depth-2 ">
+<div class="flexProfile card center z-depth-2">
   <% @users.each do |user| %>
     <% if user.reviews.blank?
       avg_review = 0
     else
      avg_review = user.reviews.average(:rating).round(2)
     end %>
-    <div class="card-content card-project hoverable">
+    <div class="card-content card-project hoverable" style="padding-right: 0px">
       <div class="row text-left nomargin">
         <div class="col s1">
           <% if user.picture? %>
@@ -44,7 +44,7 @@
             </div>
           </div>
           <div class="col s2">
-            <p class="average-review-rating right" data-score=<%= avg_review %>>
+            <p class="average-review-rating right nopadding nomargin" data-score=<%= avg_review %>>
             </p>
             <% if logged_in? %>
               <% if user.id != current_user.id %>
