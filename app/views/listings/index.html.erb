@@ -35,7 +35,7 @@
 <br>
 
 <% if logged_in? %>
-  <%= link_to 'New Listing', new_listing_path %>
+  <%= link_to 'New Listing', new_listing_path, class: "btn btn-link", data: { no_turbolink: true } %>
 <% else %>
  <%= link_to 'New Listing', login_path %>
 <% end %>

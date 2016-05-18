@@ -34,6 +34,20 @@ class ListingsController < ApplicationController
     #corrected functionality!
     @listing.user_id = current_user.id
     
+      require "stripe"
+      Stripe.api_key = ENV["STRIPE_API_KEY"]
+      token = params[:stripeToken]
+
+      recipient = Stripe::Account.create(
+        :managed => false,
+        :country => 'US',
+        :email => current_user.email,
+        :bank_account => token
+        )
+
+      current_user.recipient = recipient.id
+      current_user.save
+    
     respond_to do |format|
       if @listing.save
         format.html { redirect_to @listing, notice: 'Listing was successfully created.' }

@@ -28,6 +28,7 @@ def create
     @order.seller_id = @seller.id
 
     Stripe.api_key = ENV["STRIPE_API_KEY"]
+
     token = params[:stripeToken]
 
     begin
@@ -40,7 +41,14 @@ def create
     rescue Stripe::CardError => e
       flash[:danger] = e.message
     end
-    
+
+
+    transfer = Stripe::Transfer.create(
+      :amount => (@listing.price * 95).floor,
+      :currency => "usd",
+      :destination => @seller.recipient
+      )
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to root_url }
