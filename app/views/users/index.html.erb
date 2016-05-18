@@ -33,7 +33,7 @@
           <% end %>
         </div>
         <div class="col s11">
-          <div class="col s11">
+          <div class="col s10">
             <span class="profileTitle"><%= user.first_name %> <%= user.last_name %> ( <%= user.username %> )</span>
             <div class="font-body t400 ls2">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
@@ -43,8 +43,9 @@
               <%= user.description %>
             </div>
           </div>
-          <div class="col s1">
-            <span> <%= avg_review %> </span>
+          <div class="col s2">
+            <p class="average-review-rating right" data-score=<%= avg_review %>>
+            </p>
             <% if logged_in? %>
               <% if user.id != current_user.id %>
                 <%= link_to conversations_path, class: "dropdown-btn" do %>
