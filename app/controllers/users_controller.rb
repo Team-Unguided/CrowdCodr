@@ -58,6 +58,7 @@ class UsersController < ApplicationController
     
     @query = User.search do
       fulltext params[:query] # full text search
+      with(:zipcode, params[:zipcode]) if (params[:zipcode]).present?
       order_by :avg_review, :desc # sort by avg review score
     end
     @users = @query.results
