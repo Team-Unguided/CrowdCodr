@@ -1,32 +1,37 @@
 <body>
-    <div class="clear"></div>
-    
-    <% if greet(Time.new.hour) == "Good Morning" %>
-        <section class="bg-img morning">
-            <div class="col s12 greeting morning ls2 hcenter vcenter "> <%= greet(Time.new.hour) %></div>
-    <% elsif greet(Time.new.hour) == "Good Afternoon" %>
-        <section class="bg-img afternoon">
-            <div class="col s12 greeting afternoon ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
-    <% else %>
-        <section class="bg-img night">
-            <div class="col s12 greeting night ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
-    <% end %>
-    
-    <!--<section class="bg-img">-->
+  <div class="clear"></div>
+  
+  <% if greet(Time.new.hour) == "Good Morning" %>
+      <section class="bg-img morning">
+          <div class="col s12 greeting morning ls2 hcenter vcenter "> <%= greet(Time.new.hour) %></div>
+  <% elsif greet(Time.new.hour) == "Good Afternoon" %>
+      <section class="bg-img afternoon">
+          <div class="col s12 greeting afternoon ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
+  <% else %>
+      <section class="bg-img night">
+          <div class="col s12 greeting night ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
+  <% end %>
+  
+  <!--<section class="bg-img">-->
 
-        <%= form_for :search, :url => search_url, :html => { :class => 'col s12 hcenter vcenter', :method => :get } do  %>
-            <div class="bg">
-                <div class="input-field border-right hcenter col s4 bg-left nomargin">
-                    <%= text_field_tag(:query, params[:query], placeholder: "I'm looking for...", class: "nomargin") %>
-                </div>
-                <div class="input-field border-right hcenter col s2 bg-last nomargin">
-                    <%= number_field_tag(:zipcode, params[:zipcode], placeholder: "ZIP", class: "nomargin") %>
-                </div>
-                <a><%= submit_tag "search", class: "waves-effect waves-light center-align btn home hcenter col s1 btn-padding material-icons icon-black" %> </a>
-            </div>
+  <%= form_for :search, :url => search_url, :html => { :class => 'col s12 hcenter vcenter', :method => :get } do  %>
+    <div class="bg row nomargin">
+        <div class="input-field border-right hcenter col s8 nomargin">
+            <%= text_field_tag(:query, params[:query], placeholder: "I'm looking for...", class: "nomargin") %>
+            <span class="character-counter" style="position: absolute; float: left; font-size: 12px; height: 1px;">(e.g. name, programming language, etc.)</span>
+        </div>
+        <div class="input-field border-right hcenter col s2 nomargin">
+            <%= number_field_tag(:zipcode, params[:zipcode], placeholder: "ZIP", class: "nomargin center", type: "text", length: "5") %>
+        </div>
+      <div class="col s2 search-btn-wrapper valign-wrapper">
+        <%= button_tag(:class => "btn-flat waves-effect waves-light white search-btn hcenter vcenter") do %>
+          <i class="material-icons right nopadding nomargin">search</i>
         <% end %>
-        
-        <div class="clear"></div>
-        
-    </section>
+      </div>
+    </div>
+  <% end %>
+  
+  <div class="clear"></div>
+      
+  </section>
 </body>

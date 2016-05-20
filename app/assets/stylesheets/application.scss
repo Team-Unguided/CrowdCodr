@@ -246,7 +246,7 @@ nav {
     color: black;
     background-color: #FFF;
     opacity: 0.9;
-    padding: 0.7rem 1.1rem;
+    padding: 0.9rem 1.1rem;
 }
 
 .bg-left {
@@ -303,6 +303,19 @@ nav {
 
 .icon-black {
     color: black;
+}
+
+.search-btn-wrapper {
+  float: right;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(20%);
+}
+
+.search-btn {
+  color: black;
+  background-color: #FFF;
+  opacity: 0.9;
 }
 
 /* ----------------------------------------------------------------
