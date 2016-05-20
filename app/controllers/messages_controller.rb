@@ -2,6 +2,7 @@ class MessagesController < ApplicationController
     before_action do
         @conversation = Conversation.find(params[:conversation_id])
         @sender = User.find(@conversation.sender_id)
+        @recipient = User.find(@conversation.recipient_id)
     end
 
 def index

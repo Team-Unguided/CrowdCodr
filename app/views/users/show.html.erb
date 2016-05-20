@@ -13,27 +13,28 @@
     <div class="card card-info picIndent back z-depth-2">
       <div class="card-content">
         <div class="profileTitle"><%= @user.first_name %> <%= @user.last_name %></div>
-
-        <a class='profile-menu profileMenuButton' href='#' data-activates='profile-menu'>
-          <i class="material-icons">more_vert</i>
-        </a>
-      
-        <ul id='profile-menu' class='dropdown-content dropdown-menu'>
-          <% if current_user %>
-            <%= link_to edit_user_path(current_user.id), class: "dropdown-btn" do %>
-              <i class="material-icons tooltipped"
-                 data-position="top" 
-                 data-tooltip="Edit Profile"
-                 data-delay="20">mode_edit</i>
+        <% if logged_in? %>
+          <a class='profile-menu profileMenuButton' href='#' data-activates='profile-menu'>
+            <i class="material-icons">more_vert</i>
+          </a>
+        
+          <ul id='profile-menu' class='dropdown-content dropdown-menu'>
+            <% if current_user?(@user) %>
+              <%= link_to edit_user_path(current_user.id), class: "dropdown-btn" do %>
+                <i class="material-icons tooltipped"
+                   data-position="top" 
+                   data-tooltip="Edit Profile"
+                   data-delay="20">mode_edit</i>
+              <% end %>
             <% end %>
-          <% end %>
-          <%= link_to conversations_path, class: "dropdown-btn" do %>
-            <i class="material-icons tooltipped"
-               data-position="top" 
-               data-tooltip="Message"
-               data-delay="20">chat</i>
-          <% end %>
-        </ul>
+            <%= link_to conversations_path, class: "dropdown-btn" do %>
+                <i class="material-icons tooltipped"
+                   data-position="top" 
+                   data-tooltip="Message"
+                   data-delay="20">chat</i>
+              <% end %>
+          </ul>
+        <% end %>
         
           
       </div>
@@ -104,7 +105,7 @@
                 <%= listing.languages %>
               </div>
             </div>
-            <% if current_user.id == @user.id %>
+            <% if current_user?(@user) %>
               <div class="right">
                 <span class="right"><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %></span>
                 <span class="right tab"><%= link_to "Edit", edit_listing_path(listing) %></span>

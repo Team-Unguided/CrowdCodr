@@ -1,7 +1,15 @@
 <div class="flexProfile card z-depth-2">
-  <div class="card-title center"><%= @sender.first_name %> <%= @sender.last_name %>
-    <%= link_to user_path(@conversation.sender_id), class: "chatProfileButton" do %>
-            <i class="fa fa-user fontsize" aria-hidden="true"></i>
+  <div class="card-title center">
+    <% if current_user?(@recipient) %>
+      <%= @sender.first_name %> <%= @sender.last_name %>
+      <%= link_to user_path(@conversation.sender_id), class: "chatProfileButton" do %>
+              <i class="fa fa-user fontsize" aria-hidden="true"></i>
+      <% end %>
+    <% else %>
+      <%= @recipient.first_name %> <%= @recipient.last_name %>
+      <%= link_to user_path(@conversation.recipient_id), class: "chatProfileButton" do %>
+              <i class="fa fa-user fontsize" aria-hidden="true"></i>
+      <% end %>
     <% end %>
   </div>
   <div class="messagesBlock">
@@ -38,7 +46,7 @@
       <div class="row">
         <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
             <div class="col s11">
-              <%= f.text_area :body, class: "form-control" %>
+              <%= f.text_area :body, class: "materialize-textarea", :id => "textarea1"%>
             </div>
               <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
             <div class="col s1">
@@ -49,3 +57,6 @@
     </div>
 </div>
   
+<script>
+  $('#textarea1').trigger('autoresize');
+</script>
