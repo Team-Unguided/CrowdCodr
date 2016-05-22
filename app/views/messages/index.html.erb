@@ -42,21 +42,27 @@
     <% end %>
   <% end %>
   </div>
-    <div class="toBottom card">
-      <div class="row">
-        <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
-            <div class="col s11">
-              <%= f.text_area :body, class: "materialize-textarea", :id => "textarea1"%>
-            </div>
-              <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
-            <div class="col s1">
-              <%= f.submit "Reply", class: "btn blue" %>
-            </div>
-        <% end %>
-      </div>
-    </div>
 </div>
-  
+<div class="toBottom card centeralign nomargin z-depth-2">
+  <div class="row nomargin">
+    <%= form_for [@conversation, @message], html: {class: "ui reply form"} do |f| %>
+          <%= f.text_area :body, class: "materialize-textarea", placeholder: "Type a message...(Enter to submit)", :id => "textarea1"%>
+          <%= f.text_field :user_id, value: current_user.id, type: "hidden"  %>
+    <% end %>
+  </div>
+</div>
+    
 <script>
   $('#textarea1').trigger('autoresize');
+</script>
+
+<script>
+  $(document).ready(function() {
+    $('#textarea1').keydown(function(event) {
+        if (event.keyCode == 13) {
+            this.form.submit();
+            return false;
+         }
+    });
+});
 </script>

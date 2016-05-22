@@ -53,7 +53,7 @@
         Introduction:
         <div class="font-body t400 ls2">
           <%= f.label :description, "Profile Description" %>
-          <%= f.text_area :description %>
+          <%= f.text_area :description, class: "materialize-textarea", :id => "textarea1" %>
         </div>
       </div>
     </div>
@@ -79,3 +79,6 @@
   });
 </script>
 
+<script>
+  $('#textarea1').trigger('autoresize');
+</script>

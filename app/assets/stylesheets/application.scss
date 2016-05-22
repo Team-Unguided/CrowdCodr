@@ -495,15 +495,24 @@ nav {
 
 .toBottom
 {
-  bottom:3rem;
-  position:fixed;
-  width:90rem;
-  margin:0 auto;
+  width: 100%;
+  padding: 1em 7.5rem;
+  clear: both;
+  position: fixed;
+  bottom: 3rem;
+  max-width: none;
+  z-index: 2;
+  background-color: #FFF !important;
+  
+  // bottom:3rem;
+  // position:fixed;
+  // width:90rem;
+  // margin:0 auto;
 }
 
 .messagesBlock
 {
-  margin-bottom:8rem;
+  margin-bottom: 13.5rem;
 }
 
 /* ----------------------------------------------------------------

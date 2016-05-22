@@ -6,7 +6,7 @@
 	      <div id="rating-form" data-no-turbolink>
         </div>
           <%= f.label :comment %><br>
-          <%= f.text_area :comment %>
+          <%= f.text_area :comment, class: "materialize-textarea", :id => "textarea1"%>
         </div>
         <%= button_tag(:class => "btn waves-effect waves-light hcenter vcenter") do %>
           Submit <i class="material-icons right">send</i>
@@ -20,4 +20,8 @@
   		path: '/assets/',
   		scoreName: 'review[rating]'
   	});
+</script>
+
+<script>
+  $('#textarea1').trigger('autoresize');
 </script>
