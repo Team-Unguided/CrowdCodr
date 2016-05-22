@@ -3,12 +3,15 @@
     <% if current_user?(@recipient) %>
       <%= @sender.first_name %> <%= @sender.last_name %>
       <%= link_to user_path(@conversation.sender_id), class: "chatProfileButton" do %>
-              <i class="fa fa-user fontsize" aria-hidden="true"></i>
+              <i class="fa fa-user" aria-hidden="true"></i>
       <% end %>
     <% else %>
       <%= @recipient.first_name %> <%= @recipient.last_name %>
       <%= link_to user_path(@conversation.recipient_id), class: "chatProfileButton" do %>
-              <i class="fa fa-user fontsize" aria-hidden="true"></i>
+              <i class="material-icons tooltipped right nomargin nopadding"
+                 data-position="left" 
+                 data-tooltip="View Profile"
+                 data-delay="20">perm_identity</i>
       <% end %>
     <% end %>
   </div>
