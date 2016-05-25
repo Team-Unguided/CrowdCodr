@@ -98,6 +98,11 @@ class User < ActiveRecord::Base
       end
     end
     
+    #review count
+    integer :review_count do
+      reiew_count = reviews.count
+    end
+    
   end
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
