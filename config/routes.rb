@@ -16,6 +16,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'signUp', to: 'users#new'
   get 'listing', to: 'pages#listing'
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
   get 'edit', to: 'pages#edit'
   get 'setting', to: 'pages#setting'
   resources :users

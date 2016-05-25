@@ -1,0 +1,21 @@
+<div class="center">
+  <h2>Purchase History</h2>
+</div>
+
+<table class="table table-striped table-bordered">
+  <tr>
+    <th class="center">Service</th>
+    <th class="center">Price</th>
+    <th class="center">Seller</th>
+    <th class="center">Date Purchased</th>
+  </tr>
+
+  <% @orders.each do |order| %>
+    <tr>
+      <td class="center"><%= order.listing.job_type %></td>
+      <td class="center"><%= number_to_currency(order.listing.price) %></td>
+      <td class="center"><%= order.seller.first_name + " " + order.seller.last_name %></td>
+      <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+    </tr>
+  <% end %>
+</table>
