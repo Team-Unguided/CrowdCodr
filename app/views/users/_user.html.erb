@@ -2,49 +2,50 @@
       avg_review = 0
     else
      avg_review = user.reviews.average(:rating).round(2)
-    end %>
-    <a href="<%= user_path(user.username) %>">
-      <div class="card-content card-project hoverable" style="padding-right: 0px">
-        <div class="row text-left nomargin">
-          <div class="col s1">
-            <% if user.picture? %>
-              <%= image_tag(user.picture.url, :size => "80x80")%>
-            <% else %>
-              <%= image_tag "profile.jpg", :size => "80x80" %>
-            <% end %>
+end %>
+
+<a href="<%= user_path(user.username) %>">
+  <div class="card-content card-project hoverable" style="padding-right: 0px">
+    <div class="row text-left nomargin">
+      <div class="col s1">
+        <% if user.picture? %>
+          <%= image_tag(user.picture.url, :size => "80x80")%>
+        <% else %>
+          <%= image_tag "profile.jpg", :size => "80x80" %>
+        <% end %>
+      </div>
+      <div class="col s11">
+        <div class="col s10">
+          <span class="profileTitle"><%= user.first_name %> <%= user.last_name %> ( <%= user.username %> )</span>
+          <div class="font-body t400 ls2">
+            <i class="fa fa-map-marker" aria-hidden="true"></i>
+            <%= user.zipcode %>
           </div>
-          <div class="col s11">
-            <div class="col s10">
-              <span class="profileTitle"><%= user.first_name %> <%= user.last_name %> ( <%= user.username %> )</span>
-              <div class="font-body t400 ls2">
-                <i class="fa fa-map-marker" aria-hidden="true"></i>
-                <%= user.zipcode %>
-              </div>
-              <div class="profileBodyText nomargin truncate" style="padding-left: 0px;">
-                <%= user.description %>
-              </div>
-            </div>
-            <div class="col s2">
-              <p class="average-review-rating right nopadding nomargin" data-score=<%= avg_review %>>
-              </p>
-              <% if logged_in? %>
-                <% if user.id != current_user.id %>
-                  <%= link_to conversations_path, class: "dropdown-btn" do %>
-                    <i class="material-icons tooltipped"
-                       data-position="right" 
-                       data-tooltip="Message"
-                       data-delay="20">chat</i>
-                  <% end %>
-                <% end %>
-              <% end %>
-              <!--
-                <p class="right nopadding nomargin">
-                <% @user = user %>
-                <%= render 'follow_form' if logged_in? %>
-              </p>
-              -->
-            </div>
+          <div class="profileBodyText nomargin truncate" style="padding-left: 0px;">
+            <%= user.description %>
           </div>
         </div>
+        <div class="col s2">
+          <p class="average-review-rating right nopadding nomargin" data-score=<%= avg_review %>>
+          </p>
+          <% if logged_in? %>
+            <% if user.id != current_user.id %>
+              <%= link_to conversations_path, class: "dropdown-btn" do %>
+                <i class="material-icons tooltipped"
+                   data-position="right" 
+                   data-tooltip="Message"
+                   data-delay="20">chat</i>
+              <% end %>
+            <% end %>
+          <% end %>
+          <!--
+            <p class="right nopadding nomargin">
+            <% @user = user %>
+            <%= render 'follow_form' if logged_in? %>
+          </p>
+          -->
+        </div>
       </div>
-    </a>
+    </div>
+  </div>
+</a>
