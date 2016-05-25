@@ -12,7 +12,12 @@
       
     <div class="card card-info picIndent back z-depth-2">
       <div class="card-content">
-        <div class="profileTitle"><%= @user.first_name %> <%= @user.last_name %></div>
+        <div class="profileTitle">
+          <%= @user.first_name %> <%= @user.last_name %>
+          <div style="display: inline-block">
+            <%= render 'follow_form' if logged_in? %>
+          </div>
+        </div>
         <% if logged_in? %>
           <a class='profile-menu profileMenuButton' href='#' data-activates='profile-menu'>
             <i class="material-icons">more_vert</i>
@@ -32,11 +37,10 @@
                    data-position="top" 
                    data-tooltip="Message"
                    data-delay="20">chat</i>
-              <% end %>
+            <% end %>
           </ul>
         <% end %>
         
-          
       </div>
     </div>
   
@@ -126,38 +130,37 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div class="profileSeparator"></div>
 
   <div class="flexProfile flexProfile_last card center z-depth-2">
     <div class="card-title">Reviews</div>
     
-      <%= render @user.reviews %>
+    <%= render @user.reviews %>
       
-      
-      <% if current_user and current_user.id != @user.id %>
-      <div class="card-review">
-        <% if logged_in? %>
-          <div data-no-turbolink>
-            <%= link_to "Add Review", new_user_review_path(@user) %>
-          </div>
-        <% else %>
-          <div>
-            <%= link_to "Add Review", login_path %>
-          </div>
-        <% end %>
-      </div>
-      <% end %>
+    <% if current_user and current_user.id != @user.id %>
+    <div class="card-review">
       <% if logged_in? %>
-        <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
-          <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
-            <i class="material-icons tooltipped" 
-               data-position="left" 
-               data-tooltip="New Project"
-               data-delay="50">add</i>
-          <% end %>
+        <div data-no-turbolink>
+          <%= link_to "Add Review", new_user_review_path(@user) %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to "Add Review", login_path %>
         </div>
       <% end %>
+    </div>
+    <% end %>
+    <% if logged_in? and current_user?(current_user.id) %>
+      <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
+        <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
+          <i class="material-icons tooltipped" 
+             data-position="left" 
+             data-tooltip="New Project"
+             data-delay="50">add</i>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </html>
   

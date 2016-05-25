@@ -62,6 +62,8 @@
           
           <li><%= link_to "Sales", sales_path() %></li>
           
+          <li><%= link_to "Favorites", following_user_path(current_user), :"data-no-turbolink" => true %></li>
+          
           <li><%= link_to "Settings", edit_user_path(current_user.id) %></li>
           
         </ul>

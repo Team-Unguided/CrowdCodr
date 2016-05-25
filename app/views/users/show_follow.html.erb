@@ -1,0 +1,23 @@
+<div class="profileSeparator" style="border: 0px"></div>
+
+<div class="flexProfile card center z-depth-2 ">
+  <div class="card-title">Favorites</div>
+</div>
+
+<div class="flexProfile card center z-depth-2">
+  <% if @users.any? %>
+    <%= render @users %>
+    <%= will_paginate %>
+  <% end %>
+</div>
+
+<!-- Script tag for raty.js for User's average rating-->
+<script>
+  $('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

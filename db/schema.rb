@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20160525153233) do
   add_index "messages", ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
   add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
 
+
   create_table "orders", force: :cascade do |t|
     t.string   "address",    limit: 255
     t.string   "city",       limit: 255

@@ -1,0 +1,12 @@
+<%= form_for(current_user.active_relationships.find_by(followed_id: @user.id),
+             html: { method: :delete },
+             remote: true) do |f| %>
+    <%= button_tag(:class => "btn-flat white nomargin nopadding") do %>
+      <i class="fa fa-heart tooltipped"
+       aria-hidden="true"
+       data-position="right" 
+       data-tooltip="Unfollow"
+       data-delay="20"
+       style="color: #ef5350;"></i>
+    <% end %>
+<% end %>

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update,:following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   
   def show # for root/users/:id
@@ -53,6 +53,12 @@ class UsersController < ApplicationController
     end
   end
   
+   def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
   
   def index #for searching
     @users = User.all # initialize results to all users
@@ -61,6 +67,7 @@ class UsersController < ApplicationController
       fulltext params[:query] # full text search
       with(:zipcode, params[:zipcode]) if (params[:zipcode]).present?
       order_by :avg_review, :desc # sort by avg review score
+      order_by :review_count, :desc #order equal rating by number of reviews
     end
     @users = @query.results
     

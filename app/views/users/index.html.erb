@@ -4,8 +4,12 @@
 <div class="flexProfile card z-depth-2" style="padding: 0 20px;">
   <div class="row">
     <%= form_for :search, :url => search_url, :html => { :method => :get } do %>
-      <div class="col s11 search-margin">
-      <%= text_field_tag :query, params[:query], placeholder: "Search for...", class: 'nomargin' %>
+      <div class="col s10 search-margin">
+        <%= text_field_tag :query, params[:query], placeholder: "Search for...", class: 'nomargin' %>
+        <span class="character-counter" style="position: absolute; float: left; font-size: 12px; height: 1px;">(e.g. name, programming language, etc.)</span>
+      </div>
+      <div class="col s1 search-margin">
+        <%= text_field_tag :zipcode, params[:zipcode], placeholder: "ZIP", class: 'nomargin', type: 'text', length: '5' %>
       </div>
       <div class="col s1 profileMenuButton">
         <%= button_tag(:class => "btn profileMenuButton") do %>
