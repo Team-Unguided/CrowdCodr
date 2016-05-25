@@ -12,8 +12,6 @@
 !/log/.keep
 /tmp
 
-# Ignore application configuration
-/config/application.yml
 # Ignore Ruby on Rails
 *.rbc
 capybara-*.html

@@ -1,3 +1,4 @@
+<!--
 <%= form_for([@listing, @order]) do |f| %>
   <% if @order.errors.any? %>
     <div id="error_explanation">
@@ -56,3 +57,48 @@
     <%= f.submit "Finalize Order", class: "btn btn-success" %>
   </div>
 <% end %>
+ -->
+
+
+
+
+<%= form_for([@listing, @order]) do |f| %>
+  <% if @order.errors.any? %>
+      <script type="text/javascript">
+        Materialize.toast('There are <%= pluralize(@order.errors.count, "error") %> that prohibited this listing from being saved', 4000, 'form-error-toast')
+      </script>
+      <% @order.errors.full_messages.each do |message| %>
+            <script type="text/javascript">
+              Materialize.toast('<%= message %>', 4000, 'form-error-toast')
+            </script>
+      <% end %>
+  <% end %>
+  <div id="stripe_error" class="alert alert-danger" style="display:none">
+  </div>
+    <div class="card-content card-project">
+      <div class="profileTitle text-left row nomargin" style="width: 100%">
+        <div class="col s12" style="font-size: 15px;">
+            <%= f.label :address %>
+            <%= f.text_field :address, class: "form-control" %>
+            <%= f.label :city %>
+            <%= f.text_field :city, class: "form-control" %>
+            <%= f.label :state %>
+            <%= f.text_field :state, class: "form-control" %>
+            <%= label_tag :card_number, "Credit Card Number" %>
+            <%= text_field_tag :card_number, nil, { :name => nil, :'data-stripe' => "number", class: "form-control" } %>
+            <%= label_tag :card_code, "CVC" %>
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "cvc", class: "form-control" } %>
+            <%= label_tag nil, "Expiration Date" %>
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "exp-month", class: "form-control" } %>
+            <%= text_field_tag :card_code, nil, { :name => nil, :'data-stripe' => "exp-year", class: "form-control" } %>
+        </div>
+        <%= button_tag(:class => "btn waves-effect waves-light hcenter vcenter") do %>
+          Submit <i class="material-icons right">send</i>
+        <% end %>
+      </div>
+    </div>
+<% end %>
+
+<script>
+  $('#textarea1').trigger('autoresize');
+</script>

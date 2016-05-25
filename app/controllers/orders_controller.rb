@@ -14,6 +14,7 @@ class OrdersController < ApplicationController
   def new
     @order = Order.new
     @listing = Listing.find(params[:listing_id])
+    @user = User.find_by(id: @listing.user_id)
   end
 
   # POST /orders

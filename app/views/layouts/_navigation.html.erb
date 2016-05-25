@@ -58,6 +58,10 @@
           
           <li><%= link_to "Mailbox", conversations_path, class: "item" %></li>
           
+          <li><%= link_to "Purchases", purchases_path() %></li>
+          
+          <li><%= link_to "Sales", sales_path() %></li>
+          
           <li><%= link_to "Settings", edit_user_path(current_user.id) %></li>
           
         </ul>

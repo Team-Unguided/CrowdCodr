@@ -11,13 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518044504) do
+ActiveRecord::Schema.define(version: 20160525153233) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id",    limit: 4
     t.integer  "recipient_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "favorites", force: :cascade do |t|
+    t.integer  "user_id",     limit: 4
+    t.integer  "favorite_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
   end
 
   create_table "listings", force: :cascade do |t|
@@ -55,6 +62,13 @@ ActiveRecord::Schema.define(version: 20160518044504) do
     t.integer  "seller_id",  limit: 4
   end
 
+  create_table "relationships", force: :cascade do |t|
+    t.integer  "follower_id", limit: 4
+    t.integer  "followed_id", limit: 4
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.integer  "rating",     limit: 4
     t.text     "comment",    limit: 65535
@@ -72,10 +86,10 @@ ActiveRecord::Schema.define(version: 20160518044504) do
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
     t.string   "password_digest", limit: 255
-    t.string   "recipient",       limit: 255
     t.text     "description",     limit: 65535
     t.string   "picture",         limit: 255
     t.string   "zipcode",         limit: 255
+    t.string   "recipient",       limit: 255
   end
 
   add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
