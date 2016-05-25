@@ -91,6 +91,11 @@ class User < ActiveRecord::Base
       end
     end
     
+    #review count
+    integer :review_count do
+      reiew_count = reviews.count
+    end
+    
   end
   
   #User association to Listings. Destroy listing if user is deleted.
