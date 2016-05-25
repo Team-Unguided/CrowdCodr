@@ -1,12 +1,78 @@
-<!-- Search bar -->
-<%= form_tag(users_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Users" %>
-<%= submit_tag "Search" %>
-<% end %>
+<div class="profileSeparator" style="border: 0px"></div>
 
-<!-- Show results -->
-<% if @users.present? %>
-  <%= render @users %> 
-<% else %>
-  <p>There are no users under the term(s) <%= params[:search] %>.</p>
-<% end %>
+<!-- Search bar -->
+<div class="flexProfile card z-depth-2" style="padding: 0 20px;">
+  <div class="row">
+    <%= form_for :search, :url => search_url, :html => { :method => :get } do %>
+      <div class="col s11 search-margin">
+      <%= text_field_tag :query, params[:query], placeholder: "Search for...", class: 'nomargin' %>
+      </div>
+      <div class="col s1 profileMenuButton">
+        <%= button_tag(:class => "btn profileMenuButton") do %>
+          <i class="material-icons right nopadding nomargin">send</i>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="flexProfile card center z-depth-2">
+  <% @users.each do |user| %>
+    <% if user.reviews.blank?
+      avg_review = 0
+    else
+     avg_review = user.reviews.average(:rating).round(2)
+    end %>
+    <a href="<%= user_path(user.username) %>">
+      <div class="card-content card-project hoverable" style="padding-right: 0px">
+        <div class="row text-left nomargin">
+          <div class="col s1">
+            <% if user.picture? %>
+              <%= image_tag(user.picture.url, :size => "80x80")%>
+            <% else %>
+              <%= image_tag "profile.jpg", :size => "80x80" %>
+            <% end %>
+          </div>
+          <div class="col s11">
+            <div class="col s10">
+              <span class="profileTitle"><%= user.first_name %> <%= user.last_name %> ( <%= user.username %> )</span>
+              <div class="font-body t400 ls2">
+                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                <%= user.zipcode %>
+              </div>
+              <div class="profileBodyText nomargin truncate" style="padding-left: 0px;">
+                <%= user.description %>
+              </div>
+            </div>
+            <div class="col s2">
+              <p class="average-review-rating right nopadding nomargin" data-score=<%= avg_review %>>
+              </p>
+              <% if logged_in? %>
+                <% if user.id != current_user.id %>
+                  <%= link_to conversations_path, class: "dropdown-btn" do %>
+                    <i class="material-icons tooltipped"
+                       data-position="right" 
+                       data-tooltip="Message"
+                       data-delay="20">chat</i>
+                  <% end %>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  <% end %>
+</div>
+
+
+<!-- Script tag for raty.js for User's average rating-->
+<script>
+  $('.average-review-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
+	});
+</script>

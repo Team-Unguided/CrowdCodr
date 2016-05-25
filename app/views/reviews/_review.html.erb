@@ -1,0 +1,21 @@
+<div class="card-content card-project">
+  <div class="row nomargin">
+    <div class="col s10 text-left">
+      <%= review.comment %>
+    </div>
+    <div class="col s2 text-right review-rating" data-score="<%= review.rating %>"></div>
+  </div>
+  <div class="right">
+    <% if logged_in? %>
+      <% if current_user.id == review.subject_id %>
+      <span class="right">
+        <%= link_to "Delete", user_review_path(review.user, review), method: :delete,
+                                        data: { confirm: "Are you sure?" } %>
+      </span>
+      <span class="right tab">
+        <%= link_to "Edit", edit_user_review_path(review.user_id, review), :"data-no-turbolink" => true %>
+      </span>
+      <% end %>
+    <% end %>
+  </div>
+</div>

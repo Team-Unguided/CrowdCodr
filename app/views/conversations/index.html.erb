@@ -1,0 +1,61 @@
+<div class="profileSeparator" style="border: 0px"></div>
+
+<div class="flexProfile card center z-depth-2 ">
+  <div class="card-title">Mailbox</div>
+  
+    <% @conversations.each do |conversation| %>
+      <% if conversation.sender_id == current_user.id || conversation.recipient_id == current_user.id %>
+        <%= link_to conversation_messages_path(conversation) do %>
+        <div class="card-content card-project hoverable">
+          <div class="row text-left vcenter nomargin">
+            <% if conversation.sender_id == current_user.id %>
+              <% recipient = User.find(conversation.recipient_id) %>
+            <% else %>
+              <% recipient = User.find(conversation.sender_id) %>
+            <% end %>
+            <div class="col s1">
+              <% if recipient.picture? %>
+                <%= image_tag(recipient.picture.url, :size => "30x30")%>
+              <% else %>
+                <%= image_tag "profile.jpg", :size => "30x30" %>
+              <% end %>
+            </div>
+            <div class="col s11">
+              <%= recipient.first_name %> <%= recipient.last_name %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>
+
+<div class="profileSeparator"></div>
+
+<div class="flexProfile flexProfile_last card center z-depth-2 ">
+  <div class="card-title">All Users</div>
+  
+    <% @users.each do |user| %>
+      <% if user.id != current_user.id %>
+        <%= link_to conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post' do %>
+          <div class="card-content card-project hoverable">
+            <div class="row text-left vcenter nomargin">
+              <div class="col s1">
+                <% if user.picture? %>
+                  <%= image_tag(user.picture.url, :size => "30x30")%>
+                <% else %>
+                  <%= image_tag "profile.jpg", :size => "30x30" %>
+                <% end %>
+              </div>
+              <div class="col s10">
+                <%= user.first_name %> <%= user.last_name %>
+              </div>
+              <div class="col s1">
+                <i class="material-icons right">email</i>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>

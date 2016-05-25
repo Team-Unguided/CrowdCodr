@@ -1,0 +1,27 @@
+<%= form_for([@user, @review]) do |f| %>
+  <div class="card-content card-project">
+    <div class="profileTitle text-left row nomargin" style="width: 100%">
+      <div class="col s12" style="font-size: 15px;">
+	      <label>Rating</label>
+	      <div id="rating-form" data-no-turbolink>
+        </div>
+          <%= f.label :comment %><br>
+          <%= f.text_area :comment, class: "materialize-textarea", :id => "textarea1"%>
+        </div>
+        <%= button_tag(:class => "btn waves-effect waves-light hcenter vcenter") do %>
+          Submit <i class="material-icons right">send</i>
+        <% end %>
+       </div>
+    </div>
+<% end %>
+<!-- Script tag allows us to enter ratings as a star and update -->
+<script>
+  	$('#rating-form').raty({
+  		path: '/assets/',
+  		scoreName: 'review[rating]'
+  	});
+</script>
+
+<script>
+  $('#textarea1').trigger('autoresize');
+</script>

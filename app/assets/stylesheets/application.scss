@@ -2,6 +2,26 @@
 @import "font-awesome";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600);
+@import url(https://fonts.googleapis.com/css?family=Crete+Round);
+
+/* ----------------------------------------------------------------
+	application.scss Structure
+	
+	1. Basic Layout Styles (margins, paddings, borders, etc.)
+	2. Typography (Headings, Subheadings, Subtitles, etc.)
+	3. Sections (section id, class id, etc.)
+	4. Columns & Grids (custom columns and grids)
+	5. Header / Logo
+	6. Menu
+	7. Body
+	8. Overlays, Models, Notifications (toast)
+	9. Footer
+	10. Buttons / Toggles
+	11. Misc.
+-----------------------------------------------------------------*/
+
 /* ----------------------------------------------------------------
 	Basic Layout Styles
 -----------------------------------------------------------------*/
@@ -37,115 +57,39 @@
   padding: 0 !important;
 }
 
+.hidden {
+  display: none !important;
+}
+
 .center {
   text-align: center !important;
 }
 
-.centered {
-  position: fixed;
-  top: 50%;
-  left: 50%;
+.left {
+  float: left !important;
 }
 
 .right {
   float: right !important;
 }
 
-body 
-{
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+nobg {
+  background: none !important;
 }
-.top
-{
+
+.top {
   top:0%;
-  
 }
 
-/* ----------------------------------------------------------------
-	Content
------------------------------------------------------------------*/
-
-.content-wrap {
+.front {
   position: relative;
-  padding: 80px 0;
+  z-index: 1000;
 }
 
-.wip-lg {
-  font-size: 125px;
-  color: #DDD;
-}
-
-.inlineblock { 
-    display: inline-block;
-    zoom: 1;
-}
-
-/* ----------------------------------------------------------------
-	Sticky Header
------------------------------------------------------------------*/
-
-#header,
-#header-wrap,
-#logo img
+.back
 {
-  height: 100px;
-  -webkit-transition: height .4s ease, opacity .3s ease;
-  -o-transition: height .4s ease, opacity .3s ease;
-  transition: height .4s ease, opacity .3s ease;
-}
-
-#header-wrap {
-  position: relative;
-  -webkit-backface-visibility: hidden;
-}
-
-/* ----------------------------------------------------------------
-	Stretched Layout
------------------------------------------------------------------*/
-
-.stretched #wrapper {
-  width: 100%;
-  margin: 0;
-  box-shadow: none;
-}
-
-/* ----------------------------------------------------------------
-	Footer
------------------------------------------------------------------*/
-
-#footer 
-{
-    position: absolute;
-    bottom: 0;
-    min-width: 100%;
-    background-color: #EEE;
-    border-top: 0px;
-    padding-top: 0px;
-}
-
-#copyrights {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background: #27292E;
-  font-size: 10px;
-  color: #000;
-  z-index: 3;
-  position: relative;
-}
-
-#content {
-  position: fixed;
-  top: 65px;
-  bottom: 65px;
-  width: 100%;
-  overflow: auto;
-}
-
-.content-wrap {
-  position: relative;
-  padding: 80px 0;
+  position:relative;
+  z-index: -1;
 }
 
 .hcenter { 
@@ -180,59 +124,455 @@ body
   vertical-align: middle;
 }
 
-.bg-img
-{
-  background: asset-url('cover_city.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-}
-
 /* ----------------------------------------------------------------
-	Sticky Header
+	Typography
 -----------------------------------------------------------------*/
 
-#header
-{
-  height: 65px;
-  -webkit-transition: height .4s ease, opacity .3s ease;
-  -o-transition: height .4s ease, opacity .3s ease;
-  transition: height .4s ease, opacity .3s ease;
+a {
+  color: #000 !important;
 }
 
-#header-wrap {
-  position: relative;
-  -webkit-backface-visibility: hidden;
+.t300 { font-weight: 300 !important; }
+
+.t400 { font-weight: 400 !important; }
+
+.t500 { font-weight: 500 !important; }
+
+.t600 { font-weight: 600 !important; }
+
+.t700 { font-weight: 700 !important; }
+
+.ls0 { letter-spacing: 0px !important; }
+
+.ls1 { letter-spacing: 1px !important; }
+
+.ls2 { letter-spacing: 2px !important; }
+
+.ls3 { letter-spacing: 3px !important; }
+
+.ls4 { letter-spacing: 4px !important; }
+
+.ls5 { letter-spacing: 5px !important; }
+
+.font-body {
+  font-family: 'Opens Sans', sans-serif;
 }
 
-/* ----------------------------------------------------------------
-	Stretched Layout
------------------------------------------------------------------*/
+.font-primary {
+  font-family: 'Montserrat', sans-serif;
+}
 
-.stretched #wrapper {
-  width: 100%;
-  margin: 0;
-  box-shadow: none;
+.font-secondary {
+  font-family: 'Crete Round', serif;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
+}
+
+.text-left {
+  text-align: left;
+  direction: ltr;
+}
+
+.text-right {
+  text-align: right;
 }
 
 /* ----------------------------------------------------------------
 	Sections
 -----------------------------------------------------------------*/
 
+.login-label-margin{
+  margin-right: 3rem;
+}
 
-#intro.section {
+.row .col{
+  padding: 0 0.3rem !important;
+}
+
+.tabs{
+  height: inherit;
+}
+
+.flex {
+    display: block;
+    margin: 0 auto;
+    max-width: 119rem;
+    height: inherit;
+}
+
+.flex>* {
+    float: right;
+}
+
+.flex>*:last-child {
+    float: left;
+}
+
+.item-center {
+  float: none !important;
+  margin: 0 auto;
+  text-align: center;
+}
+
+section {
 	position: relative;
-	background-color: #F9F9F9;
 	overflow: hidden;
+	min-height: 100%;
 	height: 100%;
 }
 
+nav {
+  background-color: rgba(0, 0, 0, 0.0) !important;
+  box-shadow: none !important;
+}
+
+/* ----------------------------------------------------------------
+	Search Form
+-----------------------------------------------------------------*/
+
+.search {
+  width: 80%;
+}
+
+.search-margin {
+  margin: 1rem 0;
+}
+
+.bg {
+    color: black;
+    background-color: #FFF;
+    opacity: 0.9;
+    padding: 0.9rem 1.1rem;
+}
+
+.bg-left {
+    padding: 0 1.1rem 0 0;
+}
+
+.bg-last {
+    padding: 0 1.1rem 0 1.1rem;
+}
+
+.btn.home {
+    background-color: #FFF !important;
+    opacity: 0.6 !important;
+    box-shadow: none !important;
+}
+
+.btn.home:hover {
+    background-color: #3AFFED !important;
+    opacity: 1.0 !important;
+}
+
+.btn.home.btn-padding {
+    padding: 0.2rem 0.8rem;
+    margin: 0 0 0 1.1rem;
+}
+
+#login-form {
+    margin-top: 55%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #03a9f4;
+}
+
+.input-field.border-right {
+  border-right: 1px solid #000;
+}
+
+::-webkit-input-placeholder {
+    color: #404040;
+    opacity: 1 !important; /* for chrome */
+}
+
+:-moz-placeholder { /* Firefox 18- */
+    color: #404040;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+    color: #404040;
+}
+
+:-ms-input-placeholder {  
+   color: #404040;
+}
+
+.icon-black {
+    color: black;
+}
+
+.search-btn-wrapper {
+  float: right;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(20%);
+}
+
+.search-btn {
+  color: black;
+  background-color: #FFF;
+  opacity: 0.9;
+}
+
+/* ----------------------------------------------------------------
+	Profile Page/ Edit Profile Page
+-----------------------------------------------------------------*/
+
+.card-info {
+  margin: 0.5rem 0 1rem 5rem;
+  padding-left: 10rem;
+}
+
+.card-image {
+  width:15rem;
+  height:15rem;
+  background-size: cover;
+  position: absolute !important;
+  top: 138.75px;
+  transform: translateY(-50%);
+}
+
+.card-title {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.card-project {
+  border-top: 1px solid rgba(160,160,160,0.2);
+}
+
+.card-review {
+  border-top: 1px solid rgba(160,160,160,0.2);
+  padding: 1rem;
+}
+
+.main-info {
+  min-height: 8rem;
+}
+
+.rowTop {
+  position: absolute; 
+  top: 0; 
+  right: 0;  
+  text-align:right;
+  padding-right: 10px;
+}
+
+.rowBottom {
+  position: absolute; 
+  bottom: 0; 
+  right: 0;  
+  text-align:right;
+  padding-right: 10px;
+}
+
+.flexProfile {
+  max-width:90rem;
+  margin:0 auto;
+}
+
+.flexProfile_last {
+  margin-bottom: 6.25rem;
+}
+
+.tabBottom {
+  bottom: 0;
+  margin-right:5rem;
+  margin-bottom:4rem;
+}
+
+.profileInfo {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600 !important;
+  margin:0 auto;
+  max-width:90rem;
+}
+
+.profileSeparator {
+  border-top: 1px solid rgba(160, 160, 160, 0.2);
+  width: 100%;
+  margin: 2rem;
+}
+
+.profileMenuButton {
+  float: right;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(25%);
+}
+
+.profileImageEdit {
+  transform: translateY(-120%);
+  padding-left: 0.5rem;
+}
+.profileTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  display: inline-block;
+}
+
+.profileSubtitle {
+  display: block;
+  min-height: 3rem;
+  line-height: 3rem;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+.profileBodyText {
+  display: block;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  padding: 0 2rem;
+  margin-bottom: 20px;
+}
+
+.dropdown-menu {
+  padding: 1rem;
+  background-color: rgba(255,255,255,0.0);
+  box-shadow: 0 0 0 0 rgba(0,0,0,0.0);
+}
+
+.dropdown-btn {
+  float: right;
+  margin: 0 2rem;
+}
+
+.average-review-rating {
+  display: inline-block;
+  padding: 0 2rem !important;
+}
+
+/* ----------------------------------------------------------------
+	Chatting and Mailbox page
+-----------------------------------------------------------------*/
+
+.flexChatBox
+{
+  max-width:90rem;
+  margin:0 auto;
+  margin-top:1rem;
+  position:relative;
+}
+
+.chatBox
+{
+  border:1rem;
+  padding:1rem;
+}
+
+.chatProfileButton
+{
+  float: right;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(25%);
+}
+
+.fontsize
+{
+  font-size: 12px;
+}
+
+.userChat
+{
+  margin-left:40rem;
+}
+
+.recepientChat
+{
+  margin-right:40rem;
+}
+
+.toBottom
+{
+  width: 100%;
+  padding: 1em 7.5rem;
+  clear: both;
+  position: fixed;
+  bottom: 3rem;
+  max-width: none;
+  z-index: 2;
+  background-color: #FFF !important;
+  
+  // bottom:3rem;
+  // position:fixed;
+  // width:90rem;
+  // margin:0 auto;
+}
+
+.messagesBlock
+{
+  margin-bottom: 13.5rem;
+}
+
+/* ----------------------------------------------------------------
+	Home Page
+-----------------------------------------------------------------*/
+
+.greeting
+{
+  position: absolute;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 46px;
+  padding: 0 0 10rem 0;
+}
+
+.greeting.morning { 
+  color: #000;
+}
+.greeting.afternoon { 
+  color: #000;
+}
+.greeting.night { 
+  color: #FFF; 
+  text-shadow: 2px 2px #000;
+}
+
+.bg-img.morning {
+  background: asset-url('home/cover-image-morning.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;	
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-img.afternoon {
+  background: asset-url('home/cover-image-afternoon.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;	
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.bg-img.night {
+  background: asset-url('home/cover-image-night.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;	
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+ 
 /* ----------------------------------------------------------------
 	Columns & Grids
 -----------------------------------------------------------------*/
-
 
 .postcontent { width: 860px; }
 .postcontent.bothsidebar { width: 580px; }
@@ -271,8 +611,6 @@ body.stretched .container-fullwidth {
 .col_five_sixth {
 	display: block;
 	position: relative;
-	margin-right: 4%;
-	margin-bottom: 50px;
 	float: left;
 }
 
@@ -294,215 +632,214 @@ body.stretched .container-fullwidth {
 }
 
 /* ----------------------------------------------------------------
-	Footer
+  Header / Logo
 -----------------------------------------------------------------*/
 
-#footer 
-{
-    position: absolute;
-    height: 65px;
-    bottom: 0;
-    min-width: 100%;
-    background-color: #03a9f4;
-    border-top: 0px;
-    padding-top: 0px;
-    font-size: 0.9em;
+header {
+	position: fixed;
+	left: 0;
+	background: #FFF;
+	z-index: 111;
+	width: 100%;
+	height: 3.125rem;
+	display: block !important;
 }
 
-.copyright {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  color: #000;
-  z-index: 3;
-  position: relative;
-}
-
-
-/* ----------------------------------------------------------------
-	Search Form
------------------------------------------------------------------*/
-
-.search
-{
-  width: 80%;
-}
-
-.input-field.bg
-{
-    color: black;
-    background-color: #ffffff;
-    opacity: 0.6;
-}
-
-/* text fields*/
-
-
-/*
-    multi-browser compatability
-*/
-
-#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
-{
-    color: black;
-}
-
-#listing::-webkit-input-placeholder, #zipcode::-webkit-input-placeholder
-{
-    color: black;
-}
-
-#listing:-moz-placeholder, #zipcode:-moz-placeholder
-{
-    color:black;
-}
-
-#listing::-moz-placeholder, #zipcode::-moz-placeholder
-{
-    color:black;
-}
-
-#listing:-ms-input-placeholder, #zipcode:-ms-input-placeholder
-{
-    color: black;
-}
-
-.page-footer
-{
-    border: 20px solid #03a9f4;
-}
-
-#login-form
-{
-    margin-top:55%;
-    border-style:solid;
-    border-width: 5px;
-    border-color: #03a9f4;
+a.content-header,
+ul.content-header,
+.sidenav {
+    display: inline-block;
+    padding: 0.7rem 1.4rem 1rem;
+    color: #000;
+    cursor: pointer;
+    margin: 0 -.27rem 0 0;
+    font-size: 14px;
+    height: 1.5rem;
+    vertical-align: top
 }
 
 /* ----------------------------------------------------------------
-	Sidenav
+	Menu / SideNav
 -----------------------------------------------------------------*/
+
 #logo-container
 {
-  height: 250px;
   margin-bottom: 30px;
+  height: 100%;
 }
 
 #profile-logo
 {
   background:asset-url('profile-photo-placeholder.png') no-repeat;
-  height:100%;
-  
+}
+
+.circle {
+  width: 180px !important;
+  height: 180px;
+}
+
+#sidenav-overlay{
+  z-index: -1 !important;
+}
+
+.side-nav {
+  width: 240px !important;
+}
+
+.toggles label{
+    display: inline-block;
+    padding: 0.7rem 1.4rem 1rem;
+    color: #FFF;
+    margin: 0 -.27rem 0 0;
+    font-size: 12px;
+    height: 1.5rem;
+    vertical-align: top
 }
 
 /* ----------------------------------------------------------------
-	Profile Page/ Edit Profile Page
+	Body
 -----------------------------------------------------------------*/
 
-.cardSize
-{
-  height:300px;
-}
-
-.editCardSize
-{
-  height:800px;
-}
-.pic
-{
-  background:asset-url('profile.jpg');
-  width:100%;
-  height:100%;
-  background-size: cover;
-}
-
-.h200
-{
-  height: 200px;
-}
-
-.rowTop
-{
-  position: absolute; 
-  top: 0; 
-  right: 0;  
-  text-align:right;
-  padding-right: 10px;
-}
-
-.rowBottom
-{
-  position: absolute; 
-  bottom: 0; 
-  right: 0;  
-  text-align:right;
-  padding-right: 10px;
-}
-
-
-/* ----------------------------------------------------------------
-	Home Page
------------------------------------------------------------------*/
-
-
-.android
-{
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #011627;
-  float:left;
-}
-
-.website
-{
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #fdfffc;
-  float:left;
-}
-.ios
-{
-
-  width: 33.3%;
-  height: 66.6%;
-  background-color: #2ec4b6;
-  float:left;
-}
-
-.allcat
-{
+.stretched #wrapper {
   width: 100%;
-  height: 33.3%;
-  background-color: #ff9999;
-  float:left;
+  margin: 0;
+  box-shadow: none;
 }
 
-.iosImage
-{
-  background:asset-url('iOS.png') no-repeat;
-  width:100%;
-  height:100%;
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #1C2328;
+    overflow-x: hidden
 }
 
-.centerButton
-{
-  height: 50%;
+html {
+    direction: ltr;
+    height: 100%
 }
+
+body {
+    min-height: 100%;
+    direction: ltr
+}
+
+main {
+    left: 0%;
+    z-index: 2;
+    width: 100%;
+    min-height: 100%;
+    direction: ltr;
+    position: absolute;
+    display: block;
+}
+
+main.main {
+    background: #F4F5F6;
+}
+
+main.main header .content-header span {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: right;
+    direction: ltr;
+}
+
+main.main section {
+  margin: 0 auto;
+  position: fixed;
+}
+
 /* ----------------------------------------------------------------
-  Sign Up Page
+	Overlays / Modals / Notifications (toast)
 -----------------------------------------------------------------*/
 
-#spandiv
+.form-error-toast {
+  @extend .red, .accent-2;
+}
+
+
+/* ----------------------------------------------------------------
+	Footer
+-----------------------------------------------------------------*/
+
+footer.flex 
 {
   text-align: center;
+  width: 100%;
+  padding: 1em 10% 0;
+  height: 4rem;
+  clear: both;
+  position: fixed;
+  bottom: 0;
+  max-width: none;
+  z-index: 2;
+  background-color: #FFF !important;
 }
-.centerSpan
+
+footer nav 
 {
-  display: inline-block;
+    display: block;
+    line-height: 2.3rem;
+    direction: ltr;
+}
+
+footer .social>a 
+{
+    display: inline-block;
+    padding: .6rem .5rem;
+    color: #6c7980
+}
+
+footer nav a,
+footer nav a:hover 
+{
+    color: #6C7980;
+    padding: .4rem;
+    line-height: 1rem;
+    font-size: 12px;
+    display: inline-block
+}
+
+/* ----------------------------------------------------------------
+	Buttons / Toggles
+-----------------------------------------------------------------*/
+
+.btn-center-relative {
+  position: relative;
+  text-align: center;
+}
+
+.btn-enlarge {
+  padding: 0 !important;
+  width: 100%;
+  margin: 1.5rem 0 0 0;
+}
+
+.btn-tooltip {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem;
+}
+
+/* ----------------------------------------------------------------
+	Misc.
+-----------------------------------------------------------------*/
+
+.clearfix {
+  content: " "; /* Older browser do not support empty content */
+  visibility: hidden;
+  display: block;
+  clear: both;
+  font-size: 0px;
+  line-height: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tab {
+  margin-right: 1rem;
+  top: 50%;
   position: relative;
 }
 
-.margin10
-{
-  margin: 10px 0px 10px 0px;
-}

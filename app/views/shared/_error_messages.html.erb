@@ -1,0 +1,10 @@
+<% if @user.errors.any? %>
+    <script type="text/javascript">
+      Materialize.toast('There are <%= pluralize(@user.errors.count, "error") %> that prohibited this listing from being saved', 4000, 'form-error-toast')
+    </script>
+    <% @user.errors.full_messages.each do |msg| %>
+          <script type="text/javascript">
+            Materialize.toast('<%= msg %>', 10000, 'form-error-toast')
+          </script>
+    <% end %>
+<% end %>

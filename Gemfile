@@ -1,4 +1,6 @@
 source 'https://rubygems.org'
+ruby '2.3.0'
+
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
@@ -13,7 +15,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'materialize-sass'
 
-gem 'mysql2', '>= 0.3.13', '< 0.5'
 gem "font-awesome-rails"
 
 # Use jquery as the JavaScript library
@@ -26,11 +27,25 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
-gem 'bcrypt',               '3.1.7'
+gem 'bcrypt', '3.1.7'
+
+# CarrierWave for uploading images
+gem 'carrierwave', '0.10.0'
+# mini_magick for image resizing
+gem 'mini_magick', '3.8.0'
+#listing search
+gem 'sunspot_rails'
+
+group :development do
+  gem 'sunspot_solr'
+end
 
 # Stripe for payment
 gem 'stripe'
 gem "figaro"
+
+#to help fix raty failed turbolink
+gem 'jquery-turbolinks'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
@@ -45,15 +60,21 @@ group :development, :test do
   
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console',            '2.0.0.beta3'
-end
-
-group :development do
+  
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring',                 '1.1.3'
+  
+  gem 'mysql2', '>= 0.3.13', '< 0.5'
 end
 
 group :test do
   gem 'minitest-reporters', '1.0.5'
   gem 'mini_backtrace',     '0.1.3'
   gem 'guard-minitest',     '2.3.1'
+end
+
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'puma'
 end

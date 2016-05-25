@@ -1,18 +1,20 @@
 class SessionsController < ApplicationController
 
   def new
+    @user = User.new
   end
 
   def create
     # find the user by username
     user = User.find_by(username: params[:session][:username])
+    @user = User.new if @user.blank?
     
     # if user exists && is authenticated by given password (i.e. correct passwd)
     if user && user.authenticate(params[:session][:password])
       # log-in as user using log_in() found in sessions_helper.rb
       log_in user
       # redirect to user's profile page
-      redirect_to "/users/#{user.username}"
+      redirect_back_or "/users/#{user.username}"
       
     # otherwise, invalid username/password combination was entered
     else

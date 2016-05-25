@@ -1,25 +1,37 @@
-<body class="homepage">
-        <div class="android nomargin nopadding">
-            <div class ="vcenter">
-                <a class=" waves-effect waves-light btn" href="listing#index">Android | <i class="fa fa-android" aria-hidden="true"></i></a>
-            </div>
-        </div>
-        <div class="website nomargin nopadding">
-            <div class ="vcenter">
-                <a class=" waves-effect waves-light btn"  href="listing#index">Website | <i class="fa fa-html5" aria-hidden="true"></i></a>
-            </div>
-        </div>
-        <div class="ios nomargin nopadding">
-            <div class ="vcenter">
-                <a class=" waves-effect waves-light btn"  href="listings#index" >iOS | <i class="fa fa-apple" aria-hidden="true"></i></a>
-            </div>
-        </div>
-        <div class="allcat nomargin nopadding">
-            <div class ="vcenter">
-                <a class=" waves-effect waves-light btn" href="listings#index">ALL</i></a>
-            </div>
-        </div>
-  </div>
-</body>
+<body>
+  <div class="clear"></div>
   
-        
+  <% if greet(Time.new.hour) == "Good Morning" %>
+      <section class="bg-img morning">
+          <div class="col s12 greeting morning ls2 hcenter vcenter "> <%= greet(Time.new.hour) %></div>
+  <% elsif greet(Time.new.hour) == "Good Afternoon" %>
+      <section class="bg-img afternoon">
+          <div class="col s12 greeting afternoon ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
+  <% else %>
+      <section class="bg-img night">
+          <div class="col s12 greeting night ls2 hcenter vcenter"> <%= greet(Time.new.hour) %></div>
+  <% end %>
+  
+  <!--<section class="bg-img">-->
+
+  <%= form_for :search, :url => search_url, :html => { :class => 'col s12 hcenter vcenter', :method => :get } do  %>
+    <div class="bg row nomargin">
+        <div class="input-field border-right hcenter col s8 nomargin">
+            <%= text_field_tag(:query, params[:query], placeholder: "I'm looking for...", class: "nomargin") %>
+            <span class="character-counter" style="position: absolute; float: left; font-size: 12px; height: 1px;">(e.g. name, programming language, etc.)</span>
+        </div>
+        <div class="input-field border-right hcenter col s2 nomargin">
+            <%= number_field_tag(:zipcode, params[:zipcode], placeholder: "ZIP", class: "nomargin center", type: "text", length: "5") %>
+        </div>
+      <div class="col s2 search-btn-wrapper valign-wrapper">
+        <%= button_tag(:class => "btn-flat waves-effect waves-light white search-btn hcenter vcenter") do %>
+          <i class="material-icons right nopadding nomargin">search</i>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+  
+  <div class="clear"></div>
+      
+  </section>
+</body>

@@ -1,13 +1,10 @@
 Rails.application.routes.draw do
-  
   resources :listings do
     resources :orders, only: [:new, :create]
   end
   
   get 'sessions/new'
-
-  get 'sessions/new'
-
+  
   root 'pages#home'
   get 'about', to: 'pages#about'
   get 'home' , to: 'pages#home'
@@ -20,7 +17,18 @@ Rails.application.routes.draw do
   get 'purchases' => "orders#purchases"
   get 'edit', to: 'pages#edit'
   get 'setting', to: 'pages#setting'
-  resources :users
+  resources :users do
+    resources :reviews
+  end
+  resources :listings
+  get 'search', to: 'users#index'
+   
+  
+
+  
+  resources :conversations do
+    resources :messages
+  end
   
 
   

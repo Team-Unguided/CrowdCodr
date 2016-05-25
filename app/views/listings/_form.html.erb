@@ -8,8 +8,6 @@
       <% @listing.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
   <% end %>
 
   <div id="stripe_error" class="alert alert-danger" style="display:none">
@@ -63,3 +61,7 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<script>
+  $('#textarea1').trigger('autoresize');
+</script>

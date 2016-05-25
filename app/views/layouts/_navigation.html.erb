@@ -1,41 +1,76 @@
-<body>
-  
-  <div class="navbar-fixed">
-   <nav>
-      <div class="nav-wrapper light-blue">
-        <a href="home" class="brand-logo center">Blitz</a>
-        <ul id="nav-mobile" class="right">
-          <% if logged_in? %>
-            <li><%= link_to "Log out", logout_path, method: "delete" %></li>
-          <% else %>
-            <li><%= link_to "Log in", login_path %></li>
-          <% end %>
-        </ul>
-        <% if logged_in? %>
-        <ul id="slide-out" class="left side-nav">
-          <li>
-          <a href="home" id="logo-container"class="nomargin nopadding">
-            <object id="profile-logo"></object></a>
-          </li>
-          <li><%= link_to "Profile", "/users/#{current_user.username}" %></li>
-          <li><%= link_to "Listings", listings_path %></li>
+<div class="flex item-center">
+
+  <a href="<%= root_url %>" class="content-header item-center font-primary t600">getDev <sup class="alpha">ALPHA</sup></a>
+
+  <ul class="content-header" id="nav-mobile">
+    
+    <% if logged_in? %>
+    
+      <li>
+        
+        <%=link_to "Log out", logout_path, method: "delete" %>
+        
+      </li>
+      
+      <% else %>
+      
+        <li>
           
-          <li><%= link_to "Settings", edit_path %></li>
-        </ul>
-        <a class="button-collapse show-on-large" href="#!" data-activates="slide-out">
-          <i class="material-icons">menu</i>
-        </a>
+          <%=link_to "Log in", login_path, :"data-no-turbolink" => true %>
+          
+        </li>
+        
         <% end %>
-      </div>
-    </nav>
+        
+  </ul>
+  
+    <div class="sidenav">
+    
+    <% if logged_in? %>
+    
+        <a class="button-collapse show-on-large" href="#!" data-activates="slide-out">
+          
+          <i class="material-icons">menu</i>
+          
+        </a>
+      
+        <ul id="slide-out" class="left side-nav">
+          
+          <li>
+            
+            <a href="<%= user_path(current_user.username) %>" id="logo-container" class="nomargin nopadding">
+              
+              <% if current_user.picture? %>
+                <%= image_tag(current_user.picture.url, :size => "240x240")%>
+              <% else %>
+                <%= image_tag "profile.jpg", :size => "240x240" %>
+              <% end %>     
+              
+              <div class="profileTitle uppercase"><%= current_user.first_name %> <%= current_user.last_name %></div>
+              
+            </a>
+            
+          </li>
+          
+          <li><%= link_to "Home", root_url, :"data-no-turbolink" => true %></li>
+          
+          <li><%= link_to "Search", users_path, :"data-no-turbolink" => true %></li>
+          
+          <li><%= link_to "Mailbox", conversations_path, class: "item" %></li>
+          
+          <li><%= link_to "Settings", edit_user_path(current_user.id) %></li>
+          
+        </ul>
+        
+      <% end %>
+    
   </div>
   
-  <script src="js/jquery.min.js"></script>
-  <script src="js/materialize.min.js"></script>
-  <script>
-    $(document).ready(function(){
-      $('.button-collapse').sideNav();
-    });
-  </script>
-  
-</body>
+    
+</div>
+
+<script>
+  $(document).ready(function() {
+    $('.button-collapse').sideNav();
+  });
+</script>
