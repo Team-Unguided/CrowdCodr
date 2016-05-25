@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:edit, :update]
+  before_action :logged_in_user, only: [:edit, :update,:following, :followers]
   before_action :correct_user,   only: [:edit, :update]
   
   def show # for root/users/:id
@@ -53,6 +53,12 @@ class UsersController < ApplicationController
     end
   end
   
+   def following
+    @title = "Following"
+    @user  = User.find(params[:id])
+    @users = @user.following.paginate(page: params[:page])
+    render 'show_follow'
+  end
   
   def index #for searching
     @users = User.all # initialize results to all users

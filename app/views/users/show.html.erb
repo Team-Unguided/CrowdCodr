@@ -116,7 +116,7 @@
       <% end %>
     <% end %>
   </div>
-  
+
   <div class="profileSeparator"></div>
 
   <div class="flexProfile flexProfile_last card center z-depth-2">
@@ -138,7 +138,7 @@
         <% end %>
       </div>
       <% end %>
-      <% if logged_in? %>
+      <% if logged_in? and current_user?(current_user.id) %>
         <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
           <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
             <i class="material-icons tooltipped" 
@@ -148,6 +148,9 @@
           <% end %>
         </div>
       <% end %>
+      <div class="fixed-action-btn" style="top: 4rem; right: 24px;">
+        <%= render 'follow_form' if logged_in? %>
+      </div>
   </div>
 </html>
   

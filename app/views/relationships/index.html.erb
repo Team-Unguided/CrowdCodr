@@ -1,0 +1,10 @@
+<div class="profileSeparator" style="border: 0px"></div>
+
+<div"flexProfile card center z-depth-2">
+  <div class="card-title">Favorites</div>
+  <% @users.each do |favorite| %>
+  <div class = "list">
+    <% user = User.find(favorite.followed_id) %>
+    <% render 'users/user' %>
+  </div>
+</div>

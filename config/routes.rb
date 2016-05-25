@@ -11,11 +11,14 @@ Rails.application.routes.draw do
   get 'setting', to: 'pages#setting'
   resources :users do
     resources :reviews
+    member do
+      get :following, :followers
+    end
   end
   resources :listings
   get 'search', to: 'users#index'
    
-  
+  resources :relationships
 
   
   resources :conversations do
