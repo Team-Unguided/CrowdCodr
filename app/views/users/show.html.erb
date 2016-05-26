@@ -19,11 +19,6 @@
           </div>
         </div>
         <% if logged_in? %>
-          <a class='profile-menu profileMenuButton' href='#' data-activates='profile-menu'>
-            <i class="material-icons">more_vert</i>
-          </a>
-        
-          <ul id='profile-menu' class='dropdown-content dropdown-menu'>
             <% if current_user?(@user) %>
               <%= link_to edit_user_path(current_user.id), class: "dropdown-btn" do %>
                 <i class="material-icons tooltipped"
@@ -38,7 +33,6 @@
                    data-tooltip="Message"
                    data-delay="20">chat</i>
             <% end %>
-          </ul>
         <% end %>
         
       </div>
