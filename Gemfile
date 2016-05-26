@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 ruby '2.3.0'
 
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'bootstrap-sass', '~> 3.3.6'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
@@ -35,12 +37,15 @@ gem 'mini_magick', '3.8.0'
 #listing search
 gem 'sunspot_rails'
 
-group :development do
-  gem 'sunspot_solr'
-end
+gem 'sunspot_solr'
+
+# Stripe for payment
+gem 'stripe'
+gem "figaro"
 
 #to help fix raty failed turbolink
 gem 'jquery-turbolinks'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

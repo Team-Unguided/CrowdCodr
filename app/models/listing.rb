@@ -4,6 +4,7 @@ class Listing < ActiveRecord::Base
     
     #Listing association to User
     belongs_to :user
+    has_many :orders
     
     after_save :reindex_users
     before_destroy :reindex_users

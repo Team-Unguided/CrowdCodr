@@ -98,6 +98,11 @@ class User < ActiveRecord::Base
       end
     end
     
+    #review count
+    integer :review_count do
+      reiew_count = reviews.count
+    end
+    
   end
   def follow(other_user)
     active_relationships.create(followed_id: other_user.id)
@@ -113,7 +118,9 @@ class User < ActiveRecord::Base
     following.include?(other_user)
   end
   #User association to Listings. Destroy listing if user is deleted.
-  #has_many :listings, dependent: :destroy
+  has_many :listings, dependent: :destroy
+  has_many :sales, class_name: "Order", foreign_key: "seller_id"
+  has_many :purchases, class_name: "Order", foreign_key: "buyer_id"
   
   private
 

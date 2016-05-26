@@ -12,13 +12,13 @@
       
     <div class="card card-info picIndent back z-depth-2">
       <div class="card-content">
-        <div class="profileTitle"><%= @user.first_name %> <%= @user.last_name %></div>
+        <div class="profileTitle">
+          <%= @user.first_name %> <%= @user.last_name %>
+          <div style="display: inline-block">
+            <%= render 'follow_form' if logged_in? %>
+          </div>
+        </div>
         <% if logged_in? %>
-          <a class='profile-menu profileMenuButton' href='#' data-activates='profile-menu'>
-            <i class="material-icons">more_vert</i>
-          </a>
-        
-          <ul id='profile-menu' class='dropdown-content dropdown-menu'>
             <% if current_user?(@user) %>
               <%= link_to edit_user_path(current_user.id), class: "dropdown-btn" do %>
                 <i class="material-icons tooltipped"
@@ -32,11 +32,9 @@
                    data-position="top" 
                    data-tooltip="Message"
                    data-delay="20">chat</i>
-              <% end %>
-          </ul>
+            <% end %>
         <% end %>
         
-          
       </div>
     </div>
   
@@ -105,10 +103,20 @@
                 <%= listing.languages %>
               </div>
             </div>
+            <div class= "col s6">
+                <div class="row">
+                  <span class="font-primary t600">Price:</span>
+                 <%= listing.price %>
+              </div>
+            </div>
             <% if current_user?(@user) %>
               <div class="right">
                 <span class="right"><%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' } %></span>
                 <span class="right tab"><%= link_to "Edit", edit_listing_path(listing) %></span>
+              </div>
+            <%else%>
+              <div class="center">
+              <%= link_to "Hire Service", new_listing_order_path(listing), class: "btn btn-primary", data: { no_turbolink: true } %>
               </div>
             <% end %>
           </div>
@@ -122,35 +130,31 @@
   <div class="flexProfile flexProfile_last card center z-depth-2">
     <div class="card-title">Reviews</div>
     
-      <%= render @user.reviews %>
+    <%= render @user.reviews %>
       
-      
-      <% if current_user and current_user.id != @user.id %>
-      <div class="card-review">
-        <% if logged_in? %>
-          <div data-no-turbolink>
-            <%= link_to "Add Review", new_user_review_path(@user) %>
-          </div>
-        <% else %>
-          <div>
-            <%= link_to "Add Review", login_path %>
-          </div>
-        <% end %>
-      </div>
-      <% end %>
-      <% if logged_in? and current_user?(current_user.id) %>
-        <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
-          <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
-            <i class="material-icons tooltipped" 
-               data-position="left" 
-               data-tooltip="New Project"
-               data-delay="50">add</i>
-          <% end %>
+    <% if current_user and current_user.id != @user.id %>
+    <div class="card-review">
+      <% if logged_in? %>
+        <div data-no-turbolink>
+          <%= link_to "Add Review", new_user_review_path(@user) %>
+        </div>
+      <% else %>
+        <div>
+          <%= link_to "Add Review", login_path %>
         </div>
       <% end %>
-      <div class="fixed-action-btn" style="top: 4rem; right: 24px;">
-        <%= render 'follow_form' if logged_in? %>
+    </div>
+    <% end %>
+    <% if logged_in? and current_user?(@user) %>
+      <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
+        <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
+          <i class="material-icons tooltipped" 
+             data-position="left" 
+             data-tooltip="New Project"
+             data-delay="50">add</i>
+        <% end %>
       </div>
+    <% end %>
   </div>
 </html>
   

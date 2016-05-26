@@ -38,7 +38,20 @@ class ListingsController < ApplicationController
     #Possibly have the wrong functionality here, need to check database
     #corrected functionality!
     @listing.user_id = current_user.id
+    
+      require "stripe"
+      Stripe.api_key = ENV["STRIPE_API_KEY"]
+      token = params[:stripeToken]
 
+      recipient = Stripe::Recipient.create(
+        :name => current_user.first_name + " " + current_user.last_name,
+        :type => "individual",
+        :bank_account => token
+        )
+
+      current_user.recipient = recipient.id
+      current_user.save
+    
     respond_to do |format|
       if @listing.save
         format.html { redirect_to user_path(current_user), notice: 'Listing was successfully created.' }
@@ -82,7 +95,7 @@ class ListingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def listing_params
-      params.require(:listing).permit(:name, :description, :languages, :job_type)
+      params.require(:listing).permit(:name, :description, :languages, :job_type, :projects, :price)
     end
     
     # Use to owner is editing or deleting

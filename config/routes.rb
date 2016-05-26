@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :listings do
+    resources :orders, only: [:new, :create]
+  end
+  
+  get 'sessions/new'
+  
   root 'pages#home'
   get 'about', to: 'pages#about'
   get 'home' , to: 'pages#home'
@@ -7,6 +13,8 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   get 'signUp', to: 'users#new'
   get 'listing', to: 'pages#listing'
+  get 'sales' => "orders#sales"
+  get 'purchases' => "orders#purchases"
   get 'edit', to: 'pages#edit'
   get 'setting', to: 'pages#setting'
   resources :users do
@@ -24,6 +32,8 @@ Rails.application.routes.draw do
   resources :conversations do
     resources :messages
   end
+  
+
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

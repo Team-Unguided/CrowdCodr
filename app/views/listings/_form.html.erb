@@ -9,6 +9,9 @@
             </script>
       <% end %>
   <% end %>
+  <div id="stripe_error" class="alert alert-danger" style="display:none">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
     <div class="card-content card-project">
       <div class="profileTitle text-left row nomargin" style="width: 100%">
         <div class="col s12" style="font-size: 15px;">
@@ -20,6 +23,26 @@
             <%= f.text_field :languages %>
             <%= f.label :job_type %>
             <%= f.text_field :job_type %>
+            <%= f.label :price %>
+            <%= f.text_field :price %>
+            <% if current_user.recipient.blank? %>
+            <br>
+            <h3>Bank Account Information</h3>
+          
+            <div class="form-group">
+              <%= label_tag :country %>
+              <%= text_field_tag :country, nil, { :name => nil, :'data-stripe' => "country", class: "form-control" } %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :routing_number %>
+              <%= text_field_tag :routing_number, nil, { :name => nil, :'data-stripe' => "routingNumber", class: "form-control" } %>
+            </div>
+            <div class="form-group">
+              <%= label_tag :account_number %>
+              <%= text_field_tag :account_number, nil, { :name => nil, :'data-stripe' => "accountNumber", class: "form-control" } %>
+            </div>
+          <% end %>
+  
         </div>
         <%= button_tag(:class => "btn waves-effect waves-light hcenter vcenter") do %>
           Submit <i class="material-icons right">send</i>
