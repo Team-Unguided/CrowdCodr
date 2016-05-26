@@ -27,11 +27,13 @@
                    data-delay="20">mode_edit</i>
               <% end %>
             <% end %>
-            <%= link_to conversations_path, class: "dropdown-btn" do %>
+            <% if !current_user?(@user) %>
+            <%= link_to conversations_path(sender_id: current_user.id, recipient_id: @user.id),method: 'post', class: "dropdown-btn" do %>
                 <i class="material-icons tooltipped"
                    data-position="top" 
                    data-tooltip="Message"
                    data-delay="20">chat</i>
+            <% end %>
             <% end %>
         <% end %>
         

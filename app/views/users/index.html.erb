@@ -53,7 +53,7 @@
               </p>
               <% if logged_in? %>
                 <% if user.id != current_user.id %>
-                  <%= link_to conversations_path, class: "dropdown-btn" do %>
+                  <%= link_to  conversations_path(sender_id: current_user.id, recipient_id: user.id), method: 'post', class: "dropdown-btn" do %>
                     <i class="material-icons tooltipped"
                        data-position="right" 
                        data-tooltip="Message"
