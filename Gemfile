@@ -37,7 +37,9 @@ gem 'mini_magick', '3.8.0'
 #listing search
 gem 'sunspot_rails'
 
-gem 'sunspot_solr'
+group :development do
+  gem 'sunspot_solr'
+end
 
 # Stripe for payment
 gem 'stripe'
