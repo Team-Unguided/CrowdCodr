@@ -43,10 +43,9 @@ class ListingsController < ApplicationController
       Stripe.api_key = ENV["STRIPE_API_KEY"]
       token = params[:stripeToken]
 
-      recipient = Stripe::Account.create(
-        :managed => false,
-        :country => 'US',
-        :email => current_user.email,
+      recipient = Stripe::Recipient.create(
+        :name => current_user.first_name + " " + current_user.last_name,
+        :type => "individual",
         :bank_account => token
         )
 
