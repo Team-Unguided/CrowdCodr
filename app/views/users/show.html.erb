@@ -151,7 +151,7 @@
       <% end %>
     </div>
     <% end %>
-    <% if logged_in? and current_user?(current_user.id) %>
+    <% if logged_in? and current_user?(@user) %>
       <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
         <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
           <i class="material-icons tooltipped" 
