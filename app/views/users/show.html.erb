@@ -121,8 +121,8 @@
                 <span class="right tab"><%= link_to "Edit", edit_listing_path(listing) %></span>
               </div>
             <%else%>
-              <div class="center">
-              <%= link_to "Hire Service", new_listing_order_path(listing), class: "btn btn-primary", data: { no_turbolink: true } %>
+              <div class="right">
+                <%= link_to "Hire Service", new_listing_order_path(listing), :style=>'color:#fff !important;', class: "btn waves-effect waves-light", data: { no_turbolink: true } %>
               </div>
             <% end %>
           </div>
