@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525153233) do
+ActiveRecord::Schema.define(version: 20160530005619) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id",    limit: 4
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160525153233) do
     t.integer  "user_id",     limit: 4
     t.string   "projects",    limit: 255
     t.float    "price",       limit: 53
+    t.boolean  "posthire"
   end
 
   create_table "messages", force: :cascade do |t|

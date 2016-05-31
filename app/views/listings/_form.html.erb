@@ -12,6 +12,9 @@
   <div id="stripe_error" class="alert alert-danger" style="display:none">
     <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
   </div>
+  <div id="stripe_error" class="alert alert-danger" style="display:none">
+    <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
+  </div>
     <div class="card-content card-project">
       <div class="profileTitle text-left row nomargin" style="width: 100%">
         <div class="col s12" style="font-size: 15px;">
@@ -25,8 +28,8 @@
             <%= f.text_field :job_type %>
             <%= f.label :price %>
             <%= f.text_field :price %>
-            <%= check_box_tag(:posthire) %>
-            <%= label_tag(:posthire, "Allow others to hire")
+            <%= f.check_box :posthire %>
+            <%= f.label :posthire, "Show Hire Button" %>
             <% if current_user.recipient.blank? %>
             <br>
             <div class="card-title">Bank Account Information</div>

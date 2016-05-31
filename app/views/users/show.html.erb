@@ -118,7 +118,9 @@
               </div>
             <%else%>
               <div class="right">
-                <%= link_to "Hire Service", new_listing_order_path(listing), :style=>'color:#fff !important;', class: "btn waves-effect waves-light", data: { no_turbolink: true } %>
+                <% if listing.posthire %>
+                  <%= link_to "Hire Service", new_listing_order_path(listing), :style=>'color:#fff !important;', class: "btn waves-effect waves-light", data: { no_turbolink: true } %>
+                <% end %>
               </div>
             <% end %>
           </div>
