@@ -11,20 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160530005619) do
+ActiveRecord::Schema.define(version: 20160531231441) do
 
   create_table "conversations", force: :cascade do |t|
     t.integer  "sender_id",    limit: 4
     t.integer  "recipient_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "favorite_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
   end
 
   create_table "listings", force: :cascade do |t|
@@ -36,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160530005619) do
     t.datetime "updated_at",                null: false
     t.integer  "user_id",     limit: 4
     t.string   "projects",    limit: 255
-    t.float    "price",       limit: 53
+    t.float    "price",       limit: 24
     t.boolean  "posthire"
   end
 
@@ -61,6 +54,15 @@ ActiveRecord::Schema.define(version: 20160530005619) do
     t.integer  "listing_id", limit: 4
     t.integer  "buyer_id",   limit: 4
     t.integer  "seller_id",  limit: 4
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.string   "job_type",    limit: 255
+    t.string   "languages",   limit: 255
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "relationships", force: :cascade do |t|
