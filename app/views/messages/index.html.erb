@@ -1,17 +1,23 @@
+<div class="profileSeparator" style="border: 0px"></div>
+
+
 <div class="flexProfile card z-depth-2">
   <div class="card-title center">
     <% if current_user?(@recipient) %>
       <%= @sender.first_name %> <%= @sender.last_name %>
       <%= link_to user_path(@conversation.sender_id), class: "chatProfileButton" do %>
-              <i class="fa fa-user" aria-hidden="true"></i>
+        <i class="material-icons tooltipped right nomargin nopadding"
+           data-position="left" 
+           data-tooltip="View Profile"
+           data-delay="20">perm_identity</i>
       <% end %>
     <% else %>
       <%= @recipient.first_name %> <%= @recipient.last_name %>
       <%= link_to user_path(@conversation.recipient_id), class: "chatProfileButton" do %>
-              <i class="material-icons tooltipped right nomargin nopadding"
-                 data-position="left" 
-                 data-tooltip="View Profile"
-                 data-delay="20">perm_identity</i>
+        <i class="material-icons tooltipped right nomargin nopadding"
+           data-position="left" 
+           data-tooltip="View Profile"
+           data-delay="20">perm_identity</i>
       <% end %>
     <% end %>
   </div>

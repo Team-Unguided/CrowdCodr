@@ -1,24 +1,25 @@
-<div class="center">
-  <h2>Sales History</h2>
-</div>
+<div class="profileSeparator" style="border: 0px"></div>
 
-<table class="table table-striped table-bordered">
-  <tr>
-    <th class="center">Item</th>
-    <th class="center">Price</th>
-    <th class="center">Customer</th>
-    <th class="center">Date Sold</th>
-  </tr>
+<div class="flexProfile card center z-depth-2 ">
+  <div class="card-title">Sales History</div>
 
-  <% @orders.each do |order| %>
+  <table class="table table-striped table-bordered">
     <tr>
-      <td class="center"><%= order.listing.name %></td>
-      <td class="center"><%= number_to_currency(order.listing.price) %></td>
-      <td class="center"><%= order.buyer.first_name + " " + order.buyer.last_name %></td>
-      <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+      <th class="center">Item</th>
+      <th class="center">Price</th>
+      <th class="center">Customer</th>
+      <th class="center">Date Sold</th>
     </tr>
-  <% end %>
-</table>
-
-<br>
+  
+    <% @orders.each do |order| %>
+      <tr>
+        <td class="center"><%= order.listing.name %></td>
+        <td class="center"><%= number_to_currency(order.listing.price) %></td>
+        <td class="center"><%= order.buyer.first_name + " " + order.buyer.last_name %></td>
+        <td class="center"><%= order.created_at.strftime("%B %-d, %Y") %></td>
+      </tr>
+    <% end %>
+  </table>
+  <div class="flexProfile flexProfile_last" style="border: 0px"></div>
+</div>
 
