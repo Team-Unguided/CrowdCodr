@@ -149,16 +149,36 @@
       <% end %>
     </div>
     <% end %>
+    
     <% if logged_in? and current_user?(@user) %>
       <div class="fixed-action-btn" style="bottom: 5.5rem; right: 24px;">
-        <%= link_to new_listing_path, class: "btn-floating btn-large red" do %>
+        <a class="btn-floating btn-large red">
           <i class="material-icons tooltipped" 
              data-position="left" 
-             data-tooltip="New Project"
+             data-tooltip="New..."
              data-delay="50">add</i>
-        <% end %>
+        </a>
+        <ul>
+          <li>
+            <%= link_to new_listing_path, class: "btn-floating yellow darken-1" do %>
+              <i class="material-icons tooltipped" 
+                 data-position="left" 
+                 data-tooltip="New Project"
+                 data-delay="50">insert_chart</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_listing_path, class: "btn-floating blue" do %>
+              <i class="material-icons tooltipped" 
+                 data-position="left" 
+                 data-tooltip="New Listing"
+                 data-delay="50">business</i>
+            <% end %>
+          </li>
+        </ul>
       </div>
     <% end %>
+    
   </div>
 </html>
   

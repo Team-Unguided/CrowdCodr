@@ -20,13 +20,6 @@ ActiveRecord::Schema.define(version: 20160530005619) do
     t.datetime "updated_at"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "favorite_id", limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-  end
-
   create_table "listings", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
