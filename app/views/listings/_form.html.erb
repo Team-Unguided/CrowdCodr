@@ -25,6 +25,8 @@
             <%= f.text_field :job_type %>
             <%= f.label :price %>
             <%= f.text_field :price %>
+            <%= check_box_tag(:posthire) %>
+            <%= label_tag(:posthire, "Allow others to hire")
             <% if current_user.recipient.blank? %>
             <br>
             <h3>Bank Account Information</h3>
