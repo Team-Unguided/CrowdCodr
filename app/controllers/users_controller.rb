@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:id])
     @userid = User.find_by(id: params[:id])
     @listings = Listing.all
-    
+    @projects = Project.all
     # redirect to root unless username is found
     # i.e. redirect to root if @user with supplied username is nil
     redirect_to(root_url) unless @user || @userid

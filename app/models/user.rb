@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   #Connects listing to Users, stating that user may have many listings
   #Deletes all the User's listings when User is deleted
   has_many :listings, dependent: :destroy
-  
+  has_many :projects, dependent: :destroy
   #######following ########
   has_many :active_relationships, class_name: "Relationship",
       foreign_key: "follower_id",
