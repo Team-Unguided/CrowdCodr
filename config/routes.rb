@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :projects
   resources :listings do
     resources :orders, only: [:new, :create]
   end
