@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20160531233511) do
     t.datetime "updated_at",                null: false
     t.integer  "user_id",     limit: 4
     t.string   "projects",    limit: 255
-    t.float    "price",       limit: 24
+    t.float    "price",       limit: 53
     t.boolean  "posthire"
   end
 
