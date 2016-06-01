@@ -1,6 +1,11 @@
-<h1>Editing Project</h1>
+<div class="profileSeparator" style="border: 0px"></div>
 
-<%= render 'form' %>
+<div class="flexProfile card center z-depth-2 ">
+  <div class="card-title">Edit Project</div>
 
-<%= link_to 'Show', @project %> |
-<%= link_to 'Back', projects_path %>
+  <%= render 'form' %>
+  
+  <div class="card-review">
+    <%= link_to 'Back', user_path(current_user) %>
+  </div>
+</div>
