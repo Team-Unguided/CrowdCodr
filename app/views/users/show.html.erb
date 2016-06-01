@@ -129,7 +129,7 @@
     <% end %>
     
     <% @projects.each do |project| %>
-      <%if on_profile?(@user,project) %>
+      <%if on_profile_project?(@user,project) %>
       
         <div class="card-content card-project">
           <div class="row text-left nomargin">

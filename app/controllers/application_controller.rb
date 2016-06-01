@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionsHelper
   include ListingsHelper
+  include ProjectsHelper
+  
   
   private
       # Confirms a logged-in user.
